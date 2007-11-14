@@ -2,20 +2,21 @@
 ## yad simple system tray right click menu stud91 ##
 ## menu file example in plain text file name!command ##
 ##Hacked up by josejp2424 2014
-##l10n nilsonmorales
+## i18n josejp2424
+## l10n nilsonmorales spanish locales 
 
 export TEXTDOMAIN=control_center_Pupjibaro
-export OUTPUT_CHARSET=UTF-8t
+export OUTPUT_CHARSET=UTF-8
 
-title1="$(gettext 'Grub4dos')"
-title2="$(gettext 'Instalador Universal')"
-title3="$(gettext 'Administrador de Paquetes')"
-title4="$(gettext 'Configuracion de Puppy')"
-title5="$(gettext 'ajustes del 1er. inicio')"
-title6="$(gettext 'Cambiador de wallapers')"
-title7="$(gettext 'Cambiar íconos de escritorio')"
-title8="$(gettext 'Selector de tema GTK')"
-title9="$(gettext 'Configuracion Openbox')"
+title1="Grub4dos"
+title2="$(gettext 'Puppy Universal Instaler')"
+title3="$(gettext 'Puppy Packages Manager')"
+title4="$(gettext 'Setup Puppy')"
+title5="$(gettext '1st Run Setup')"
+title6="$(gettext 'Wallapers setter')"
+title7="$(gettext 'Icons switcher')"
+title8="$(gettext 'GTK change theme')"
+title9="$(gettext 'Openbox configuration')"
 
 ## Application menu file ###############################################
 
@@ -41,7 +42,7 @@ MENU_ITEMS="` echo "$GET_MENU" | tr '\n' '|' | sed '$s/.$//' `"
 ## Defaults ############################################################
 
 TRAY_ICON="/usr/local/lib/X11/pixmaps/configuration48.png"
-POPUP_TEXT="Control Center"
+POPUP_TEXT="$(gettext 'Control Center')"
 PIPE_FIFO=$(mktemp -u /tmp/menutray.XXXXXXXX)
 
 ## Action on left mouse click ###########################################
