@@ -22,3 +22,12 @@ f6d10db03a284d5587033629b1da0162  Pupjibaro-1.0.3.iso 198.7 MB
 463da70bc5c1d516d972b023985aca14 devx_Full_Pupjibaro.sfs 238 MB
 
 Este readme se irá editando con los pormenores de la iso.
+
+[Galeria de imágenes](http://postimg.org/gallery/b4ohylc4/)
+
+[Comentarios](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CPreguntas%2CComentarios&page=1&state=open)
+
+[Preguntas](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CComentarios%2CPreguntas&page=1&state=open)
+
+[Reportar fallos y bugs](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Preguntas%2CComentarios&page=1&state=open)
+
