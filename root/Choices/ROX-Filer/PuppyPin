@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<pinboard>
+  <backdrop style="Stretched">/usr/share/backgrounds/linux-simply_1024x768.jpg</backdrop>
+  <icon x="128" y="288" label="Musica">/usr/share/applications/deadbeef.desktop</icon>
+  <icon x="224" y="288" label="Instalar">/usr/share/applications/Puppy-universal-installer.desktop</icon>
+  <icon x="224" y="96" label="PPM">/usr/share/applications/Puppy-package-manager.desktop</icon>
+  <icon x="128" y="96" label="Consola">/usr/share/applications/roxterm.desktop</icon>
+  <icon x="224" y="192" label="Conectar">/usr/local/bin/defaultconnect</icon>
+  <icon x="32" y="288" label="Video">/usr/local/bin/defaultmediaplayer</icon>
+  <icon x="128" y="192" label="Chatear">/usr/local/bin/defaultchat</icon>
+  <icon x="32" y="96" label="Archivo">/usr/local/bin/rox</icon>
+  <icon x="32" y="192" label="Navegar">/usr/local/bin/defaultbrowser</icon>
+</pinboard>

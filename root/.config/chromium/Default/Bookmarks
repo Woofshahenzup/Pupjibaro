@@ -1,0 +1,78 @@
+{
+   "checksum": "e550a21030659a711ab9d39c325a539d",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13040422965133363",
+            "id": "4",
+            "name": "Josejp2424",
+            "type": "url",
+            "url": "http://www.puppylinuxjosejp2424.com/"
+         }, {
+            "date_added": "13040423065316224",
+            "id": "5",
+            "name": "Nilsonmorales",
+            "type": "url",
+            "url": "http://nilsonmorales.blogspot.com/"
+         }, {
+            "date_added": "13040423155813125",
+            "id": "6",
+            "name": "Repo-Precise",
+            "type": "url",
+            "url": "http://distro.ibiblio.org/puppylinux/pet_packages-precise/"
+         }, {
+            "date_added": "13040423198717639",
+            "id": "7",
+            "name": "Repo-night",
+            "type": "url",
+            "url": "https://www.wuala.com/josejp2424/puppy-es/programas"
+         }, {
+            "date_added": "13040423386734485",
+            "id": "8",
+            "name": "Foro Espa\u00F1ol",
+            "type": "url",
+            "url": "http://www.murga-linux.com/puppy/index.php?f=24"
+         }, {
+            "date_added": "13040426211078536",
+            "id": "9",
+            "name": "Postimage.org",
+            "type": "url",
+            "url": "http://postimage.org/"
+         }, {
+            "date_added": "13040426243002381",
+            "id": "10",
+            "name": "Pegar-texto",
+            "type": "url",
+            "url": "http://pastie.org/"
+         }, {
+            "date_added": "13040426273406025",
+            "id": "11",
+            "name": "Subir-archivos",
+            "type": "url",
+            "url": "http://www.datafilehost.com/"
+         } ],
+         "date_added": "13040422900902371",
+         "date_modified": "13040426273406025",
+         "id": "1",
+         "name": "Barra de marcadores",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13040422900902390",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Otros marcadores",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13040422900902393",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Marcadores del m\u00F3vil",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
