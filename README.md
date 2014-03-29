@@ -94,6 +94,9 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 
 - Selector de temas Xchat ( por josejp2424 )
 
+- Notificador de bateria baja para Notebooks y Laptops ( Aviso al 10%, se apagará guardando
+  los cambios al 5%)
+
 - Notificador minimalista de eventos dunst ( por nilsonmorales )
 
 - Youtube-dl + Youtube-dl-gui ( por josejp2424 )
