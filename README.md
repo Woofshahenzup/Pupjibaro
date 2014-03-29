@@ -25,7 +25,7 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 =====================================
 [![screenshot](http://s5.postimg.org/jnlemdfvr/jibadesk.png)](http://s5.postimg.org/jnlemdfvr/jibadesk.png)
 
-[![screenshot](http://s25.postimg.org/3qjm7q8b3/Pupjibaro.gif)](http://s25.postimg.org/3qjm7q8b3/Pupjibaro.gif)
+[![screenshot](http://s25.postimg.org/kscg9tn67/Pupjibaro.gif)](http://s25.postimg.org/kscg9tn67/Pupjibaro.gif)
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
@@ -102,13 +102,17 @@ en el Fulldevx
 De forma sencilla Pupjibaro viene con algunos atajos del teclado útiles para el usuario
 
 C = Ctrl
+
 A = Alt
 
-Ejemplo: C-A-g tres teclas a la vez sin importar si es mayúscula o minúscula
+Ejemplo: C-A-g    tres teclas a la vez sin importar si es mayúscula o minúscula
 
 C-A-g = geany     Editor de texto
+
 C-A-h = htop      Ver procesos 
+
 C-A-r = roxterm   La terminal
+
 C-A-f = rox       El administrador de archivos   
 
 Este readme se irá editando con los pormenores de la iso.
