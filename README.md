@@ -139,7 +139,13 @@ atravez de sitios como wuala, dropbox, copy.com, yandex, ubuntuone entre otros.
 Los desarrolladores de Pupjibaro no pretendemos ser irrespetuosos de la filosofia GNU, si algunas aplicaciones
 son consideradas no-libres o privativas, estan en su derecho de no usar la distro, nuestro enfoque primordial son
 los usuarios con pocos conocimientos sobre linux para que puedan tener una experiencia mas amigable
-al entorno linux, asi sucesivamente van conociendo acerca de las grandes ventajas y virtudes de usar Linux 
+al entorno linux, asi sucesivamente van conociendo acerca de las grandes ventajas y virtudes de usar Linux.
+
+Pupjibaro hereda posibles bugs de la versión oficial retro precise, asi que cualquier problema favor leer antes en la 
+sección de bugs del foro [Murga Linux](http://www.murga-linux.com/puppy/viewtopic.php?t=87712). nosotros por nuestra parte tambien nos mantendremos informados de los
+mismos para ir incorporando los bugfixes que los desarrolladores expertos vayan haciendo.
+
+Este repositorio-proyecto cuenta con una sección para reporte de fallos, comentarios y preguntas. 
 
 woofwoof.
 
