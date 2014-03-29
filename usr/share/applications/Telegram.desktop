@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name[es]=Telegram
+Name=Telegram
+Icon=mini-sh.xpm
+Comment=Telegram
+Comment[es]=Telegram
+Exec=roxterm -e tg
+Terminal=false
+Type=Application
+Categories=X-Internet
+GenericName=free messaging application to send and receive messages via Internet
+GenericName[es]=aplicación de mensajería gratuita que permite enviar y recibir mensajes a través de Internet
