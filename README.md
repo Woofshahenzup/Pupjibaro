@@ -3,17 +3,23 @@ Pupjibaro
 
 Remaster de Puppy retro-precise, repo de actualizaciones
 
-### Link de Iso sin el fix del PuppyPin
+### Link de descarga version oficial Pupjibaro
 
-[Descarga](http://ubuntuone.com/3bh3It0mZFMPtGjYWPVwY6)
+[Descarga](https://www.dropbox.com/s/0505p8a8v481kiw/Pupjibaro-28-03-2014-1.0.3.iso)
 
-977066d180c91d4d5dfc014e09f643be Pupjibaro-1.0.3.iso 198.7 MB
+MD5SUM - 666f2f890cf816730e11ef46a6c4511aupjibaro-1.0.3.iso 197 MB
 
 ### Iso con memtest sin fix del PuppyPin
 
 [Descarga](http://ubuntuone.com/2Ki13EmkL4ywBzI79Pycjb)
 
 13d3d5f19336816789a2cd6855f56e40  Pupjibaro_memtest-1.0.3 207 MB
+
+### Fulldex 
+
+[Descarga](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
+
+463da70bc5c1d516d972b023985aca14 devx_Full_Pupjibaro.sfs 238 MB
 
 ### Mirror de Fulldevx
 
@@ -113,7 +119,24 @@ C-A-h = htop      Ver procesos
 
 C-A-r = roxterm   La terminal
 
-C-A-f = rox       El administrador de archivos   
+C-A-f = rox       El administrador de archivos  
+
+### Compatibilidad
+
+Pupjibaro al ser un remasterizado de Puppylinux retro precise puede ser compatible con todos
+los paquetes de puppy precise y retro precise ademas de paquetes Debian Wheezy y Ubuntu Precise
+Pangolin, como tambien derivados retro precise de Puppy.
+Pupjibaro no cuenta con servidor de paquetes propio, los desarrolladores ofrecemos nuestros paquetes
+atravez de sitios como wuala, dropbox, copy.com, yandex, ubuntuone entre otros.
+
+### Exención de responsabilidad
+
+Los desarrolladores de Pupjibaro no pretendemos ser irrespetuosos de la filosofia GNU, si algunas aplicaciones
+son consideradas no-libres o privativas, estan en su derecho de no usar la distro, nuestro enfoque primordial son
+los usuarios con pocos conocimientos sobre linux para que puedan tener una experiencia mas amigable
+al entorno linux, asi sucesivamente van conociendo acerca de las grandes ventajas y virtudes de usar Linux 
+
+woofwoof.
 
 Este readme se irá editando con los pormenores de la iso.
 
