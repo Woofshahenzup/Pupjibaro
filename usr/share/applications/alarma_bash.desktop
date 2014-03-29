@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Alarma 
+GenericName=Alarma reproduce  tema o vídeo.
+GenericName[es]=Alarma reproduce  tema o vídeo.
+Comment=Alarma reproduce  tema o vídeo.
+Comment[es]=Alarma reproduce  tema o vídeo.
+Exec=alarma.sh
+Icon=/usr/share/icons/reloj2.png
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Utility
