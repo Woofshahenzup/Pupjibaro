@@ -5,9 +5,9 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 ### Link de descarga version oficial Pupjibaro
 
-[Descarga](https://www.dropbox.com/s/0505p8a8v481kiw/Pupjibaro-28-03-2014-1.0.3.iso)
+[Descarga](https://www.dropbox.com/s/nrz5nxksyod7w4x/puppy_Pupjibaro-29-03-2014-1.0.3.iso)
 
-MD5SUM - 666f2f890cf816730e11ef46a6c4511a   Pupjibaro-1.0.3   197 MB
+MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso   197 MB
 
 ### Iso con memtest sin fix del PuppyPin
 
