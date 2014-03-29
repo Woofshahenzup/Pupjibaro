@@ -7,25 +7,25 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 [Descarga](https://www.dropbox.com/s/0505p8a8v481kiw/Pupjibaro-28-03-2014-1.0.3.iso)
 
-MD5SUM - 666f2f890cf816730e11ef46a6c4511aupjibaro-1.0.3.iso 197 MB
+MD5SUM - 666f2f890cf816730e11ef46a6c4511a   Pupjibaro-1.0.3   197 MB
 
 ### Iso con memtest sin fix del PuppyPin
 
 [Descarga](http://ubuntuone.com/2Ki13EmkL4ywBzI79Pycjb)
 
-13d3d5f19336816789a2cd6855f56e40  Pupjibaro_memtest-1.0.3 207 MB
+13d3d5f19336816789a2cd6855f56e40    Pupjibaro_memtest-1.0.3   207 MB
 
-### Fulldex 
+###  Pupjibaro_devx_full "Librerias para Compilar"
 
 [Descarga](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
 
-463da70bc5c1d516d972b023985aca14 devx_Full_Pupjibaro.sfs 238 MB
+463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
-### Mirror de Fulldevx
+### Mirror de Pupjibaro_devx_full
 
 [Descarga](http://ubuntuone.com/1AdImjrL4rClX9ZdJaDUw6)
 
-463da70bc5c1d516d972b023985aca14 devx_Full_Pupjibaro.sfs 238 MB
+463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ## PuppyLinux versión Pupjibaro-1.0.3 
 =====================================
@@ -119,7 +119,9 @@ C-A-h = htop      Ver procesos
 
 C-A-r = roxterm   La terminal
 
-C-A-f = rox       El administrador de archivos  
+C-A-f = rox       El administrador de archivos 
+
+El archivo ~/.config/openbox/rc.xml contiene el detalle completo de los atajos del teclado. 
 
 ### Compatibilidad
 
