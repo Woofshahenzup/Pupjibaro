@@ -9,11 +9,11 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso   197 MB
 
-### Iso con memtest sin fix del PuppyPin
+### Pupjibaro con opción memtest
 
-[Descarga](http://ubuntuone.com/2Ki13EmkL4ywBzI79Pycjb)
+[Descarga](http://ubuntuone.com/3FAWT2GChlT2WsonriVs0f)
 
-13d3d5f19336816789a2cd6855f56e40    Pupjibaro_memtest-1.0.3   207 MB
+2cd3475e26be7394ffde929a14a78730    Pupjibaro_memtest-1.0.3   207 MB
 
 ###  Pupjibaro_devx_full "Librerias para Compilar"
 
