@@ -23,7 +23,9 @@ f6d10db03a284d5587033629b1da0162  Pupjibaro-1.0.3.iso 198.7 MB
 
 Este readme se irá editando con los pormenores de la iso.
 
-[Galeria de imágenes](http://postimg.org/gallery/b4ohylc4/)
+[Galeria de imágenes de woofshahenzup](http://postimg.org/gallery/36zera84/c3eff62d/)
+
+[Galeria de imágenes de josejp2424]()
 
 [Comentarios](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CPreguntas%2CComentarios&page=1&state=open)
 
