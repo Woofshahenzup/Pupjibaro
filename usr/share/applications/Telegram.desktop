@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name[es]=Telegram
 Name=Telegram
-Icon=mini-sh.xpm
+Icon=/usr/share/icons/telegram.png
 Comment=Telegram
 Comment[es]=Telegram
 Exec=roxterm -e tg
