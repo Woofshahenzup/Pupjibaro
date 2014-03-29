@@ -88,7 +88,12 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 
 - Notificador minimalista de eventos dunst ( por nilsonmorales )
 
+- Youtube-dl + Youtube-dl-gui ( por josejp2424 )
+
 - Fulldevx ( herramientas de desarrollo y compilación con más programas )
+
+- Poedit, edit-SFS, edit-mo, ccgit, git, edit-initrd.gz, kernel sources incluidas 
+en el Fulldevx
 
 
 Este readme se irá editando con los pormenores de la iso.
