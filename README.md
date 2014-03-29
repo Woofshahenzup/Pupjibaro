@@ -145,7 +145,7 @@ woofwoof.
 
 Este readme se irá editando con los pormenores de la iso.
 
-[Galeria de imágenes de woofshahenzup](http://postimg.org/my.php?gallery=b4ohylc4)
+[Galeria de imágenes de woofshahenzup](http://postimg.org/gallery/b4ohylc4/)
 
 [Galeria de imágenes de josejp2424]()
 
