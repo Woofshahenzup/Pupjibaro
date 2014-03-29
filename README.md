@@ -7,7 +7,7 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 [Descarga](http://ubuntuone.com/3bh3It0mZFMPtGjYWPVwY6)
 
-f6d10db03a284d5587033629b1da0162  Pupjibaro-1.0.3.iso 198.7 MB
+977066d180c91d4d5dfc014e09f643be Pupjibaro-1.0.3.iso 198.7 MB
 
 ### Iso con memtest sin fix del PuppyPin
 
