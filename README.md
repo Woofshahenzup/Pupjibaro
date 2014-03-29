@@ -31,7 +31,7 @@ MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso
 =====================================
 [![screenshot](http://s5.postimg.org/jnlemdfvr/jibadesk.png)](http://s5.postimg.org/jnlemdfvr/jibadesk.png)
 
-[![screenshot](http://s25.postimg.org/kscg9tn67/Pupjibaro.gif)](http://s25.postimg.org/kscg9tn67/Pupjibaro.gif)
+[![screenshot](http://s25.postimg.org/e0qmkpnkf/Pupjibaro.gif)](http://s25.postimg.org/e0qmkpnkf/Pupjibaro.gif)
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
