@@ -3,33 +3,23 @@ Pupjibaro
 
 Remaster de Puppy retro-precise, repo de actualizaciones
 
-### Link de descarga version oficial Pupjibaro
+### [Link de descarga version oficial Pupjibaro](https://www.dropbox.com/s/nrz5nxksyod7w4x/puppy_Pupjibaro-29-03-2014-1.0.3.iso)
 
-[Descarga](https://www.dropbox.com/s/nrz5nxksyod7w4x/puppy_Pupjibaro-29-03-2014-1.0.3.iso)
-
-### Mirror de puppy_Pupjibaro-29-03-2014-1.0.3.iso
-
-[Descarga](http://ubuntuone.com/4nsOsaphHrfOxWReCaLzHj)
+### [Mirror de puppy_Pupjibaro-29-03-2014-1.0.3.iso](http://ubuntuone.com/4nsOsaphHrfOxWReCaLzHj)
 
 MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso   197 MB
 
-### Pupjibaro con opción memtest
+### [Pupjibaro con opción memtest](http://ubuntuone.com/3FAWT2GChlT2WsonriVs0f)
 
-[Descarga](http://ubuntuone.com/3FAWT2GChlT2WsonriVs0f)
+MD5SUM - 2cd3475e26be7394ffde929a14a78730    Pupjibaro_memtest-1.0.3   207 MB
 
-2cd3475e26be7394ffde929a14a78730    Pupjibaro_memtest-1.0.3   207 MB
+###  [Pupjibaro_devx_full "Librerias para Compilar"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
 
-###  Pupjibaro_devx_full "Librerias para Compilar"
+MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
-[Descarga](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
+### [Mirror de Pupjibaro_devx_full](http://ubuntuone.com/1AdImjrL4rClX9ZdJaDUw6)
 
-463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
-
-### Mirror de Pupjibaro_devx_full
-
-[Descarga](http://ubuntuone.com/1AdImjrL4rClX9ZdJaDUw6)
-
-463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
+MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ### [Mirror en archive.org 'por Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
 
