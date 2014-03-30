@@ -3,6 +3,7 @@
 #Hacked up byjosejp2424
 # Alarma.
 ## i18n i10n nilsonmorales 28032014
+
 export TEXTDOMAIN=alarma.sh
 export OUTPUT_CHARSET=UTF-8
 
@@ -21,10 +22,10 @@ titulo1=`echo $titulo1 "$(gettext 'Wake up.....')"`
 
 #Formato hora
 formato=`echo $formato "$(gettext 'Format')"`
-formatoh=`echo $formatoh "$(gettext 'Alarm')"`
-formatoseg=`echo $formatoseg "$(gettext 'Seconds')"`
-formatomin=`echo $formatomin "$(gettext 'Minuts')"`
-formatodia=`echo $formatodia "$(gettext 'Days')"`
+formatoh=`echo $formatoh "$(gettext ' Alarm')"`
+formatoseg=`echo $formatoseg "$(gettext ' Seconds')"`
+formatomin=`echo $formatomin "$(gettext ' Minuts')"`
+formatodia=`echo $formatodia "$(gettext ' Days')"`
 Tiempo=`echo $Tiempo "$(gettext 'Time')"`
 #sonido
 Sonido1=`echo $Sonido1 "$(gettext 'Sound')"`
