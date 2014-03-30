@@ -1,9 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Alarma 
-GenericName=Alarma reproduce  tema o vídeo.
+Name=Alarm
+Name[es]=Alarma 
+GenericName=Alarm play tracks or videos.
 GenericName[es]=Alarma reproduce  tema o vídeo.
-Comment=Alarma reproduce  tema o vídeo.
+Comment=Alarm play tracks or videos.
 Comment[es]=Alarma reproduce  tema o vídeo.
 Exec=alarma.sh
 Icon=/usr/share/icons/reloj2.png
