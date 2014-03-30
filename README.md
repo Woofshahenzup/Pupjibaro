@@ -31,6 +31,8 @@ MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso
 
 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
+## [Mirror en archive.org 'por Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
+
 ## PuppyLinux versión Pupjibaro-1.0.3 
 =====================================
 [![screenshot](http://s5.postimg.org/jnlemdfvr/jibadesk.png)](http://s5.postimg.org/jnlemdfvr/jibadesk.png)
