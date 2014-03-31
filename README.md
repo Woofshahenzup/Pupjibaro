@@ -45,12 +45,19 @@ la colonización española. El Perro doméstico se convierte en jíbaros una vez
 abandonan las casas y se internaron en los bosques.
 
 Cuando se internaron en los bosques, modificaron sus caracteres y hábitos, y evolucionaron
-en una nueva raza silvestre, acentuada en sus descendientes. Podemos observar estos cambios 
-biológicos que lo transformaron:
+en una nueva raza silvestre, acentuada en sus descendientes.
 
 De ahi el codename para la version de Puppylinux Pupjibaro.
 
 [FUENTE](http://www.ecured.cu/index.php/Perro_jíbaro)
+
+### Repositorios de paquetes
+
+[Repositorio Puppylinux precise oficial](http://distro.ibiblio.org/puppylinux/pet_packages-precise/)
+
+[Repositorio Wuala](https://www.wuala.com/josejp2424/puppy-es/programas)
+
+[Repositorio Dropbox](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
 
 ### Caracteristicas 
 
@@ -141,7 +148,7 @@ directorios respectivos.
 
 Jibaupdate:: Los desarrolladores ofrecerán pets de actualizaciones llamados jibaupdates con la 
 estructura de todos los archivos contemplados en este proyecto, un jibaupdate se conformará de
-la siguiente forma 
+la siguiente manera. 
 
 Nombre-dia-mes-año-versión de Pupjibaro.   Ejemplo:: jibaupdate_26102014-1.0.3.pet 
 
