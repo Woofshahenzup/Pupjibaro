@@ -55,6 +55,8 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 ### Caracteristicas 
 
 - Arquitectura: i386
+
+- Kernel: 3.2.48
                             
 - Escritorio: Openbox, Lxpanel
 
@@ -137,13 +139,13 @@ Las actualizaciones de Pupjibaro pueden agregarse de 2 formas:
 Manual:: Pueden clonar este repositorio desde github y aplicar los cambios directamente en sus
 directorios respectivos.
 
-Jibaupdate:: Los desarrolladores ofreceran pets de actualizaciones llamados jibaupdates con la 
+Jibaupdate:: Los desarrolladores ofrecerán pets de actualizaciones llamados jibaupdates con la 
 estructura de todos los archivos contemplados en este proyecto, un jibaupdate se conformará de
 la siguiente forma 
 
 Nombre-dia-mes-año-versión de Pupjibaro.   Ejemplo:: jibaupdate_26102014-1.0.3.pet 
 
-Asi los usuarios sabran la fecha que se lanzó la actualización y la versión de Pupjibaro.
+Asi los usuarios sabrán la fecha que se lanzó la actualización y la versión de Pupjibaro.
 
 Los jibaupdates no modificarán la apariencia por si ya fué modificada por el usuario, solamente
 
