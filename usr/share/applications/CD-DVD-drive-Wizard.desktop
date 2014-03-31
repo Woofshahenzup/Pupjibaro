@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=CD/DVD drive Wizard
+Icon=wizard16.xpm
+Comment=CD/DVD drive Wizard
+Comment[es]=CD/DVD Asistente de unidades
+Exec=cdburner-wizard
+Terminal=false
+Type=Application
+Categories=X-Setup-wizard
+GenericName=CD/DVD drive Wizard
+Name[es]=Gestor de unidades CD/DVD
