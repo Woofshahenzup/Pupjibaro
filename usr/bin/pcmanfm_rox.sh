@@ -1,6 +1,7 @@
 #!/bin/sh
 #Pcmanfm_rox
 #josejp2424
+### nilsonmorales i18n i10n spanish locales
 
 
 export TEXTDOMAIN=Pcmanfm_rox
@@ -17,7 +18,7 @@ Pcmanfm_rox='
 </text> 
 <hbox>
 <text>
-<label>"'$(gettext 'Dejar por default Pcmanfm.')'"</label>
+<label>"'$(gettext 'Set default Pcmanfm.')'"</label>
 </text>	
 <button justify="6">
 <input file>/usr/share/pixmaps/pcmanfm.png</input>
@@ -28,7 +29,7 @@ Pcmanfm_rox='
 </hbox>
 <hbox>
 <text>
-<label>"'$(gettext 'Dejar por defaul Rox.')'"</label>
+<label>"'$(gettext 'Set por default Rox.')'"</label>
 </text>
 <button justify="2">
 <input file>/usr/local/lib/X11/pixmaps/home48.png</input>
