@@ -130,6 +130,25 @@ Pangolin, como tambien derivados retro precise de Puppy.
 Pupjibaro no cuenta con servidor de paquetes propio, los desarrolladores ofrecemos nuestros paquetes
 atravez de sitios como wuala, dropbox, copy.com, yandex, ubuntuone entre otros.
 
+### Sobre las actualizaciones
+
+Las actualizaciones de Pupjibaro pueden agregarse de 2 formas:
+
+Manual:: Pueden clonar este repositorio desde github y aplicar los cambios directamente en sus
+directorios respectivos.
+
+Jibaupdate:: Los desarrolladores ofreceran pets de actualizaciones llamados jibaupdates con la 
+estructura de todos los archivos contemplados en este proyecto, un jibaupdate se conformará de
+la siguiente forma 
+
+Nombre-dia-mes-año-versión de Pupjibaro.   Ejemplo:: jibaupdate_26102014-1.0.3.pet 
+
+Asi los usuarios sabran la fecha que se lanzó la actualización y la versión de Pupjibaro.
+
+Los jibaupdates no modificarán la apariencia por si ya fué modificada por el usuario, solamente
+
+ajustes a programas o configuraciones que no funcionen bien, traducciones etc.
+
 ### Exención de responsabilidad
 
 Los desarrolladores de Pupjibaro no pretendemos ser irrespetuosos de la filosofia GNU, si algunas aplicaciones
