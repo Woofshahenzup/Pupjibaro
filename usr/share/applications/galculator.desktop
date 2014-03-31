@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Galculator scientific calculator
+Comment=Perform simple and scientific calculations
+Comment[es]=Realize cálculos simples y científicos
+Exec=galculator
+Icon=galculator.png
+Terminal=false
+Type=Application
+Categories=Calculator
+StartupNotify=true
+Encoding=UTF-8
+GenericName=Galculator
+Name[es]=Calculator | cálculos simples y científicos

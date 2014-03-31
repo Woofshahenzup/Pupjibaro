@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PcurlFtp file sharing
+Icon=pc-2x.xpm
+Comment=connect to ftp servers
+Comment[es]=Conectar a servidores ftp
+Exec=rox -d /root/File-Sharing
+Terminal=false
+Type=Application
+Categories=Network
+GenericName=PcurlFtp
+Name[es]=PcurlFtp | intercambio de archivos
