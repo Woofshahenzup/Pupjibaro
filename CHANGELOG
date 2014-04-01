@@ -4,7 +4,7 @@ Jibaupdate_31032014-1.0.3.pet
 MD5SUM ace293195ab6f85556609036fd89a3fa 183 K 
 
 Changelog list.
--- Change roxterm profile to open URL
+-- Change roxterm profile to open URLs
 -- Add libdv 
 -- Add Resizepfile by don 
 -- Gpptp spanish locales
@@ -16,12 +16,12 @@ Changelog list.
 #### Español 
 
 Registro de cambios.
--- Configuración de terminal para abrir Urls automatico
+-- Configuración de terminal para abrir Urls
 -- Se agregan librerias libdv
 -- Resizepfile por don interfaz agregada
 -- Traducciones a español de 
    Gpptp, fontwizard, set-xftdpi, xgamma-gui 
--- Traducción de los comantarios de archivos .desktop 
+-- Traducción de los comentarios de archivos .desktop 
    ( 56 items )
    
 ===========================================================
