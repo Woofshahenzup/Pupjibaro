@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Gnumeric spreadsheet editor
+Icon=gnumeric.xpm
+Comment=Gnumeric spreadsheet editor
+Comment[es]=Editor de hoja de cálculo
+Exec=gnumeric
+Terminal=false
+Type=Application
+Categories=X-Business-spreadsheet
+GenericName=Gnumeric spreadsheet editor
+Name[es]=Gnumeric | editor de hoja de cálculo

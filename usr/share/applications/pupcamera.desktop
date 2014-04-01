@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PupCamera digital camera access
+Name[ru]=PupCamera доступ к цифровому фотоаппарату
+Comment=Browse and download images from an attached digital camera
+Comment[es]=Acceder a cámara digital
+Exec=pupcamera
+Icon=mini-camera.xpm
+Terminal=false
+Type=Application
+Categories=X-GraphicUtility
+Name[es]=PupCamera | acceder a cámara digital
+Name[es]=PupCamera | acceder a cámara digital
+Name[fr]=Accès aux photos numériques

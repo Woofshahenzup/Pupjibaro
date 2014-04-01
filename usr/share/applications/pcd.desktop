@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=pCD CD-audio player
+Icon=mini-cd.xpm
+Comment=pCD CD-audio player
+Comment[es]=Reproducir CD de audio
+Exec=pcd
+Terminal=false
+Type=Application
+Categories=Audio
+GenericName=pCD
+Name[es]=pCD | reproducir CD de audio

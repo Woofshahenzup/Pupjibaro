@@ -29,7 +29,7 @@ Pcmanfm_rox='
 </hbox>
 <hbox>
 <text>
-<label>"'$(gettext 'Set por default Rox.')'"</label>
+<label>"'$(gettext 'Set default Rox.')'"</label>
 </text>
 <button justify="2">
 <input file>/usr/local/lib/X11/pixmaps/home48.png</input>

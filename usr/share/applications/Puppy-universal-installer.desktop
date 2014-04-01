@@ -3,6 +3,7 @@ Encoding=UTF-8
 Name=Puppy universal installer
 Icon=mini-dog.xpm
 Comment=Puppy universal installer
+Comment[es]=Instalador Universal
 Exec=/usr/sbin/puppyinstaller
 Terminal=false
 Type=Application

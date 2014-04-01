@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Gdmap graphical disk usage
+Name[es]=Gdmap Uso de disco gráfico
+Icon=gdmap.xpm
+Comment=Gdmap graphical disk usage
+Comment[es]=Gdmap Uso de disco gráfico
+Exec=gdmap
+Terminal=false
+Type=Application
+Categories=X-FilesystemUtility
+GenericName=Gdmap
+Name[es]=Gdmap | gráfico de uso de disco

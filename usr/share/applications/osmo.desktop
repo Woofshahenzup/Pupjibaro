@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Osmo personal organizer
+Icon=osmo.png
+Comment=Osmo personal organizer
+Comment[es]=Organizador personal
+Exec=osmo
+Terminal=false
+Type=Application
+Categories=X-Personal-date
+GenericName=Osmo
+Name[es]=Osmo | organizador personal

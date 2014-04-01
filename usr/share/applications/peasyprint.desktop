@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PeasyPrint graphic/photo printing
+GenericName=PeasyPrint
+Comment=PeasyPrint graphic/photo printing
+Comment[es]=Impresión de gráficos/fotos
+Exec=/usr/sbin/peasyprint
+Icon=tb_print.xpm
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=X-Graphic-print
+Name[es]=PeasyPrint | impresión de gráficos/fotos

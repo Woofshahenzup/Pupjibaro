@@ -1,0 +1,21 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Pudd copy drive/partition
+Name[ru]=Pudd копирование диска/раздела
+Name[de]=Pudd Kopiert Plattenpartition
+Name[es]=Pudd-Copia Unidad/Partición
+Name[fr]=Copier disque dur/partition
+Name[hu_HU]=Pudd meghajtó/partíció másolása
+Name[ja]=Pudd ドライブ/パーティションのコピー
+Name[zh_CN]=Pudd 驱动器/分区复制工具
+Name[zh_TW]=Pudd 儲存媒體/分割區複製工具
+Icon=mini-diskette.xpm
+Comment=Pudd copy drive/partition
+Comment[es]=Copia Unidad/Partición
+Exec=Pudd
+Terminal=false
+Type=Application
+Categories=Archiving
+GenericName=Pudd copy drive/partition
+Name[es]=Pudd | copiar unidad/partición
+
