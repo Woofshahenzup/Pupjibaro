@@ -1,0 +1,4 @@
+Aca se iran dejando los link de  programa para test. y ver si se incluiran en proximas versiones.
+
+maxthon-browser= navegador web basado en chromium.
+https://www.wuala.com/josejp2424/puppy-es/programas/internet/maxthon-browser-stable_1.0.0.10.pet
