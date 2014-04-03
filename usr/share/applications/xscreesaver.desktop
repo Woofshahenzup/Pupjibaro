@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Enable-disable screensaver
+Name[es]=desactivar o activar el protector de pantalla
+Icon=/usr/share/icons/xscreensaver.png
+Comment=Screensaver
+Comment[es]=Protector de pantalla
+Exec=gui-xscreensaver
+Terminal=false
+Type=Application
+Categories=X-Desktop
+GenericName=xscreensaver

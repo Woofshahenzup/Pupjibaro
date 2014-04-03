@@ -1,0 +1,21 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Puppy Event Manager
+Name[ru]=Менеджер событий Puppy
+Name[de]=Puppy Ereigniss Manager
+Name[es]=Gestor de Sucesos de Puppy
+Name[hu_HU]=Puppy eseménykezelő
+Name[ja]=Puppyイベントマネージャ
+Name[zh_CN]=Puppy 事件管理器
+Name[zh_TW]=Puppy 事件管理器
+Name[fr]=Gestion des évènements
+Icon=so.xpm
+Comment=Puppy Event Manager
+Comment[es]=Gestor de Sucesos
+Exec=eventmanager
+Terminal=false
+Type=Application
+Categories=X-SystemSchedule
+GenericName=eventmanager
+
+Name[es]=Gestor de Sucesos de Puppy

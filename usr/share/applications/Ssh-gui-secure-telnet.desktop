@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Ssh-gui secure remote login
+Icon=mini-sh1.xpm
+Comment=Ssh-gui secure remote login
+Comment[es]=Acceso remoto seguro
+Exec=ssh-gui
+Terminal=false
+Type=Application
+Categories=X-Internet-login
+GenericName=Ssh-gui
+Name[es]=Ssh-gui | acceso remoto seguro

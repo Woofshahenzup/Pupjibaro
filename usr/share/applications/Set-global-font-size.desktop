@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Set global font size
+Icon=mini-x.xpm
+Comment=Set global font size
+Comment[es]=Ajusta el tamaño Global de las Fuentes
+Exec=set-xftdpi
+Terminal=false
+Type=Application
+Categories=X-Desktop-appearance
+GenericName=Set global font size
+Name[es]=Tamaño global de fuente

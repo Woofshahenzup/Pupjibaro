@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=YASSM Samba share select
+Name[fr]=Définir un partage Samba  YASSM
+Icon=/usr/local/yassm/samba-menu.xpm
+Comment=Yet another Samba share mounter
+Comment[es]=Escoger red SAMBA
+Comment[fr]=Encore un autre monteur de partage Samba
+Exec=/usr/local/yassm/samba-select
+Terminal=false
+Type=Application
+Categories=Network
+GenericName=samba-select
+Name[es]=YASSM | escoger red SAMBA

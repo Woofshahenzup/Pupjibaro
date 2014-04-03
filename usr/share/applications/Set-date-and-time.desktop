@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Set date and time
+Icon=mini-clock.xpm
+Comment=Set date and time
+Comment[es]=Ajusta la fecha y la Hora
+Exec=set-time-for-puppy
+Terminal=false
+Type=Application
+Categories=X-DesktopCountry
+GenericName=Set date and time
+Name[es]=Ajustar fecha y hora

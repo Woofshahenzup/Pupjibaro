@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SFSconvert version converter
+Icon=/usr/local/apps/ROX-Filer/ROX/MIME/application-x-squashfs-image.png
+Comment=Utility to convert sfs 3 to 4, vice versa
+Comment[es]=Conversor de versión de SFS
+Exec=/usr/local/sfsconvert/sfsconvert
+Terminal=false
+Type=Application
+Categories=Utility
+GenericName=SFSconvert
+Name[es]=SFSconvert | conversor de versión de SFS

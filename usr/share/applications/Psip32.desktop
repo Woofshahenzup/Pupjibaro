@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PuppyPhone Internet telephone
+Icon=phone16.png
+Comment=Psip PuppyPhone Internet telephone
+Comment[es]=Telefonía por internet
+Exec=psip32
+Terminal=false
+Type=Application
+Categories=Telephony
+GenericName=Psip PuppyPhone
+Name[es]=PuppyPhone | telefonía por internet

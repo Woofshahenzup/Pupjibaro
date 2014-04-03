@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Set hardware-clock type
+Icon=mini-clock.xpm
+Comment=Set HW-clock type
+Comment[es]=Ajustar tipo de reloj de hardware
+Exec=set_hwclock_type
+Terminal=false
+Type=Application
+Categories=X-DesktopCountry
+GenericName=Set HW-clock type
+Name[es]=Ajustar tipo de reloj de hardware

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Rox file manager
+Name[es]=Administrador de archivos Rox
+Icon=/usr/local/lib/X11/pixmaps/home48.png
+Exec=rox
+Terminal=false
+Type=Application
+Categories=FileManager
