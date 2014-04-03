@@ -31,13 +31,15 @@ MD5SUM 557d82f04152cce495b5bbe5ad4d0e52 251 K
 
 Changelog list.
 -- Bug fix libmenu-cache 
+-- Gtk-shutdown french locales
 -- Desktop files spanish comments translate ( 32 items )
--- All file in Jibaupdate_31032014-1.0.3.pet
+-- All files in Jibaupdate_31032014-1.0.3.pet
 
 #### Español
 
 Registro de cambios.
 -- Bug fix a libmenu-cache
+-- Locales en idioma frances para Gtk-shutdown
 -- Traducción de los comentarios de archivos .desktop
    ( 32 items )
 -- Todos los archivos de actualización del update anterior.
