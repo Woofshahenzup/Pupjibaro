@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Beryl Manager
+Comment=Configuracion de Beryl
+Exec=beryl.sh
+Icon=beryl-manager.svg
+Terminal=false
+Type=Application
+Categories=X-Desktop
+Encoding=UTF-8
