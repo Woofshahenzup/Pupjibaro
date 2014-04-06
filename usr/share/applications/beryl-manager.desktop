@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Beryl Manager
-Comment=Configuracion de Beryl
+Comment=Beryl settings
+Comment[es]=Configuración de Beryl
 Exec=beryl.sh
 Icon=beryl-manager.svg
 Terminal=false
