@@ -21,7 +21,7 @@ berylgui='
 </text>	
 <button justify="6">
 <input file>/usr/share/pixmaps/beryl-manager1.png</input>
-<action>/root/Beryl_jibaro-0.2.1-9/usr/share/beryl-pinstall/beril_startup &</action>
+<action>/usr/share/beryl-pinstall/beril_startup &</action>
 <action>gtkdialog-splash -close box -bg orange -icon "/root/Beryl-0.2.1-9-lxde/usr/share/pixmaps/beryl-manager.png" -timeout 3 -text "Beryl activado" &</action>
 </button>
 </hbox>
