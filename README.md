@@ -26,6 +26,10 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 ### Actualizaciones ( Ver CHANGELOG )
 ------------------------------------
 
+[Jibaupdate_06042014-1.0.3.pet](https://copy.com/reDmpANHWvuI)
+
+MD5SUM ea9bd99beb1828ea1490b37f1871b9db  3474 K
+
 [Jibaupdate_02042014-1.0.3.pet](http://ubuntuone.com/11jDl480PUmYtVaptcuSx0)
 
 MD5SUM ceed139d3fe024b4f1de6391c0ecb849 376 K

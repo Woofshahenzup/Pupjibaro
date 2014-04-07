@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec chromium-browser --user-data-dir=/root/.config/chromium -disk-cache-size=10000000 --media-cache-size=10000000 "$@"

@@ -1,5 +1,22 @@
 #### Pupjibaro-1.0.3 ####
 
+Jibaupdate_06042014-1.0.3.pet
+MD5SUM ea9bd99beb1828ea1490b37f1871b9db  3474 K
+
+Changelog list.
+-- New glibc library added 2.32.4
+-- Feature screencapture with PrintScreen key
+-- Spanish locales to .xml files
+
+### Español
+
+Registro de cambios
+-- Nueva libreria glibc agregada 2.32.4
+-- Opción capturar escritorio con tecla PrintScreen 
+-- Traducción de archivos .xml en español.
+
+============================================================
+
 Jibaupdate_02042014-1.0.3.pet
 MD5SUM 557d82f04152cce495b5bbe5ad4d0e52 251 K
 
