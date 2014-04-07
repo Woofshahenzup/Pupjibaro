@@ -169,6 +169,10 @@ Los jibaupdates no modificarán la apariencia por si ya fué modificada por el u
 
 ajustes a programas o configuraciones que no funcionen bien, traducciones etc.
 
+### Trucos y Tips
+
+
+
 ### Exención de responsabilidad
 
 Los desarrolladores de Pupjibaro no pretendemos ser irrespetuosos de la filosofia GNU, si algunas aplicaciones
