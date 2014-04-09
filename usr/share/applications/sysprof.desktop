@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Sysprof Profiler
+Name[es]=Perfiles del Sistema
+Comment=A system-wide linux profiler
+Comment[es]=Perfiles del Sistema
+Exec=sysprof
+Icon=sysprof.xpm
+Type=Application
+Categories=Development
