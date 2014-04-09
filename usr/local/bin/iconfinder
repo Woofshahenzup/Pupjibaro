@@ -1,0 +1,694 @@
+#!/bin/bash
+
+# =============================================================================
+# Icon Finder v1.4 by SFR'2012-13; GNU GPL v2 applies.
+#
+# Supported formats: .bmp .gif .jpg .pcx .png .pnm .ppm .svg .tga .tif .xpm
+# Partially supported: .ico (sometimes works, sometimes not)
+# Unsupported by Gtk(dialog?)?: .pnm .xbm
+# nilsonmorales minor review 08042014
+# =============================================================================
+
+########
+# INIT #
+########
+
+export TEXTDOMAIN=iconfinder
+export OUTPUT_CHARSET=UTF-8
+
+APPNAME="Icon Finder v1.4"
+MYNAME="`readlink -e "$0"`"
+export CONFIG=$HOME/.icon_finder
+
+sleep 0.3
+if [ "`pidof $(basename "$MYNAME") -o %PPID | wc -w`" -gt 1 ]; then
+ xmessage -bg red -center -title "$APPNAME" $(gettext "Icon Finder is already running. Please be patient...") &
+ exit 1
+fi
+
+[ `which gtkdialog4` ] && GTKDIALOG=gtkdialog4 || GTKDIALOG=gtkdialog
+GTKVER=( $($GTKDIALOG -v) ); GTKVER=${GTKVER[2]}
+vercmp $GTKVER lt 0.8.0 && xmessage -bg red -center -title "$APPNAME" $(gettext "Error: Gtkdialog >= 0.8.0 required!") && exit 1
+
+#################
+### FUNCTIONS ###
+#################
+
+default_settings () {
+[ -f "$CONFIG"/config ] && rm -f "$CONFIG"/config
+echo -n 'PATHS="/usr /root /opt"
+X_MIN=0
+Y_MIN=0
+X_MAX=64
+Y_MAX=64
+BUTTON_X=74
+BUTTON_Y=74
+COLUMNS=10
+ROWS=6
+SCALE=false
+PNG=true
+XPM=true
+SVG=true
+BMP=true
+GIF=true
+JPG=true
+TIF=true
+ICO=true
+PPM=true
+PNM=true
+PCX=true
+TGA=true
+MOUNTPOINTS=false
+SPLIT=1000
+' > "$CONFIG"/config
+}
+export -f default_settings
+
+b_action () {
+  [ ! -f "$1" ] && Xdialog --title "$APPNAME" --infobox "$(gettext "Icon no longer exists.")" 0 0 5000 && return
+
+  if [ $BUTTON = 1 ]; then
+    rox -s "$1"
+  elif [ $BUTTON = 3 ]; then
+    echo -n "$1" | xclip -l 1 -selection clipboard
+  elif [ $BUTTON = 2 ]; then
+    OUTDIR="`Xdialog --stdout --title "$(gettext "Save icon in")" --dselect "$HOME" 0 0 2>/dev/null`"
+    [ "$?" != 0 ] && return
+
+rox --RPC << EOF
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://www.w3.org/2001/12/soap-envelope">
+ <env:Body xmlns="http://rox.sourceforge.net/SOAP/ROX-Filer">
+  <Copy>
+   <From><file>$1</file></From>
+   <To>$OUTDIR</To>
+  </Copy>
+ </env:Body>
+</env:Envelope>
+EOF
+    
+  fi
+}
+export -f b_action
+
+# Filter images by resolution
+filter () {
+  if [ ${X_RES//[^0-9]/} ] && [ ${Y_RES//[^0-9]/} ]; then
+    if (( $X_RES<=$X_MAX && $Y_RES<=$Y_MAX && $X_RES>=$X_MIN && $Y_RES>=$Y_MIN )); then
+      [ $COUNTER = 0 ] && echo '<hbox homogeneous="true">' >> "$CONFIG"/list
+      echo '<button tooltip-text="'$FILENAME'  X:'$X_RES' Y:'$Y_RES'" relief="2" width-request="'$BUTTON_X'" height-request="'$BUTTON_Y'"><input file>'$FILENAME'</input>'$BUT_SCALE'<action signal="button-press-event">b_action "'$FILENAME'"</action></button>' >> "$CONFIG"/list
+      ((COUNTER++)); ((TOTAL++))
+      if [ $((TOTAL%$SPLIT)) = 0 ]; then
+        echo '</hbox></vbox><vbox scrollable="true">' >> "$CONFIG"/list && COUNTER=0  
+      else
+        [ "$COUNTER" = "$COLUMNS" ] && echo '</hbox>' >> "$CONFIG"/list && COUNTER=0
+      fi
+    fi
+  else
+    echo -e "$FILENAME\t" "$X_RES" "$Y_RES" >> "$CONFIG"/log
+  fi
+}
+
+# Create index of images
+create_index () {
+  . "$CONFIG/config"
+  echo -n > "$CONFIG"/log
+  [ -f "$CONFIG"/list ] && rm -f "$CONFIG"/list && touch "$CONFIG"/list
+  
+  [ `which exiv2` ] && IS_EXIV=1 || IS_EXIV=0
+
+  [ "$MOUNTPOINTS" = "true" ] && MOUNTPOINTS= || MOUNTPOINTS="-mount"
+  [ "$PNG" = "false" ] && PNG='' || PNG="*.png"
+  [ "$XPM" = "false" ] && XPM='' || XPM="*.xpm"
+  [ "$SVG" = "false" ] && SVG='' || SVG="*.svg"
+  [ "$BMP" = "false" ] && BMP='' || BMP="*.bmp"
+  [ "$GIF" = "false" ] && GIF='' || GIF="*.gif"
+  [ "$ICO" = "false" ] && ICO='' || ICO="*.ico"
+  [ "$PPM" = "false" ] && PPM='' || PPM="*.ppm"
+  [ "$PNM" = "false" ] && PNM='' || PNM="*.pnm"
+  [ "$PCX" = "false" ] && PCX='' || PCX="*.pcx"
+  [ "$TGA" = "false" ] && TGA='' || TGA="*.tga"
+  if [ "$JPG" = "false" ]; then
+    JPG=''; JPEG=''
+  else
+    JPG="*.jpg"; JPEG="*.jpeg"
+  fi
+  if [ "$TIF" = "false" ]; then
+     TIF=''; TIFF=''
+  else
+    TIF="*.tif"; TIFF="*.tiff"
+  fi
+
+  COLUMNS=${COLUMNS//[^0-9]/}
+  [ "$COLUMNS" -lt 1 ] && COLUMNS=1
+  [ "$COLUMNS" = "" ] && COLUMNS=8
+  ROWS=${ROWS//[^0-9]/}
+  [ "$ROWS" -lt 1 ] && ROWS=1
+  [ "$ROWS" = "" ] && ROWS=6
+
+  read REAL_X REAL_Y <<< `xwininfo -root | awk 'NR>=8&&NR<=9 {print $2}'`
+  
+  WINDOW_X=$(($COLUMNS*$BUTTON_X+100))
+  WINDOW_Y=$(($ROWS*$BUTTON_Y+($ROWS*8)+16))
+  [ $WINDOW_X -lt 550 ] && WINDOW_X=550
+  [ $WINDOW_X -gt $REAL_X ] && WINDOW_X=$REAL_X
+  [ $WINDOW_Y -gt $(($REAL_Y-128)) ] && WINDOW_Y=$(($REAL_Y-128))
+
+  SCALED_X=$(($BUTTON_X-10)); SCALED_Y=$(($BUTTON_Y-10))
+  [ "$SCALE" = "true" ] && BUT_SCALE="<width>$SCALED_X</width><height>$SCALED_Y</height>" || BUT_SCALE=""
+  
+  SPLIT=${SPLIT//[^0-9]/}
+  [ $SPLIT -le 100 ] || [ "$SPLIT" = "" ] && SPLIT=100
+  
+# 1st part of GUI >> list
+echo '
+<window title="'$APPNAME'" icon-name="iconfinder" allow-shrink="false" width-request="'$WINDOW_X'">
+<vbox>
+    <menubar>
+      <menu use-underline="true">
+        <menuitem stock-id="gtk-refresh" label="'$(gettext "Create new list")'">
+          <action>exit:Create</action>
+        </menuitem>
+        <menuitem stock-id="gtk-yes" label="'$(gettext "GTK stock icons")'">
+          <action type="launch">GTKSTOCK</action>
+        </menuitem>
+        <menuitem stock-id="gtk-preferences" label="'$(gettext "Settings")'">
+          <action type="launch">SETTINGS</action>
+        </menuitem>
+        <menuitem stock-id="gtk-about" label="'$(gettext "About")'">
+          <action type="launch">ABOUT</action>
+        </menuitem> 
+        <menuitemseparator></menuitemseparator>
+        <menuitem stock-id="gtk-quit" label="'$(gettext "Quit")'">
+          <action>exit:Quit</action>
+        </menuitem>
+        <label>"_'$(gettext Menu)'"</label>
+      </menu>      
+    </menubar>
+<text wrap="false"><label>'$(gettext "Hover an icon for additional info. Click an icon to locate it using ROX-Filer.")'</label></text>
+<notebook tab-prefix="" height-request="'$WINDOW_Y'"><vbox scrollable="true">
+' > "$CONFIG"/list
+
+  TIME1=`date +%s`		# SPEED DEBUG
+
+  Xdialog --no-close --no-buttons --title "$APPNAME" --infobox "$(gettext "Searching for images, please wait...")" 0 0 9999999999 & XD_PID="$!"
+  
+  # Find images by extension in defined directories
+  find $PATHS $MOUNTPOINTS -type f \( -iname "$PNG" -o -iname "$XPM" -o -iname "$SVG" -o -iname "$BMP" -o -iname "$GIF" -o -iname "$JPG" -o -iname "$JPEG" -o -iname "$TIF" -o -iname "$TIFF" -o -iname "$ICO" -o -iname "$PPM" -o -iname "$PNM" -o -iname "$PCX" -o -iname "$TGA" \) > "$CONFIG"/list_temp
+  
+  kill $XD_PID
+
+  # Extract resolution information
+  PICS2CHECK=`awk 'END {print NR}' "$CONFIG"/list_temp`
+  CNT=0; COUNTER=0; TOTAL=0
+  
+  while read FILENAME; do
+    FILENAME_TEMP=`echo "$FILENAME" | tr '[:upper:]' '[:lower:]'`
+    case ${FILENAME_TEMP##*.} in
+    "png")
+      read X_RES Y_RES <<< `file -b "$FILENAME" | awk -F',' '{split($2,a,"x"); print a[1] a[2]}'`
+      filter ;;
+    "xpm")
+      read X_RES Y_RES <<< `grep -m1 "\"" "$FILENAME" | tr -d "\"" | awk '{print $1} {print $2}'`
+      filter ;;
+    "svg")
+      X_RES=`cat "$FILENAME" | tr -d ' \t' | grep -m1 -io "width=".[0-9]* | tr -cd '[[:digit:]]'`
+      Y_RES=`cat "$FILENAME" | tr -d ' \t' | grep -m1 -io "height=".[0-9]* | tr -cd '[[:digit:]]'`      
+      filter ;;
+    "bmp"|"gif")
+      read X_RES Y_RES <<< `file -b "$FILENAME" | awk -F',' '{split($3,a,"x"); print a[1] a[2]}'`
+      filter ;;
+    "jpg"|"jpeg"|"tif"|"tiff")
+      case "$IS_EXIV" in
+        1 )
+          read X_RES Y_RES <<< `exiv2 "$FILENAME" 2>/dev/null | grep "Image size" | awk '{print $4} {print $6}'` ;;
+        * )
+          read X_RES Y_RES <<< `feh -L "%w x %h" "$FILENAME" | awk '{print $1} {print $3}'` ;;
+      esac
+      filter ;;
+    "ico")
+      read X_RES Y_RES <<< `file -b "$FILENAME" | awk -F',' '{split($2,a,"x"); print a[1]" "a[2]}'`
+      filter ;;
+    "ppm"|"pnm")
+      read X_RES Y_RES <<< `grep -v '#' "$FILENAME" | grep -a -m2 .[0-9] | tail -1 | awk '{print $1} {print $2}'`
+      filter ;;
+    "pcx")
+      read X_RES Y_RES <<< `file -b "$FILENAME" | cut -d ']' -f2 | cut -d '[' -f2 | awk -F',' '{print $1} {print $2}'`
+      filter ;;
+    "tga")
+      read X_RES Y_RES <<< `file -b "$FILENAME" | awk -F'-' '{split($2,a," "); print a[2]" "a[4]}'`
+      filter ;;
+    esac
+    
+    PROGRESS=$((($CNT*100)/$PICS2CHECK))
+    [ ${#PROGRESS} -eq 1 ] && PROGRESS="0"$PROGRESS
+    ((CNT++))
+    echo "$PROGRESS"
+  done < "$CONFIG"/list_temp > >( Xdialog --no-close --title "$APPNAME" --progress "$(gettext "Filtering images, please wait...")" 0 0 &)
+
+  rm -f "$CONFIG"/list_temp
+
+  TIME2=`date +%s`			# SPEED DEBUG
+  echo -e "\nExecution time:" $(($TIME2-$TIME1))	"sec." >> "$CONFIG"/log # SPEED DEBUG
+
+# 3rd (last) part of GUI >> list
+  [ "$TOTAL" = "0" ] && echo '<text><label>'$(gettext "No icons found")'</label></text>' >> "$CONFIG"/list
+  [ "$COUNTER" != "0" ] && echo '</hbox>' >> "$CONFIG"/list
+  
+echo '</vbox></notebook>
+<text wrap="false" xalign="0"><label>'$(gettext "Total icons:")' '"$TOTAL"'</label></text>
+</vbox>
+<action signal="hide">exit:abort</action>
+</window>' >> "$CONFIG"/list
+}
+export -f create_index
+
+#############
+### START ###
+#############
+
+[ ! -d "$CONFIG" ] && mkdir "$CONFIG"
+[ ! -f "$CONFIG"/config ] && default_settings
+
+. "$CONFIG/config"
+
+export ABOUT="
+<window title=\"$APPNAME - $(gettext "About")\" icon-name=\"gtk-about\" modal=\"true\">
+  <vbox>
+    <frame>
+      <pixmap><input file>/usr/share/icons/hicolor/48x48/apps/iconfinder.png</input></pixmap>
+      <vbox>
+        <text><label>$APPNAME by SFR'2012-13</label></text>
+        <text><label>GNU GPL v2 applies</label></text>
+        <text><label>'Gtk stock icons' code thanks to smokey01</label></text>
+        <text><label>Program icon thanks to RSH</label></text>
+      </vbox>
+    </frame>
+    <hbox>
+    <button ok>
+      <variable>ABOUT</variable>
+      <action type=\"closewindow\">ABOUT</action>
+    </button>
+    </hbox>
+  </vbox>
+</window>
+"
+
+# Code thanks to smokey01
+export GTKSTOCK='
+<window title="'$(gettext "GTK stock icons")'" icon-name="gtk-yes" modal="true">
+<vbox> 
+<frame Stock>
+<tree rules_hint="true" exported_column="1"> 
+<height>400</height><width>250</width> 
+<label>Stock ID</label> 
+<item stock="gtk-dialog-authentication">gtk-dialog-authentication</item> 
+<item stock="gtk-dialog-info">gtk-dialog-info</item> 
+<item stock="gtk-dialog-warning">gtk-dialog-warning</item> 
+<item stock="gtk-dialog-error">gtk-dialog-error</item> 
+<item stock="gtk-dialog-question">gtk-dialog-question</item> 
+<item stock="gtk-dnd">gtk-dnd</item> 
+<item stock="gtk-dnd-multiple">gtk-dnd-multiple</item> 
+<item stock="gtk-about">gtk-about</item> 
+<item stock="gtk-add">gtk-add</item> 
+<item stock="gtk-apply">gtk-apply</item> 
+<item stock="gtk-bold">gtk-bold</item> 
+<item stock="gtk-cancel">gtk-cancel</item> 
+<item stock="gtk-cdrom">gtk-cdrom</item> 
+<item stock="gtk-clear">gtk-clear</item> 
+<item stock="gtk-close">gtk-close</item> 
+<item stock="gtk-color-picker">gtk-color-picker</item> 
+<item stock="gtk-convert">gtk-convert</item> 
+<item stock="gtk-connect">gtk-connect</item> 
+<item stock="gtk-copy">gtk-copy</item> 
+<item stock="gtk-cut">gtk-cut</item> 
+<item stock="gtk-delete">gtk-delete</item> 
+<item stock="gtk-directory">gtk-directory</item> 
+<item stock="gtk-disconnect">gtk-disconnect</item> 
+<item stock="gtk-edit">gtk-edit</item> 
+<item stock="gtk-execute">gtk-execute</item> 
+<item stock="gtk-file">gtk-file</item> 
+<item stock="gtk-find">gtk-find</item> 
+<item stock="gtk-find-and-replace">gtk-find-and-replace</item> 
+<item stock="gtk-floppy">gtk-floppy</item> 
+<item stock="gtk-fullscreen">gtk-fullscreen</item> 
+<item stock="gtk-goto-bottom">gtk-goto-bottom</item> 
+<item stock="gtk-goto-first">gtk-goto-first</item> 
+<item stock="gtk-goto-last">gtk-goto-last</item> 
+<item stock="gtk-goto-top">gtk-goto-top</item> 
+<item stock="gtk-go-back">gtk-go-back</item> 
+<item stock="gtk-go-down">gtk-go-down</item> 
+<item stock="gtk-go-forward">gtk-go-forward</item> 
+<item stock="gtk-go-up">gtk-go-up</item> 
+<item stock="gtk-harddisk">gtk-harddisk</item> 
+<item stock="gtk-help">gtk-help</item> 
+<item stock="gtk-home">gtk-home</item> 
+<item stock="gtk-index">gtk-index</item> 
+<item stock="gtk-indent">gtk-indent</item> 
+<item stock="gtk-info">gtk-info</item> 
+<item stock="gtk-unindent">gtk-unindent</item> 
+<item stock="gtk-italic">gtk-italic</item> 
+<item stock="gtk-jump-to">gtk-jump-to</item> 
+<item stock="gtk-justify-center">gtk-justify-center</item> 
+<item stock="gtk-justify-fill">gtk-justify-fill</item> 
+<item stock="gtk-justify-left">gtk-justify-left</item> 
+<item stock="gtk-justify-right">gtk-justify-right</item> 
+<item stock="gtk-leave-fullscreen">gtk-leave-fullscreen</item> 
+<item stock="gtk-missing-image">gtk-missing-image</item> 
+<item stock="gtk-media-forward">gtk-media-forward</item> 
+<item stock="gtk-media-next">gtk-media-next</item> 
+<item stock="gtk-media-pause">gtk-media-pause</item> 
+<item stock="gtk-media-play">gtk-media-play</item> 
+<item stock="gtk-media-previous">gtk-media-previous</item> 
+<item stock="gtk-media-record">gtk-media-record</item> 
+<item stock="gtk-media-rewind">gtk-media-rewind</item> 
+<item stock="gtk-media-stop">gtk-media-stop</item> 
+<item stock="gtk-network">gtk-network</item> 
+<item stock="gtk-new">gtk-new</item> 
+<item stock="gtk-no">gtk-no</item> 
+<item stock="gtk-ok">gtk-ok</item> 
+<item stock="gtk-open">gtk-open</item> 
+<item stock="gtk-paste">gtk-paste</item> 
+<item stock="gtk-preferences">gtk-preferences</item> 
+<item stock="gtk-print">gtk-print</item> 
+<item stock="gtk-print-preview">gtk-print-preview</item> 
+<item stock="gtk-properties">gtk-properties</item> 
+<item stock="gtk-quit">gtk-quit</item> 
+<item stock="gtk-redo">gtk-redo</item> 
+<item stock="gtk-refresh">gtk-refresh</item> 
+<item stock="gtk-remove">gtk-remove</item> 
+<item stock="gtk-revert-to-saved">gtk-revert-to-saved</item> 
+<item stock="gtk-save">gtk-save</item> 
+<item stock="gtk-save-as">gtk-save-as</item> 
+<item stock="gtk-select-color">gtk-select-color</item> 
+<item stock="gtk-select-font">gtk-select-font</item> 
+<item stock="gtk-sort-ascending">gtk-sort-ascending</item> 
+<item stock="gtk-sort-descending">gtk-sort-descending</item> 
+<item stock="gtk-spell-check">gtk-spell-check</item> 
+<item stock="gtk-stop">gtk-stop</item> 
+<item stock="gtk-strikethrough">gtk-strikethrough</item> 
+<item stock="gtk-undelete">gtk-undelete</item> 
+<item stock="gtk-underline">gtk-underline</item> 
+<item stock="gtk-undo">gtk-undo</item> 
+<item stock="gtk-yes">gtk-yes</item> 
+<item stock="gtk-zoom-100">gtk-zoom-100</item> 
+<item stock="gtk-zoom-fit">gtk-zoom-fit</item> 
+<item stock="gtk-zoom-in">gtk-zoom-in</item> 
+<item stock="gtk-zoom-out">gtk-zoom-out</item> 
+</tree> 
+</frame> 
+<hbox>  
+<button ok>
+<variable>GTKSTOCK</variable>
+<action type="closewindow">GTKSTOCK</action>
+</button> 
+</hbox> 
+</vbox>
+</window>
+'
+
+export SETTINGS='
+<window title="'$APPNAME' - '$(gettext "Settings")'" icon-name="gtk-preferences" modal="true" allow-shrink="false">
+  <vbox>
+    <frame '$(gettext "WARNING")':>
+      <text><label>'$(gettext "These are internal settings, be very careful!")'</label></text>
+    </frame>
+    <hseparator></hseparator>
+      <frame '$(gettext "Paths to search:")'>
+        <entry>
+          <variable>PATHS</variable>
+          <default>"'$PATHS'"</default>
+        </entry>
+        <checkbox>
+          <variable>MOUNTPOINTS</variable>
+          <label>'$(gettext "Include encountered mount points?")'</label>
+          <default>"'$MOUNTPOINTS'"</default>
+        </checkbox>   
+      </frame>
+      
+      <frame '$(gettext "Filetypes to be included:")'>
+        <vbox>
+          <hbox homogeneous="true">
+            <checkbox>
+              <variable>PNG</variable>
+              <label>.png</label>
+              <default>"'$PNG'"</default>
+            </checkbox>
+            <checkbox>
+              <variable>XPM</variable>
+              <label>.xpm</label>
+              <default>"'$XPM'"</default>
+            </checkbox>            
+            <checkbox>
+              <variable>SVG</variable>
+              <label>.svg</label>
+              <default>"'$SVG'"</default>
+            </checkbox>            
+            <checkbox>
+              <variable>BMP</variable>
+              <label>.bmp</label>
+              <default>"'$BMP'"</default>
+            </checkbox>               
+            <checkbox>
+              <variable>GIF</variable>
+              <label>.gif</label>
+              <default>"'$GIF'"</default>
+            </checkbox>   
+            <checkbox>
+              <variable>JPG</variable>
+              <label>.jpg</label>
+              <default>"'$JPG'"</default>
+            </checkbox>   
+          </hbox>
+          <hbox homogeneous="true">
+            <checkbox>
+              <variable>TIF</variable>
+              <label>.tif</label>
+              <default>"'$TIF'"</default>
+            </checkbox>   
+            <checkbox>
+              <variable>ICO</variable>
+              <label>.ico</label>
+              <default>"'$ICO'"</default>
+            </checkbox>
+            <checkbox>
+              <variable>PPM</variable>
+              <label>.ppm</label>
+              <default>"'$PPM'"</default>
+            </checkbox>
+            <checkbox>
+              <variable>PNM</variable>
+              <label>.pnm</label>
+              <default>"'$PNM'"</default>
+            </checkbox>
+            <checkbox>
+              <variable>PCX</variable>
+              <label>.pcx</label>
+              <default>"'$PCX'"</default>
+            </checkbox>
+            <checkbox>
+              <variable>TGA</variable>
+              <label>.tga</label>
+              <default>"'$TGA'"</default>
+            </checkbox>      
+          </hbox>
+        </vbox>
+      </frame>
+
+      <frame '$(gettext "Dimensions restriction:")'>
+        <hbox>
+          <vbox>
+            <hbox>
+              <text><label>'$(gettext "Min. width:")'</label></text>
+              <spinbutton range-min="0" range-max="4096" range-step="1">
+                <variable>MIN_ICON_X</variable>
+                <default>"'$X_MIN'"</default>
+              </spinbutton>
+            </hbox>
+            <hbox>
+              <text><label>'$(gettext "Max. width:")'</label></text>
+              <spinbutton range-min="0" range-max="4096" range-step="1">
+                <variable>MAX_ICON_X</variable>
+                <default>"'$X_MAX'"</default>
+              </spinbutton>
+           </hbox>
+           </vbox>    
+           <vbox>
+             <hbox>
+               <text><label>'$(gettext "Min. height:")'</label></text>
+               <spinbutton range-min="0" range-max="4096" range-step="1">
+                 <variable>MIN_ICON_Y</variable>
+                 <default>"'$Y_MIN'"</default>
+               </spinbutton>
+             </hbox>
+             <hbox>
+               <text><label>'$(gettext "Max. height:")'</label></text>
+               <spinbutton range-min="0" range-max="4096" range-step="1">
+                 <variable>MAX_ICON_Y</variable>
+                 <default>"'$Y_MAX'"</default>
+               </spinbutton>
+              </hbox>
+            </vbox>
+          </hbox>
+        </frame>
+        
+        <frame '$(gettext "Display Options:")'>
+          <hbox>
+            <text><label>'$(gettext "Button width:")'</label></text>
+            <spinbutton range-min="1" range-max="1024" range-step="1">
+              <variable>BUTTON_X</variable>
+              <default>"'$BUTTON_X'"</default>
+            </spinbutton>
+            <text><label>'$(gettext "Button height:")'</label></text>
+            <spinbutton range-min="1" range-max="1024" range-step="1">
+              <variable>BUTTON_Y</variable>
+              <default>"'$BUTTON_Y'"</default>
+            </spinbutton>
+          </hbox>
+          <hseparator></hseparator>
+          <hbox>
+            <text><label>'$(gettext "No. of columns:")'</label></text>
+            <spinbutton range-min="1" range-max="256" range-step="1">
+              <variable>COLUMNS</variable>
+              <default>"'$COLUMNS'"</default>
+            </spinbutton>
+            <text><label>'$(gettext "No. of rows:")'</label></text>
+            <spinbutton range-min="1" range-max="256" range-step="1">
+              <variable>ROWS</variable>
+              <default>"'$ROWS'"</default>
+            </spinbutton>
+          </hbox>
+          <hseparator></hseparator>
+          <hbox>
+            <text><label>'$(gettext "Icons per tab:")'</label></text>
+            <spinbutton range-min="100" range-max="10000" range-step="1">
+              <variable>SPLIT</variable>
+              <default>"'$SPLIT'"</default>
+            </spinbutton>
+            <vseparator></vseparator>
+            <checkbox>
+              <label>'$(gettext "Scale images")'</label>
+              <variable>SCALE</variable>
+              <default>"'$SCALE'"</default>
+            </checkbox>
+          </hbox>
+        </frame>
+
+    <hbox>
+      <button>
+        <input file stock="gtk-refresh"></input>
+        <label>'$(gettext "Restore defaults")'</label>
+        <action>default_settings</action>
+        <action>exit:Create</action>
+      </button>
+      <hbox space-fill="true" space-expand="true"><text><label>""</label></text></hbox>
+      <button>
+        <input file stock="gtk-ok"></input>
+        <label>'$(gettext "Proceed")'</label>
+        <action>`echo "PATHS=\""$PATHS"\"" > '"$CONFIG"/config'`</action>
+        <action>`echo "X_MIN="$MIN_ICON_X >> '"$CONFIG"/config'`</action>
+        <action>`echo "Y_MIN="$MIN_ICON_Y >> '"$CONFIG"/config'`</action>
+        <action>`echo "X_MAX="$MAX_ICON_X >> '"$CONFIG"/config'`</action>
+        <action>`echo "Y_MAX="$MAX_ICON_Y >> '"$CONFIG"/config'`</action>
+        <action>`echo "BUTTON_X="$BUTTON_X >> '"$CONFIG"/config'`</action>
+        <action>`echo "BUTTON_Y="$BUTTON_Y >> '"$CONFIG"/config'`</action>
+        <action>`echo "COLUMNS="$COLUMNS >> '"$CONFIG"/config'`</action>
+        <action>`echo "ROWS="$ROWS >> '"$CONFIG"/config'`</action>
+        <action>`echo "SCALE="$SCALE >> '"$CONFIG"/config'`</action>
+        <action>`echo "PNG="$PNG >> '"$CONFIG"/config'`</action>
+        <action>`echo "XPM="$XPM >> '"$CONFIG"/config'`</action>
+        <action>`echo "SVG="$SVG >> '"$CONFIG"/config'`</action>
+        <action>`echo "BMP="$BMP >> '"$CONFIG"/config'`</action>
+        <action>`echo "GIF="$GIF >> '"$CONFIG"/config'`</action>
+        <action>`echo "JPG="$JPG >> '"$CONFIG"/config'`</action>
+        <action>`echo "TIF="$TIF >> '"$CONFIG"/config'`</action>
+        <action>`echo "ICO="$ICO >> '"$CONFIG"/config'`</action>
+        <action>`echo "PPM="$PPM >> '"$CONFIG"/config'`</action>
+        <action>`echo "PNM="$PNM >> '"$CONFIG"/config'`</action> 
+        <action>`echo "PCX="$PCX >> '"$CONFIG"/config'`</action>
+        <action>`echo "TGA="$TGA >> '"$CONFIG"/config'`</action>
+        <action>`echo "MOUNTPOINTS="$MOUNTPOINTS >> '"$CONFIG"/config'`</action>
+        <action>`echo "SPLIT="$SPLIT >> '"$CONFIG"/config'`</action>
+        <action>exit:Create</action>
+      </button>
+      <button>
+        <input file stock="gtk-cancel"></input>
+        <label>'$(gettext "Cancel")'</label>
+        <variable>SETTINGS</variable>
+        <action type="closewindow">SETTINGS</action>
+      </button>
+    </hbox>
+  </vbox>
+</window>
+'
+
+if [ ! -f "$CONFIG"/list ]; then
+export MAIN='
+<window title="'$APPNAME'" icon-name="iconfinder">
+  <vbox>
+    <menubar>
+      <menu use-underline="true">
+        <menuitem stock-id="gtk-refresh" label="'$(gettext "Create new list")'">
+          <action>exit:Create</action>
+        </menuitem>
+        <menuitem stock-id="gtk-yes" label="'$(gettext "GTK stock icons")'">
+          <action type="launch">GTKSTOCK</action>
+        </menuitem>
+        <menuitem stock-id="gtk-preferences" label="'$(gettext "Settings")'">
+          <action type="launch">SETTINGS</action>
+        </menuitem>
+        <menuitem stock-id="gtk-about" label="'$(gettext "About")'">
+          <action type="launch">ABOUT</action>
+        </menuitem> 
+        <menuitemseparator></menuitemseparator>
+        <menuitem stock-id="gtk-quit" label="'$(gettext "Quit")'">
+          <action>exit:Quit</action>
+        </menuitem>
+        <label>"_'$(gettext Menu)'"</label>
+      </menu>      
+    </menubar>
+    <frame>
+      <text><label>'$(gettext "The list of icons does not exist.")'</label></text>
+      <text><label>'$(gettext "Press the button to create one.")'</label></text>
+      <text><label>'$(gettext "It may take some time, so be patient.")'</label></text>
+    </frame>
+    <button>
+      <label>'$(gettext 'Create new list')'</label>
+      <action>exit:Create</action>
+    </button>
+  </vbox>
+<action signal="hide">exit:abort</action>
+</window>
+'
+
+I=$IFS; IFS=""
+for STATEMENTS in  $($GTKDIALOG -p MAIN); do
+  eval $STATEMENTS
+done
+IFS=$I
+[ "$EXIT" = "Create" ] && create_index && exec "$MYNAME"
+exit 0
+
+# -----------------
+
+else
+
+# -----------------
+
+if [ ! "`tail -1 "$CONFIG"/list`" = "</window>" ]; then
+  Xdialog --title "$APPNAME" --yesno "$(gettext "The list of icons is probably corrupted.\nDelete it and start over?")" 0 0
+  [ "$?" = "0" ] && rm -f "$CONFIG"/list && exec "$MYNAME"
+fi
+
+I=$IFS; IFS=""
+for STATEMENTS in  $($GTKDIALOG -f "$CONFIG"/list); do
+  eval $STATEMENTS
+done
+IFS=$I
+[ "$EXIT" = "Create" ] && create_index && exec "$MYNAME"
+[ "$EXIT" = "Quit" ] && exit 0
+[ "$EXIT" = "abort" ] && exit 0
+Xdialog --title "$APPNAME" --yesno "$(gettext "The list of icons is probably too long and Icon Finder has crashed.\n(Tip: increase number of columns and/or amend search parameters.)\nDelete the list and start over?")" 0 0
+[ "$?" = "0" ] && rm -f "$CONFIG"/list && exec "$MYNAME"
+exit 1
+fi
