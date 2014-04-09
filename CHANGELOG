@@ -1,5 +1,30 @@
 #### Pupjibaro-1.0.3 ####
 
+Jibaupdate_09042014-1.0.3.pet
+MD5SUM 58d165b1fcc6cb466d51682b43dac2a5  4 MB
+
+Changelog list.
+-- Openssl update 1.0.1g 7 Apr 2014
+-- Add gettext and spanish locales 
+
+### Español
+
+Registro de cambios.
+-- Actualización de Openssl 1.0.1g 7 Apr 2014
+-- Se agregó gettext a algunos archivos y se
+   tradujeron a español otros como:
+   xorgwizard-cli
+   xinitrc_test
+   iconfinder
+   rp_pppoe
+   po2mo
+   mo2po
+-- Traducción de archivos desktop que vienen
+   en FullDevx.
+
+=============================================================
+
+
 Jibaupdate_06042014-1.0.3.pet
 MD5SUM 25a0d0ee517cf1ccabff0985f96ceed4 3.4 MB
 
