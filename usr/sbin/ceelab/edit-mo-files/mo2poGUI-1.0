@@ -1,0 +1,115 @@
+#!/bin/bash
+#mo2poGUI-Script by RSH (11-2011)
+#v1.1
+## nilsonmorales i18n, i10n spanish locales
+export TEXTDOMAIN=gui-mo2poGUI-1.0
+export OUTPUT_CHARSET=UTF-8
+
+#set some variables
+ORDNER=NameDerDatei
+editgeany=""
+
+#repeat until OK (with given filename) or cancel
+while true
+do
+
+#show GUI
+export MAIN_DIALOG="<window title=\"mo2po-Builder-GUI-1.1\" icon-name=\"gtk-file\">
+
+<vbox>
+	<text use-markup=\"true\"> <label>\"$(gettext '<b>open .mo file to edit</b>')\"</label></text>
+	<text><label>$(gettext 'drag & drop the .mo file here and click OK.')</label></text> 
+	<hbox>
+		<entry>
+			<default>${ORDNER}</default>
+			<variable>ORDNER</variable>
+		</entry>
+	</hbox>
+	<text><label>$(gettext 'The .po file will be created at the same directory')</label></text> 
+	<text><label>$(gettext 'Note: existing .po file will be deleted')</label></text> 
+
+	<hbox>
+		<button ok></button>
+		<button cancel></button>
+		<button help></button>
+	</hbox>
+</vbox>
+</window>"
+
+I=$IFS; IFS=""
+for STATEMENTS in  $(gtkdialog3 --center --program=MAIN_DIALOG); do
+	eval $STATEMENTS
+done
+IFS=$I
+
+#clicked on help button
+if [ "$EXIT" = "Help" ]; then
+	LACK="NameDerDatei"
+	ORDNER=NameDerDatei
+	continue
+fi
+
+#clicked on OK button
+if [ "$EXIT" = "OK" ]; then
+	LACK=""
+	if [ "$ORDNER" = "" ]; then
+		LACK="NameDerDatei"
+		ORDNER=NameDerDatei
+	fi
+
+	if [ "$LACK" != "" ]; then
+		Xdialog --title "mo2po-Builder-GUI-1.1"   --wrap --screen-center --center --no-buttons --msgbox "$(gettext 'Filename in Field: '$LACK' missing.')"   8 40 60 
+		continue
+	fi
+	if [ "$ORDNER" = "NameDerDatei" ]; then
+		LACK="NameDerDatei"
+		Xdialog --title "mo2po-Builder-GUI-1.1"   --wrap --screen-center --center --no-buttons --msgbox "$(gettext 'Filename in Field: '$LACK' missing.')"   8 40 60 
+		continue
+	fi
+
+fi
+
+#msgunfmt available? (devx loaded)
+#if no devx is loaded, the GUI returns
+if [ "$EXIT" = "OK" ]; then
+	if [ "`which msgunfmt`" = "" ]; then
+		Xdialog --title "mo2po-Builder-GUI-1.1"   --wrap --screen-center --center --no-buttons --msgbox "$(gettext 'Please, load the devx,sfs to edit the .mo files')"   8 40 60 
+		continue #exit 1
+	fi
+fi
+
+break
+done
+
+#clicked on OK button
+if [ "$EXIT" = "OK" ]; then
+	if [ "$ORDNER" != "" ]; then
+		exec msgunfmt "$ORDNER" > "$ORDNER".po &
+		
+		sleep 1
+		
+
+		#start geany and load the file (if geany is available)
+		if [ -f /usr/bin/geany ];then
+			geany $ORDNER.po &
+			editgeany="geany"
+		fi
+
+		#start leafpad and load the file (if geany is not available)
+		if [ "$editgeany" = "" ]; then
+			leafpad $ORDNER.po &
+			editnico="leafpad"
+		fi
+		
+		sleep 1
+		Xdialog --title "mo2po-Builder-GUI-1.1"   --wrap --screen-center --center --no-buttons --msgbox "$(gettext 'Please,click OK, to start the po2mo-Builder-GUI-1.1 to rebuild to .mo file.')"   8 40 60 
+
+		sleep 1
+		exec /usr/sbin/ceelab/edit-mo-files/po2moGUI-1.0 &
+		
+	fi
+fi
+
+#mo2poGUI-Script by RSH (11-2011)
+
+# End
