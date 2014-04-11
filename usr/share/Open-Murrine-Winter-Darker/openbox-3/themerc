@@ -1,0 +1,134 @@
+#openbox themerc edited with obtheme by DDZ, based on Open-Murrine theme made by alpmild and matching the Winter E16 theme colors by Rephorm but with darker color tones.
+border.color: #858A97
+border.width: 1
+menu.items.active.bg: Gradient Vertical Raised
+menu.items.active.bg.color: #C1CAD8
+menu.items.active.bg.colorTo: #B9C1CC
+menu.items.active.bg.border.color: #F4F3F2
+menu.items.active.text.color: #525252
+menu.items.bg: Solid Flat Border
+menu.items.bg.color: #F4F3F2
+menu.items.bg.border.color: #B9C1CC
+menu.items.disabled.text.color: #808080
+menu.items.font: Liberation Sans:pixelsize=10
+menu.items.text.color: #525252
+menu.overlap: 0
+menu.title.bg: Gradient SplitVertical Raised
+menu.title.bg.color: #C1CAD8
+menu.title.bg.colorTo: #B9C1CC
+menu.title.bg.border.color: #F4F3F2
+menu.title.text.color: #525252
+menu.title.text.font: Liberation Sans Bold:pixelsize=10:shadow=y:shadowoffset=1:shadowtint=45
+menu.title.text.justify: Center
+osd.button.focused.bg: Gradient SplitVertical Flat Border
+osd.button.focused.bg.color: #B9C1CC
+osd.button.focused.bg.colorTo: #8A93AD
+osd.button.focused.bg.border.color: #858A97
+osd.button.focused.image.color: #F4F3F2
+osd.button.pressed.bg: Gradient SplitVertical Flat Border
+osd.button.pressed.bg.color: #8A93AD
+osd.button.pressed.bg.colorTo: #858A97
+osd.button.pressed.bg.border.color: #858A97
+osd.button.pressed.image.color: #F4F3F2
+osd.button.unpressed.bg: Gradient SplitVertical Flat Border
+osd.button.unpressed.bg.color: #C1CAD8
+osd.button.unpressed.bg.colorTo: #B9C1CC
+osd.button.unpressed.bg.border.color: #858A97
+osd.button.unpressed.image.color: #858A97
+osd.bg: Gradient SplitVertical Raised
+osd.bg.color: #C1CAD8
+osd.bg.colorTo: #B9C1CC
+osd.bg.border.color: #F4F3F2
+osd.label.bg: parentrelative
+osd.label.text.font: Liberation Sans Bold:pixelsize=10:shadow=y:shadowoffset=1:shadowtint=45
+osd.label.text.color: #FFFFFF
+osd.unhilight.bg: Solid Raised
+osd.unhilight.bg.color: #F4F3F2
+osd.unhilight.bg.border.color: #F4F3F2
+osd.border.color: #858A97
+osd.border.width: 1
+padding.width: 2
+window.active.button.disabled.bg: Gradient SplitVertical Flat Border
+window.active.button.disabled.bg.color: #F4F3F2
+window.active.button.disabled.bg.colorTo: #F4F3F2
+window.active.button.disabled.bg.border.color: #858A97
+window.active.button.disabled.image.color: #F4F3F2
+window.active.button.hover.bg: Gradient SplitVertical Flat Border
+window.active.button.hover.bg.color: #B9C1CC
+window.active.button.hover.bg.colorTo: #8A93AD
+window.active.button.hover.bg.border.color: #858A97
+window.active.button.hover.image.color: #F4F3F2
+window.active.button.pressed.bg: Gradient SplitVertical Flat Border
+window.active.button.pressed.bg.color: #8A93AD
+window.active.button.pressed.bg.colorTo: #858A97
+window.active.button.pressed.bg.border.color: #858A97
+window.active.button.pressed.image.color: #F4F3F2
+window.active.button.toggled.bg: Gradient SplitVertical Flat Border
+window.active.button.toggled.bg.color: #F4F3F2
+window.active.button.toggled.bg.colorTo: #F4F3F2
+window.active.button.toggled.bg.border.color: #858A97
+window.active.button.toggled.hover.bg: Gradient SplitVertical Flat Border
+window.active.button.toggled.hover.bg.color: #B9C1CC
+window.active.button.toggled.hover.bg.colorTo: #8A93AD
+window.active.button.toggled.hover.bg.border.color: #858A97
+window.active.button.toggled.hover.image.color: #F4F3F2
+window.active.button.toggled.unpressed.image.color: #858A97
+window.active.button.unpressed.bg: Gradient SplitVertical Flat Border
+window.active.button.unpressed.bg.color: #F4F3F2
+window.active.button.unpressed.bg.colorTo: #F4F3F2
+window.active.button.unpressed.bg.border.color: #858A97
+window.active.button.unpressed.image.color: #858A97
+window.active.client.color: #B9C1CC
+window.active.grip.bg: Solid Flat
+window.active.grip.bg.color: #8A93AD
+window.active.handle.bg: Solid Flat
+window.active.handle.bg.color: #B9C1CC
+window.active.label.bg: parentrelative
+window.active.label.bg.color: #525252
+window.active.label.bg.colorTo: #525252
+window.active.label.text.color: #525252
+window.active.label.text.font: Liberation Sans Bold:pixelsize=10:shadow=y:shadowoffset=1:shadowtint=45
+window.active.title.bg: Gradient SplitVertical Raised
+window.active.title.bg.color: #C1CAD8
+window.active.title.bg.colorTo: #B9C1CC
+window.active.title.bg.border.color: #525252
+window.client.padding.width: 0
+window.handle.width: 2
+window.inactive.border.color: #D0D4D8
+window.inactive.button.disabled.bg: Gradient SplitVertical Flat Border
+window.inactive.button.disabled.bg.color: #F4F3F2
+window.inactive.button.disabled.bg.colorTo: #F4F3F2
+window.inactive.button.disabled.bg.border.color: #C1CAD8
+window.inactive.button.disabled.image.color: #F4F3F2
+window.inactive.button.hover.bg: Gradient SplitVertical Flat Border
+window.inactive.button.hover.bg.color: #E1E1E1
+window.inactive.button.hover.bg.colorTo: #D0D4D8
+window.inactive.button.hover.bg.border.color: #C1CAD8
+window.inactive.button.pressed.bg: Gradient SplitVertical Flat Border
+window.inactive.button.pressed.bg.color: #D0D4D8
+window.inactive.button.pressed.bg.colorTo: #C1CAD8
+window.inactive.button.pressed.bg.border.color: #C1CAD8
+window.inactive.button.pressed.image.color: #F4F3F2
+window.inactive.button.toggled.bg: Gradient SplitVertical Flat Border
+window.inactive.button.toggled.bg.color: #F4F3F2
+window.inactive.button.toggled.bg.colorTo: #F4F3F2
+window.inactive.button.toggled.bg.border.color: #C1CAD8
+window.inactive.button.toggled.image.color: #C1CAD8
+window.inactive.button.unpressed.bg: Gradient SplitVertical Flat Border
+window.inactive.button.unpressed.bg.color: #F4F3F2
+window.inactive.button.unpressed.bg.colorTo: #F4F3F2
+window.inactive.button.unpressed.bg.border.color: #C1CAD8
+window.inactive.button.unpressed.image.color: #C1CAD8
+window.inactive.client.color: #D0D4D8
+window.inactive.grip.bg: Solid Flat
+window.inactive.grip.bg.color: #C1CAD8
+window.inactive.handle.bg: Solid Flat
+window.inactive.handle.bg.color: #D0D4D8
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #808080
+window.inactive.label.text.font: Liberation Sans Bold:pixelsize=10
+window.inactive.title.bg: Gradient SplitVertical Raised
+window.inactive.title.bg.color: #E1E1E1
+window.inactive.title.bg.colorTo: #D0D4D8
+window.inactive.title.bg.border.color: #C1CAD8
+window.label.text.justify: center
