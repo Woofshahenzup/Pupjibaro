@@ -52,7 +52,7 @@ if [ $5 ];then
  [ "$3" != "EMPTY" ] && DEF_dependencies="$3"
  [ "$3" = "EMPTY" ] && DEF_dependencies=""
  [ "$4" != "EMPTY" ] && DEF_description="$4"
- [ "$4" = "EMPTY" ] && DEF_description="no description provided"
+ [ "$4" = "EMPTY" ] && DEF_description="$(gettext 'no description provided')"
  DEF_pkgname="$5"
  xPATTERN="s%${DEF_nameonly}%%"
  DEF_version="`echo -n "$DEF_pkgname" | sed -e "$xPATTERN" -e 's%^\\-%%'`"
@@ -74,8 +74,8 @@ if [ "$ARCHDEPENDENT" != "yes" -a "$ARCHDEPENDENT" != "no" ];then
  DEF_compiledrelease="`echo -n "$ARCHDEPENDENT" | cut -f 2 -d '|'`"
 fi
 if [ "$ARCHDEPENDENT" = "no" ];then
- DEF_compileddistro="DISTRO INDEPENDENT"
- DEF_compiledrelease="DISTRO INDEPENDENT"
+ DEF_compileddistro="$(gettext 'DISTRO INDEPENDENT')"
+ DEF_compiledrelease="$(gettext 'DISTRO INDEPENDENT')"
 fi
 [ "$DEF_compiledrelease" = "" ] && DEF_compiledrelease="$DISTRO_COMPAT_VERSION" #100508
 
