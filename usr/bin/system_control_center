@@ -1,0 +1,81 @@
+#!/bin/bash
+## yad simple system tray right click menu stud91 ##
+## menu file example in plain text file name!command ##
+##Hacked up by josejp2424 2014
+##l10n nilsonmorales
+
+export TEXTDOMAIN=control_center_Pupjibaro
+export OUTPUT_CHARSET=UTF-8t
+
+title1="$(gettext 'Grub4dos')"
+title2="$(gettext 'Instalador Universal')"
+title3="$(gettext 'Administrador de Paquetes')"
+title4="$(gettext 'Configuracion de Puppy')"
+title5="$(gettext 'ajustes del 1er. inicio')"
+title6="$(gettext 'Cambiador de wallapers')"
+title7="$(gettext 'Cambiar íconos de escritorio')"
+title8="$(gettext 'Selector de tema GTK')"
+title9="$(gettext 'Configuracion Openbox')"
+
+## Application menu file ###############################################
+
+GET_MENU="Gparted! gparted_shell
+$title1! grub4dosconfig
+$title2! /usr/sbin/puppyinstaller
+$title3! ppm
+$title4! wizardwizard
+$title5! quicksetup
+$title6! wallpaper
+$title7! icon_switcher
+$title8! gtk_chtheme_wrapper
+$title9! obconf"
+
+########################################################################
+
+function START_MENU () {
+
+## MENU items ##########################################################
+
+MENU_ITEMS="` echo "$GET_MENU" | tr '\n' '|' | sed '$s/.$//' `" 
+
+## Defaults ############################################################
+
+TRAY_ICON="/usr/local/lib/X11/pixmaps/configuration48.png"
+POPUP_TEXT="Control Center"
+PIPE_FIFO=$(mktemp -u /tmp/menutray.XXXXXXXX)
+
+## Action on left mouse click ###########################################
+  function LEFT_CLICK () {
+   exec 3<> $PIPE_FIFO
+    echo "quit" >&3
+    rm -f $PIPE_FIFO
+}
+ 
+  export -f LEFT_CLICK
+  export PIPE_FIFO
+
+## 1 Create PIPE_FIFO file #############################################
+  mkfifo $PIPE_FIFO
+
+## 2 Attach a filedescriptor to this PIPE_FIFO #########################
+  exec 3<> $PIPE_FIFO
+ 
+## 3 Run yad and tell it to read its stdin from the file descriptor ####
+GUI=$(yad --notification --kill-parent --listen \
+--image="$TRAY_ICON" \
+--text="$POPUP_TEXT" \
+--command="/usr/bin/control_center_jibaro" <&3 ) &
+
+## 4 Write menu to file descriptor to generate MENU ####################
+ echo "menu:$MENU_ITEMS" >&3
+}
+
+## Check if menu file is provided ######################################
+ 
+  if [ -z "$GET_MENU" ]; then
+  echo "traymenu usage: $0 /path/to/menu/file" && exit
+  else
+  START_MENU
+  fi
+
+######################################################################## 

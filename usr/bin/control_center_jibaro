@@ -1,0 +1,70 @@
+#!/bin/sh
+#control center by josejp2424 2014
+##l10n nilsonmorales
+B_OK="GTK_STOCK_OK"
+
+Xdialog --title 'control center Pupjibaro' --screen-center \--icon '/usr/local/lib/X11/pixmaps/configuration48.png' \ --left --menubox "control center Pupjibaro\n(Seleccione un item y aceptar)" 320x280 10 \
+ '1' "Gparted" \
+ '2' "Grub4dos" \
+ '3' "Instalador Universal" \
+ '4' "Administrador de Paquetes" \
+ '5' "Configuracion de Puppy" \
+ '6' "ajustes del 1er. inicio" \
+ '7' "Cambiador de wallapers" \
+ '8' "Cambiar íconos de escritorio" \
+ '9' " Selector de tema GTK" \
+ '10' "Configuracion Openbox" \
+2>/tmp/control_jibaro.tmp
+
+r=`tail -n 1 /tmp/control_jibaro.tmp`
+
+if [ "$r" == "1" ];then
+   gparted_shell & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "2" ];then
+   grub4dosconfig & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "3" ];then
+   /usr/sbin/puppyinstaller & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "4" ];then
+   ppm & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "5" ];then
+   wizardwizard & control_center_jibaro 
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "6" ];then
+   quicksetup & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "7" ];then
+   wallpaper & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "8" ];then
+   icon_switcher & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+if [ "$r" == "9" ];then
+   gtk_chtheme_wrapper & control_center_jibaro
+   exit ## Exit Script ##
+fi
+if [ "$r" == "10" ];then
+   obconf & control_center_jibaro
+   exit ## Exit Script ##
+fi
+
+exit # END SCRIPT #
