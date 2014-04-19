@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=cambiador wallaper x consola
+Exec=roxterm -e /usr/local/cambiador_wallapers_x_consola/wallapers
+Type=Application
+Icon=/usr/share/pixmaps/cortina2.svg
+StartupNotify=true
+Categories=DesktopSettings
+

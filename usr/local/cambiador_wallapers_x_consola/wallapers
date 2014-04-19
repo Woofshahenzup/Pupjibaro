@@ -1,0 +1,85 @@
+#!/bin/sh
+## terminal wallpaper switcher - v 0.2 ##
+## stu90 ##
+
+########################################################################
+   if [[ ! -f $HOME/.twall ]]; then
+   echo "DIR=/usr/share/backgrounds" >> $HOME/.twall
+   echo "FORMAT=Stretch" >> $HOME/.twall    
+   fi
+
+   WALLDIR="` grep -i "DIR" $HOME/.twall | cut -d '=' -f2 `"
+   FORMAT="` grep -i "FORMAT" $HOME/.twall | cut -d '=' -f2 `"
+
+########################################################################  
+function WALLPAPER () {  
+   echo ":: Current Wallpaper   > `cat $HOME/.config/wallpaper/bg_img` "
+   echo ":: Current Directory   > $WALLDIR"
+   echo ":: Current Format      > $FORMAT"
+   select WALL in ` ls -1 "$WALLDIR/" | egrep ".jpg|.png" ` "Quit" ; 
+   do 
+   
+   if [[ "$WALL" = "Quit" ]]; then 
+   echo "Goodbye...." && exit 
+  
+   elif [ -n "$WALL" ]; then
+   echo "Applying wallpaper - $WALLDIR/$WALL"
+   
+  rox --RPC << EOF
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://www.w3.org/2001/12/soap-envelope">
+ <env:Body xmlns="http://rox.sourceforge.net/SOAP/ROX-Filer">
+  <SetBackdrop>
+   <Filename>$WALLDIR/$WALL</Filename>
+   <Style>$FORMAT</Style>
+  </SetBackdrop>
+ </env:Body>
+</env:Envelope>
+
+EOF
+   echo "$WALLDIR/$WALL" > $HOME/.config/wallpaper/bg_img
+   fi
+   done
+
+}   
+
+function HELP () {
+	echo " :: Puppy Terminal wallpaper changer ::"
+    echo " select the wallpaper to apply by number and press enter "
+    echo " leave the input field blank and press enter to redraw list "
+    echo ""
+    echo "       -d  To change the current wallpaper directory"
+    echo "       -f  To change  the wallpaper layout / format"
+    echo "       -h  For help" 
+}	
+########################################################################
+    clear
+   
+    if [[ $# = 0 ]]; then
+    WALLPAPER
+    
+    elif [[ $1 = -d ]]; then 
+    echo "Current Dir - $WALLDIR"
+    read -p "Enter new wallpaper Directory: " NEWWALLDIR 
+    sed -i "s:"$WALLDIR":"$NEWWALLDIR":g" $HOME/.twall && exit
+    
+    elif [[ $1 = -h ]]; then 
+    HELP
+    
+    elif [[ $1 = -f ]]; then 
+    echo "Current Format - $FORMAT"
+    echo "Enter new wallpaper Format:"
+    select NEWFORMAT in "Stretch" "Scale" "Tile" "Center" "Quit" ; do
+    
+     if [[ "$NEWFORMAT" = "Quit" ]]; then 
+     echo "Goodbye...." && exit
+     #elif [[ "$NEWFORMAT" = "Stretch" || "$NEWFORMAT" = "Scale" || "$NEWFORMAT" = "Tile" || "$NEWFORMAT" = "Center" ]]; then
+     elif [[ -n "$NEWFORMAT" ]]; then
+     sed -i "s:"$FORMAT":"$NEWFORMAT":g" $HOME/.twall && exit
+     else
+     echo "not a format...."
+     fi 
+    
+    done 
+    fi
+   
