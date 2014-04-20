@@ -3,7 +3,7 @@
 ## menu file example in plain text file name!command ##
 ##Hacked up by josejp2424 2014
 ## i18n josejp2424
-## l10n nilsonmorales spanish locales 
+## 19042014 l10n nilsonmorales spanish locales 
 
 export TEXTDOMAIN=control_center_Pupjibaro
 export OUTPUT_CHARSET=UTF-8

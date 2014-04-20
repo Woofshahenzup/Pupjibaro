@@ -1,6 +1,6 @@
 #!/bin/sh
 #control center by josejp2424 2014
-# i18n, l10n spanish nilsonmorales
+# 19042014 i18n, l10n spanish nilsonmorales
 
 export TEXTDOMAIN=control_center_Pupjibaro
 export OUTPUT_CHARSET=UTF-8
