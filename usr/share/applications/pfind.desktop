@@ -8,6 +8,7 @@ Name[hu_HU]=Pfind fájl kereső
 Name[ja]=Pfind ファイル検索
 Icon=mini-Filesystem.xpm
 Comment=Pfind file finder
+Comment[es]=Buscador de Archivos
 Exec=pfind
 Terminal=false
 Type=Application
