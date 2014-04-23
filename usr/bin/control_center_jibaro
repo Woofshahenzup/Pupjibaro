@@ -1,12 +1,13 @@
 #!/bin/sh
 #control center by josejp2424 2014
 # 19042014 i18n, l10n spanish nilsonmorales
+# 23042014 nilsonmorales add pmount
 
 export TEXTDOMAIN=control_center_Pupjibaro
 export OUTPUT_CHARSET=UTF-8
 B_OK="GTK_STOCK_OK"
 
-Xdialog --title "$(gettext 'Control Center Pupjibaro')" --screen-center \--icon '/usr/local/lib/X11/pixmaps/configuration48.png' \ --left --menubox "$(gettext 'Control Center Pupjibaro\n(Select a item and click Ok)')" 320x280 10 \
+Xdialog --title "$(gettext 'Control Center Pupjibaro')" --screen-center \--icon '/usr/local/lib/X11/pixmaps/configuration48.png' \ --left --menubox "$(gettext 'Control Center Pupjibaro\n(Select a item and click Ok)')" 320x288 10 \
  '1' "Gparted" \
  '2' "Grub4dos" \
  '3' "$(gettext 'Puppy Universal Instaler')" \
@@ -17,6 +18,7 @@ Xdialog --title "$(gettext 'Control Center Pupjibaro')" --screen-center \--icon 
  '8' "$(gettext 'Icons switcher')" \
  '9' "$(gettext 'GTK change theme')" \
  '10' "$(gettext 'Openbox configuration')" \
+ '11' "Pmount" \
 2>/tmp/control_jibaro.tmp
 
 r=`tail -n 1 /tmp/control_jibaro.tmp`
@@ -67,6 +69,10 @@ if [ "$r" == "9" ];then
 fi
 if [ "$r" == "10" ];then
    obconf & control_center_jibaro
+   exit ## Exit Script ##
+fi
+if [ "$r" == "11" ];then
+   pmount & control_center_jibaro
    exit ## Exit Script ##
 fi
 

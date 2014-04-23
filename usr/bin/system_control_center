@@ -4,6 +4,7 @@
 ##Hacked up by josejp2424 2014
 ## i18n josejp2424
 ## 19042014 l10n nilsonmorales spanish locales 
+## 23042014 nilsonmorales add pmount
 
 export TEXTDOMAIN=control_center_Pupjibaro
 export OUTPUT_CHARSET=UTF-8
@@ -17,6 +18,7 @@ title6="$(gettext 'Wallapers setter')"
 title7="$(gettext 'Icons switcher')"
 title8="$(gettext 'GTK change theme')"
 title9="$(gettext 'Openbox configuration')"
+title10="Pmount"
 
 ## Application menu file ###############################################
 
@@ -29,7 +31,8 @@ $title5! quicksetup
 $title6! wallpaper
 $title7! icon_switcher
 $title8! gtk_chtheme_wrapper
-$title9! obconf"
+$title9! obconf
+$title10! pmount"
 
 ########################################################################
 

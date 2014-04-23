@@ -14,3 +14,7 @@ https://copy.com/SVlhMGMcNHNf
 
 Cambiador de window manager (con opcion a Pekwm)
 https://copy.com/RKb33NuiWWA9
+
+Delta de posible versión 1.0.4
+https://copy.com/de1JZntRb6J0
+MD5SUM 484854d29ab901e10f53106afd4d6702  19MB
