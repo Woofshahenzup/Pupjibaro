@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name[es]=Cambiador wallaper x consola
 Name=Terminal wallpaper switcher
-Exec=roxterm -e /usr/local/bin/tws
+Exec=roxterm -e /usr/local/bin/twall
 Type=Application
 Icon=/usr/share/pixmaps/cortina2.svg
 StartupNotify=true
