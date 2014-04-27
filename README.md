@@ -69,21 +69,21 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 [Repositorio Dropbox](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
 
 ### Caracteristicas 
- | Caracteristica | Detalle |
- | -------------- | ------- |
- | Arquitectura | i386 |
- | Kernel | 3.2.48 |
- | Escritorio | Openbox, Lxpanel |
- | Administrador de archivos | Rox + opciones click derecho. |
- | Multilingue | Soporta la mayoria de idiomas |
- | Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
- | Navegador por defecto | Chromium 25 |
- | Gestor de paquetes | Ppm Puppy packages manager |
- | Editor de texto | Geany, Abiword |
- | Terminal | Roxterm |
- | Reproductor de Audio y video | Deadbeef, gnome-player |
- | Cliente de chat | Xchat |
- | Administrador de Impresión | Cups |
+| Caracteristica | Detalle |
+| -------------- | ------- |
+| Arquitectura | i386 |
+| Kernel | 3.2.48 |
+| Escritorio | Openbox, Lxpanel |
+| Administrador de archivos | Rox + opciones click derecho. |
+| Multilingue | Soporta la mayoria de idiomas |
+| Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
+| Navegador por defecto | Chromium 25 |
+| Gestor de paquetes | Ppm Puppy packages manager |
+| Editor de texto | Geany, Abiword |
+| Terminal | Roxterm |
+| Reproductor de Audio y video | Deadbeef, gnome-player |
+| Cliente de chat | Xchat |
+| Administrador de Impresión | Cups |
 
 ### Otras caracteristicas
 
@@ -119,17 +119,17 @@ A = Alt
 
 Ejemplo: C-A-g    tres teclas a la vez sin importar si es mayúscula o minúscula
 
- | Secuencia | Acción | Detalle |
- | --------- | ------ | ------- |
- | C-A-g | geany | Editor de texto |  
- | C-A-h | htop | Visor de procesos | 
- | C-A-r | roxterm | La terminal |  
- | C-A-f | rox | El administrador de archivos | 
- | C-A-x | xchat | Cliente de chat |
- | A-f9 | xorgwizard | El asistente de video |
- | A-f6 | gtk-shutdown | Interfaz de apagado | 
- | Tecla windows | El menú | Despliega el lxpanel menú |
- | PrintScreen | Screnshot | Toma una captura de tu escritorio |
+| Secuencia | Acción | Detalle |
+| --------- | ------ | ------- |
+| C-A-g | geany | Editor de texto |  
+| C-A-h | htop | Visor de procesos | 
+| C-A-r | roxterm | La terminal |  
+| C-A-f | rox | El administrador de archivos | 
+| C-A-x | xchat | Cliente de chat |
+| A-f9 | xorgwizard | El asistente de video |
+| A-f6 | gtk-shutdown | Interfaz de apagado | 
+| Tecla windows | El menú | Despliega el lxpanel menú |
+| PrintScreen | Screnshot | Toma una captura de tu escritorio |
 
 El archivo ~/.config/openbox/rc.xml contiene el detalle completo de los atajos del teclado. 
 
