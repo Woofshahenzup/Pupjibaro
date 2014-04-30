@@ -45,7 +45,7 @@ that was intended in users with modest equipment (256-1) Giga of ram and with li
 on linux, so it has a number of assistants and applications that make it 
 easier to use, translated in a 95% spanish( we keep continue in translate process ) 
 The remastering was done by two known users in the puppy spanish universe as developers
-other major versions in Spanish, josejp2424 and nilsonmorales, one Salvatodoran and other 
+other major versions in Spanish, josejp2424 and nilsonmorales, one Salvadoran and other 
 Argentine, made society and created this remaster with some 
 variants of the original detailed below.
 
@@ -95,20 +95,19 @@ Hence the codename for the version of PuppyLinux Pupjibaro.
 
 - Gmail-notfy
 
--Telegram from terminal (is invoked with the command tg)
+- Telegram from terminal (is invoked with the command tg)
 
 - New shutdown interface (Thanks to KuLuSz)
 
 - Xchat Theme Selector (by josejp2424)
 
-- Low Battery Notifier for Notebooks and Laptops (Notice to 10%, poweroff at 5% 
-    keeping changes)
+- Low Battery Notifier for Notebooks and Laptops (Notice to 10%, poweroff at 5% keeping changes)
 
 - Dunst: Minimalist Event Notifier (for nilsonmorales)
 
 - Youtube-dl + Youtube-dl-gui ( by josejp2424 )
 
-- Fulldevx (development tools and compilation with more programs )
+- Fulldevx (development tools and compilation with more programs)
 
 - Poedit, edit-SFS, edit-mo, ccgit, git, edit-initrd.gz, kernel sources includes
 in Fulldevx
@@ -158,9 +157,9 @@ follows.
 
 Name-day-month-year-version Pupjibaro.   Ex:: jibaupdate_26102014-1.0.3.pet 
 
-So users know that the update date and version of Pupjibaro was launched. 
+So users know when the update date and version of Pupjibaro was launched. 
 
-The jibaupdates not modify the appearance as it was already modified by the user, only 
+The jibaupdates not modify the appearance if was already modified by the user, only 
 
 adjustments to programs or settings that do not work well, translations etc.
 
@@ -171,7 +170,7 @@ adjustments to programs or settings that do not work well, translations etc.
 ### Disclaimer
 
 Pupjibaro developers do not intend to be disrespectful about the GNU philosophy, if some applications
-are considered non-free or privative, are within their rights to not use the distro, our primary focus is
+are considered non-free or privative, are within their rights to not use the distro, our primary focus are the
 users with little knowledge of linux so they can have a more friendly experience for the linux environment,
 so on they get to know about the great benefits and virtues of using Linux.
 
