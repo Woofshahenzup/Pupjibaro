@@ -1,4 +1,0 @@
-#!/bin/sh
-network_tray & powerapplet_tray & tecla-win & /usr/bin/system_control_center &
-sleep 6
-freememapplet_tray & dunst & udev-notify &
