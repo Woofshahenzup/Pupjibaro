@@ -16,29 +16,11 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 ### [Mirror in archive.org 'by Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
 
 ### Updates ( read CHANGELOG )
-------------------------------------
-
-[Jibaupdate_09042014-1.0.3.pet](https://copy.com/Bjd8hXHDTtCl)
-
-MD5SUM b453cf7adfa7b63c0bd396753a6fc0d9 3.8 MB
-
-[Jibaupdate_06042014-1.0.3.pet](https://copy.com/loIC6eT46UVo)
-
-MD5SUM 25a0d0ee517cf1ccabff0985f96ceed4 3.4 MB
-
-[Jibaupdate_02042014-1.0.3.pet](https://copy.com/21iOaQPhQnFG)
-
-MD5SUM ceed139d3fe024b4f1de6391c0ecb849 376 K
-
-[Jibaupdate_31032014-1.0.3.pet](https://copy.com/wH08TnEwEudi)
-
-MD5SUM ace293195ab6f85556609036fd89a3fa 183 K 
+------------------------------------ 
 
 ## PuppyLinux Pupjibaro-1.0.3 
 =====================================
-[![screenshot](http://s5.postimg.org/jnlemdfvr/jibadesk.png)](http://s5.postimg.org/jnlemdfvr/jibadesk.png)
-
-[![screenshot](http://s25.postimg.org/e0qmkpnkf/Pupjibaro.gif)](http://s25.postimg.org/e0qmkpnkf/Pupjibaro.gif)
+[![screenshot](http://s25.postimg.org/ty05h6nin/pupjibaro.gif)](http://s25.postimg.org/ty05h6nin/pupjibaro.gif)
 
 Pupjibaro is a remaster of the official version of PuppyLinux retro-precise-5.7.1 
 that was intended in users with modest equipment (256-1) Giga of ram and with little knowledge 
@@ -90,6 +72,8 @@ Hence the codename for the version of PuppyLinux Pupjibaro.
 | Print Manager | Cups |
 
 ### Other features
+
+- Systray control centre
 
 - Python libraries was added
 
