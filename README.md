@@ -5,7 +5,7 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 *Leer en diferente lenguaje: [Español](README.md), [English](README.en.md).*
 
-### [Link de descarga version oficial Pupjibaro](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
+### [Link de descarga version oficial Pupjibaro-1.0.4](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
 
 ### [Mirror en Mega 'Pupjibaro-1.0.4'](https://mega.co.nz/#!AxVSlCJJ!3tOyIQcmC1j7z29zWT0pBlCk1MoGtr-FYpBtgW22LNA)
 
