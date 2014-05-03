@@ -7,9 +7,9 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 
 ### [Link de descarga version oficial Pupjibaro](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
 
-MD5SUM - 7ad3d996ca337c1fd12b8ef87d3c4f4f   Pupjibaro-1.0.4-03052014.iso   199 MB
-
 ### [Mirror en Mega 'Pupjibaro-1.0.4'](https://mega.co.nz/#!AxVSlCJJ!3tOyIQcmC1j7z29zWT0pBlCk1MoGtr-FYpBtgW22LNA)
+
+MD5SUM - 7ad3d996ca337c1fd12b8ef87d3c4f4f   Pupjibaro-1.0.4-03052014.iso   199 MB
 
 ###  [Pupjibaro_devx_full "Librerias para Compilar"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
 
