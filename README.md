@@ -64,7 +64,7 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 | Kernel | 3.2.48 |
 | Escritorio | Openbox, Lxpanel |
 | Administrador de archivos | Rox + opciones click derecho. |
-| Multilingue | Soporta la mayoria de idiomas |
+| Multilingue | Soporta la mayoria de idiomas con su respectivo paquete de idiomas |
 | Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
 | Navegador por defecto | Chromium 25 |
 | Gestor de paquetes | Ppm Puppy packages manager |

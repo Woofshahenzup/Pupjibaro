@@ -5,11 +5,13 @@ Puppylinux retro-precise Remaster, updates repository
 
 *Read this in other languages: [English](README.en.md), [Spanish](README.md).*
 
-### [Download Link Pupjibaro official version](https://www.dropbox.com/s/nrz5nxksyod7w4x/puppy_Pupjibaro-29-03-2014-1.0.3.iso)
+### [Download Link Pupjibaro official version 1.0.4](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
 
-MD5SUM - a41fa4af707f8f956ed8f5789b4b87e7   puppy_Pupjibaro-29-03-2014-1.0.3.iso   197 MB
+### [Mirror in Mega 'Pupjibaro-1.0.4'](https://mega.co.nz/#!AxVSlCJJ!3tOyIQcmC1j7z29zWT0pBlCk1MoGtr-FYpBtgW22LNA)
 
-###  [Pupjibaro_devx_full "Libraries that are used to compile"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
+MD5SUM - 7ad3d996ca337c1fd12b8ef87d3c4f4f   Pupjibaro-1.0.4-03052014.iso   199 MB
+
+###  [Pupjibaro_devx_full "Libraries that are used to compile apps"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
 
 MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
@@ -61,7 +63,7 @@ Hence the codename for the version of PuppyLinux Pupjibaro.
 | Kernel | 3.2.48 |
 | Desktop | Openbox, Lxpanel |
 | File manager | Rox + right click options. |
-| Multilingual | Supports the most languages |
+| Multilingual | Supports the most languages with langpack|
 | minimum Requirements | Pentium 4 256 ram (For a more sufficient experience with 512) |
 | Default browser | Chromium 25 |
 | Package Manager | Ppm Puppy packages manager |
