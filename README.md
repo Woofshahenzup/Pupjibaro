@@ -19,6 +19,8 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ### [Mirror en archive.org 'por Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
 
+### [Archivo .exe para instalarse en windows xp/7](https://drive.google.com/file/d/0B-wRih_DOXG0MjF6dzJhbHVzMGM/edit?usp=sharing) 
+
 ### Actualizaciones ( Ver CHANGELOG )
 ------------------------------------
 
