@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=system-config-printer
+GenericName=
+Icon=tb_print.xpm
+MimeType=
+Path=
+StartupNotify=false
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DCOP-ServiceType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+Name=CUPS manage printing
+Comment=CUPS Web Interface
+Comment[es]=Interfaz de Impresión
+Categories=X-System-print
+Name[es]=CUPS | administrar impresión
