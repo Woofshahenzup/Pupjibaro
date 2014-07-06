@@ -3,7 +3,7 @@ Pupjibaro
 
 Puppylinux retro-precise Remaster, updates repository
 
-*Read this in other languages: [English](README.en.md), [Spanish](README.md).*
+*Read this in other languages: [English](README.en.md), [Spanish](README.md), [French](README.fr.md).*
 
 ### [Download Link Pupjibaro official version 1.0.4](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
 

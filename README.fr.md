@@ -1,27 +1,27 @@
 Pupjibaro
 =========
 
-Remaster de Puppy retro-precise, repo de actualizaciones
+Remastérisation de Puppy retro-precise: dépôt d”actualisations 
 
-*Leer en diferente lenguaje: [Español](README.md), [English](README.en.md), [Français](README.fr.md).*
+*Lecture en différentes langues: [Español](README.md), [English](README.en.md), [Français](README.fr.md).*
 
-### [Link de descarga version oficial Pupjibaro-1.0.4](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
+### [Lien de téléchargement version officielle Pupjibaro-1.0.4](https://drive.google.com/file/d/0BxItoYDp0CNqVW9pY3BlcnAwaGc/edit?usp=sharing)
 
-### [Mirror en Mega 'Pupjibaro-1.0.4'](https://mega.co.nz/#!AxVSlCJJ!3tOyIQcmC1j7z29zWT0pBlCk1MoGtr-FYpBtgW22LNA)
+### [Miroir en Mega 'Pupjibaro-1.0.4'](https://mega.co.nz/#!AxVSlCJJ!3tOyIQcmC1j7z29zWT0pBlCk1MoGtr-FYpBtgW22LNA)
 
 MD5SUM - 7ad3d996ca337c1fd12b8ef87d3c4f4f   Pupjibaro-1.0.4-03052014.iso   199 MB
 
-###  [Pupjibaro_devx_full "Librerias para Compilar"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
+###  [Pupjibaro_devx_full "Librerias pour Compiler"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
 
-### [Mirror 'Pupjibaro_devx_full'](https://drive.google.com/file/d/0BxItoYDp0CNqZmhsb0NEemV6Wlk/edit?usp=sharing)
+### [miroir 'Pupjibaro_devx_full'](https://drive.google.com/file/d/0BxItoYDp0CNqZmhsb0NEemV6Wlk/edit?usp=sharing)
 
 MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
-### [Mirror en archive.org 'por Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
+### [Miroir en archive.org 'pour Ally'](https://archive.org/details/Puppy_Linux_Pubjibaro)
 
-### [Archivo .exe para instalarse en windows xp/7](https://drive.google.com/file/d/0B-wRih_DOXG0MjF6dzJhbHVzMGM/edit?usp=sharing) 
+### [Archivo .exe pour installer sur windows xp/7 ](https://drive.google.com/file/d/0B-wRih_DOXG0MjF6dzJhbHVzMGM/edit?usp=sharing) 
 
-### Actualizaciones ( Ver CHANGELOG )
+### Actualisations ( Voir CHANGELOG ) 
 ------------------------------------
 
 
@@ -29,35 +29,30 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 =====================================
 [![screenshot](http://s25.postimg.org/ty05h6nin/pupjibaro.gif)](http://s25.postimg.org/ty05h6nin/pupjibaro.gif)
 
-Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
-pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
-sobre linux, por lo que cuenta con una serie de asistentes y aplicaciones que hacen más
-fácil el uso de esta versión, traducida en un 95% ( en proceso de traducción ) 
-El remasterizado a cargo de 2 usuarios conocidos en el universo Puppy como desarrolladores
-de otras versiones importantes en español, nilsonmorales y josejp2424, uno de nacionalidad 
-Salvadoreño y el otro Argentino, hicieron sociedad y crearon este remaster con algunas 
-variantes del original detalladas más adelante.
+Pupjibaro est une remastérisation de la version officielle de Puppylinux retro 5.7.1 pensée pour les utilisateurs ayant un
+équipement modeste de 256 à 1 Go de ram, connaissant peu linux, grâce à une aide et des applications qui rendent plus
+facile l'usage de cette version, traduite à 95 % (process en cours). Le remastérisation est assuré par 2 utilisateurs connus
+dans l'univers Puppy comme développeurs d'autres versions importantes en Espagnol, nilsonmorales et josejp2424, un de
+nationalité Salvadorienne et l'autre Argentin, ils se sont unis pour créer ce remake avec quelques variantes de l'original
+(détaillées plus loin). Laughing
 
-### El perro Jíbaro
+### Le chien Jíbaro
 
-Esta especie pertenece a los mamíferos cimarrones, introducidos en Cuba durante
-la colonización española. El Perro doméstico se convierte en jíbaros una vez que 
-abandonan las casas y se internaron en los bosques.
+Cette espèce appartient aux mammifères Maroons, introduits à Cuba pendant la colonisation espagnole. Le chien
+domestique devint sauvage après avoir quitté les maisons et s'être réfugié dans les bois, où leur caractère et leurs
+habitudes se sont modifiés, et en ont fait une nouvelle race, sauvage, accentuée par leurs descendants. 
 
-Cuando se internaron en los bosques, modificaron sus caracteres y hábitos, y evolucionaron
-en una nueva raza silvestre, acentuada en sus descendientes.
+D'où le nom de code Pupjibaro donnné à la version de PuppyLinux
 
-De ahi el codename para la version de Puppylinux Pupjibaro.
+[Sources](http://www.ecured.cu/index.php/Perro_jíbaro)
 
-[FUENTE](http://www.ecured.cu/index.php/Perro_jíbaro)
+### Dépôts de paquets
 
-### Repositorios de paquetes
+[Dépôt Puppylinux precise officiel](http://distro.ibiblio.org/puppylinux/pet_packages-precise/)
 
-[Repositorio Puppylinux precise oficial](http://distro.ibiblio.org/puppylinux/pet_packages-precise/)
+[Dépôt Wuala](https://www.wuala.com/josejp2424/puppy-es/programas)
 
-[Repositorio Wuala](https://www.wuala.com/josejp2424/puppy-es/programas)
-
-[Repositorio Dropbox](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
+[Dépôt Dropbox ](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
 
 ### Caracteristicas 
 | Caracteristica | Detalle |
