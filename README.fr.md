@@ -54,128 +54,132 @@ D'où le nom de code Pupjibaro donnné à la version de PuppyLinux
 
 [Dépôt Dropbox ](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
 
-### Caracteristicas 
-| Caracteristica | Detalle |
+### Caractéristiques 
+| Caractéristiques | Détails |
 | -------------- | ------- |
-| Arquitectura | i386 |
+| Architecture | i386 |
 | Kernel | 3.2.48 |
-| Escritorio | Openbox, Lxpanel |
-| Administrador de archivos | Rox + opciones click derecho. |
-| Multilingue | Soporta la mayoria de idiomas con su respectivo paquete de idiomas |
-| Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
-| Navegador por defecto | Chromium 25 |
-| Gestor de paquetes | Ppm Puppy packages manager |
-| Editor de texto | Geany, Abiword |
+| Desktop | Openbox, Lxpanel |
+| Gestionnaire d’archives | + d'options Rox cliquez droit. |
+| Multilingue | Prise en charge de la plupart des langues (pack de langue inclus) |
+| Exigences | Pentium4 256 ram (mieux avec 512) |
+| Navigateur par défaut | Chromium 25 |
+| Gestionnaire de paquets | Gestionnaire PPM Puppy Packages Manager |
+| Éditeur de texte | Geany, Abiword |
 | Terminal | Roxterm |
-| Reproductor de Audio y video | Deadbeef, gnome-player |
-| Cliente de chat | Xchat |
-| Administrador de Impresión | Cups |
+| Lecteur audio et vidéo | Deadbeef, gnome-player |
+| Chat en ligne | Xchat |
+| Gestion Impression | Cups |
 
-### Otras caracteristicas
+### Autres caractéristiques
 
-- Centro de control en el systray
+- Centre de contrôle dans systray
 
-- Se agregaron librerias Python
+- bibliothèques Python supplémentaires
 
 - Gmail-notfy
 
-- Telegram desde terminal ( se invoca con el comando tg )
+- Télégramme avec le terminal (utilise la commande tg)
 
-- Nueva interfaz de apagado ( Gracias a KuLuSz )
+- Nouvelle interface de fermeture (merci KuLuSz)
 
-- Selector de temas Xchat ( por josejp2424 )
+- Thèmes de sélection Xchat (pour josejp2424)
 
-- Notificador de bateria baja para Notebooks y Laptops ( Aviso al 10%, se apagará guardando
-  los cambios al 5%)
+- Témoin de Batterie faible pour Portables (Avertissement à 10%, s'éteindra en sauvegardant
+ arrivé à 5%)
 
-- Notificador minimalista de eventos dunst ( por nilsonmorales )
+- notificateur d’événements Minimaliste Dunst (nilsonmorales)
 
-- Youtube-dl + Youtube-dl-gui ( por josejp2424 )
+- Youtube-dl + Youtube-dl-gui (par josejp2424)
 
-- Fulldevx ( herramientas de desarrollo y compilación con más programas )
+- Fulldevx (Outils de compilation et de décompression de programmes)
 
-- Poedit, edit-SFS, edit-mo, ccgit, git, edit-initrd.gz, kernel sources incluidas 
-en el Fulldevx
+- Poedit, SFS-mo modifier, ccgit, git-edit initrd.gz, les sources du noyau sont incluses
+dans le Fulldevx
 
-### Atajos del teclado
+### Clavier raccorcis
 
-De forma sencilla Pupjibaro viene con algunos atajos del teclado útiles para el usuario
+Forme Sencilla Pupjibaro de viene con algunos Atajos clavier pour el del útiles utilisateur
 
 C = Ctrl
 
 A = Alt
 
-Ejemplo: C-A-g    tres teclas a la vez sin importar si es mayúscula o minúscula
+Exemple: C-A-g trois touches à la fois (Majuscule ou minuscule indifférent)
 
-| Secuencia | Acción | Detalle |
+| Combinaison | Action | Détail |
 | --------- | ------ | ------- |
-| C-A-g | geany | Editor de texto |  
-| C-A-h | htop | Visor de procesos | 
+| C-A-g | geany | Editeur de texte |  
+| C-A-h | htop | Affichage de processus | 
 | C-A-r | roxterm | La terminal |  
-| C-A-f | rox | El administrador de archivos | 
-| C-A-x | xchat | Cliente de chat |
-| A-f9 | xorgwizard | El asistente de video |
-| A-f6 | gtk-shutdown | Interfaz de apagado | 
-| Tecla windows | El menú | Despliega el lxpanel menú |
-| PrintScreen | Screnshot | Toma una captura de tu escritorio |
+| C-A-f | rox | archives gestionnaire | 
+| C-A-x | xchat | Chat client |
+| A-f9 | xorgwizard | Assistant vidéo |
+| A-f6 | gtk-shutdown | Interface de fermeture | 
+| Touche Windows | menu El  | ouvre le menu lxpanel |
+| PrintScreen | Screnshot | Photo de l’écran |
 
-El archivo ~/.config/openbox/rc.xml contiene el detalle completo de los atajos del teclado. 
+Le dossier ~/.config/openbox/rc.xml donne toute l’info sur les Raccourcis clavier. 
 
-### Compatibilidad
+### Compatibilité
 
-Pupjibaro al ser un remasterizado de Puppylinux retro precise puede ser compatible con todos
-los paquetes de puppy precise y retro precise ademas de paquetes Debian Wheezy y Ubuntu Precise
-Pangolin, como tambien derivados retro precise de Puppy.
-Pupjibaro no cuenta con servidor de paquetes propio, los desarrolladores ofrecemos nuestros paquetes
-atravez de sitios como wuala, dropbox, copy.com, yandex, ubuntuone entre otros.
+Pupjibaro étant une remasterisation de Puppy Linux Rétro Precise, il est compatible
+ avec tous les paquets Puppy Precise et Retro, ainsi que des paquets Debian
+  Wheezy et Ubuntu Precise Pangolin, mais également des dérivées 
+  Retros de Puppy Precise. Pupjibaro compte maintenant sur son propre 
+  serveur de paquets, nos développeurs offrent leurs propres paquets via 
+  des sites comme wuala, Dropbox, copy.com, Yandex, ubuntuone entre autres. 
 
-### Sobre las actualizaciones
+### A propos des mises à jour 
 
-Las actualizaciones de Pupjibaro pueden agregarse de 2 formas:
+Les mises à jour Pupjibaro peuvent être ajoutées de 2 façons: 
 
-Manual:: Pueden clonar este repositorio desde github y aplicar los cambios directamente en sus
-directorios respectivos.
+Manual :: on peut cloner le dépôt de github et appliquer les modifications directement 
+dans ses répertoires respectifs.
 
-Jibaupdate:: Los desarrolladores ofrecerán pets de actualizaciones llamados jibaupdates con la 
-estructura de todos los archivos contemplados en este proyecto, un jibaupdate se conformará de
-la siguiente manera. 
+Jibaupdate :: les développeurs offrent des pets de mises à jour appelés 
+jibaupdates respectant la structure de tous les fichiers inclus dans le projet. 
+Un jibaupdate respectera les règles suivantes :  
 
-Nombre-dia-mes-año-versión de Pupjibaro.   Ejemplo:: jibaupdate_26102014-1.0.3.pet 
+Nom-jour-mois-année-version de Pupjibaro.   Exemple : jibaupdate_26102014-1.0.3.pet  
 
-Asi los usuarios sabrán la fecha que se lanzó la actualización y la versión de Pupjibaro.
+Ainsi, les utilisateurs connaitront la date de mise à jour et la version de Pupjibaro concernée.
 
-Los jibaupdates no modificarán la apariencia por si ya fué modificada por el usuario, solamente
+Les jibaupdates ne modifient pas ce qui a déjà été modifié par l'utilisateur, 
 
-ajustes a programas o configuraciones que no funcionen bien, traducciones etc.
+il ajuste seulement les programmes ou les paramètres qui ne fonctionnent pas bien, les traductions, etc
 
-### Trucos y Tips
+### Trucs et astuces
 
 
 
-### Exención de responsabilidad
+### Désistement
 
-Los desarrolladores de Pupjibaro no pretendemos ser irrespetuosos de la filosofia GNU, si algunas aplicaciones
-son consideradas no-libres o privativas, estan en su derecho de no usar la distro, nuestro enfoque primordial son
-los usuarios con pocos conocimientos sobre linux para que puedan tener una experiencia mas amigable
-al entorno linux, asi sucesivamente van conociendo acerca de las grandes ventajas y virtudes de usar Linux.
+Les développeurs Pupjibaro ne comptent pas manquer au respect de la philosophie GNU, 
+si certaines applications sont considérées comme non libres ou privatives, 
+ils sont dans leur droit de ne pas utiliser la distribution, notre objectif 
+principal vise les utilisateurs ayant peu de connaissances de Linux afin 
+qu'ils puissent avoir une expérience plus sympathique de l'environnement Linux, pour percevoir le grand bénéfice qu'ils ont à tirer de son utilisation.
 
-Pupjibaro hereda posibles bugs de la versión oficial retro precise, asi que cualquier problema favor leer antes en la 
-sección de bugs del foro [Murga Linux](http://www.murga-linux.com/puppy/viewtopic.php?t=87712). nosotros por nuestra parte tambien nos mantendremos informados de los
-mismos para ir incorporando los bugfixes que los desarrolladores expertos vayan haciendo.
+Pupjibaro hérite peut-être d'éventuels bugs venant de la version rétro 
+officielle. S'il vous plaît lisez la section du forum Murga Linux concernant 
+la version. Quant à nous, nous nous tenons aussi informés auprès d'eux pour 
+intégrer les corrections de bugs que les développeurs auraient laissé passer.
 
 Este repositorio-proyecto cuenta con una sección para reporte de fallos, comentarios y preguntas. 
 
 woofwoof.
 
-Este readme se irá editando con los pormenores de la iso.
+Ce fichier Readme sera édité avec les détails de l'iso.
 
-[Galeria de imágenes de woofshahenzup](http://postimg.org/gallery/b4ohylc4/)
+[Galerie de photos de woofshahenzup](http://postimg.org/gallery/b4ohylc4/)
 
-[Galeria de imágenes de josejp2424]()
+[Galerie de photos de josejp2424]()
 
-[Comentarios](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CPreguntas%2CComentarios&page=1&state=open)
+[commentaires](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CPreguntas%2CComentarios&page=1&state=open)
 
-[Preguntas](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CComentarios%2CPreguntas&page=1&state=open)
+[Questions](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CComentarios%2CPreguntas&page=1&state=open)
 
-[Reportar fallos y bugs](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Preguntas%2CComentarios&page=1&state=open)
+[
+Signaler les erreurs et les bogues](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Preguntas%2CComentarios&page=1&state=open)
 
