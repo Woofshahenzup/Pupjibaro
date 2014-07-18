@@ -1,1 +1,0 @@
-../../../../share/pyshared/dbus/gobject_service.py

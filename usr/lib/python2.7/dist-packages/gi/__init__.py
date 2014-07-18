@@ -1,1 +1,0 @@
-../../../../share/pyshared/gi/__init__.py

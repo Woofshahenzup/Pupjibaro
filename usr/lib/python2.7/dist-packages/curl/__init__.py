@@ -1,1 +1,0 @@
-../../../../share/pyshared/curl/__init__.py

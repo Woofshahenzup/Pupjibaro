@@ -1,1 +1,0 @@
-../../../../../share/pyshared/gi/overrides/keysyms.py

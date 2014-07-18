@@ -1,1 +1,0 @@
-../../../../share/pyshared/dbus/_compat.py
