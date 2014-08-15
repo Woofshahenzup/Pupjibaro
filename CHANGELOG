@@ -1,5 +1,10 @@
 #### Pupjibaro-1.0.4 ###
 
+15082014 Reparaciones menores de fallos en 
+en el apagado, errores de compilación y actualización de 
+youtube-dl.
+Se agregaron librerias gnutls y rtmpdump.
+
 03052014 Lanzamiento de nueva versión
 Todas las actualizaciones de la 1.0.3
 más el centro de control en systray
