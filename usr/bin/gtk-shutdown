@@ -1,0 +1,78 @@
+#!/bin/sh
+# Made by KuLuSz
+# i18n nilsonmorales 16032014
+# i10n nilsonmorales Spanish translate
+# josejp2424  add tooltips instead text 23-03-2014
+export TEXTDOMAIN=gtk-shutdown
+export OUTPUT_CHARSET=UTF-8
+export GTK2_RC_FILES=/usr/share/themes/black-trans/gtk-2.0/gtkrc:/root/.gtkrc-2.0
+export shutdown='
+<window title="'$(gettext 'GTK shutdown')'" icon-name="gtk-preferences">
+
+ <vbox>
+  <hbox>
+
+   <vbox>
+    <button tooltip-text="'$(gettext 'X restart')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/switch.png</input>
+     <height>64</height><width>64</width>
+     <action>restartwm &</action> 
+    </button>
+   </vbox>
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'Prompt')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/logout.png</input>
+     <height>64</height><width>64</width>
+     <action>wmexit && killall X &</action> 
+    </button>
+   </vbox>
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'Reboot')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/restart.png</input>
+     <height>64</height><width>64</width>
+     <action>wmreboot && killall X &</action> 
+    </button>
+   </vbox>
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'Power off')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/shutdown.png</input>
+     <height>64</height><width>64</width>
+     <action>wmpoweroff && killall X &</action> 
+    </button>
+   </vbox>
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'X Lock')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/lock.png</input>
+     <height>64</height><width>64</width>
+     <action>/usr/local/apps/Xlock/AppRun &</action>
+     <action type="exit">CLOSE &</action>
+    </button>
+   </vbox>
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'Suspend')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/suspend.png</input>
+     <height>64</height><width>64</width>
+     <action>sync && echo -n mem > /sys/power/state &</action>
+    </button>
+   </vbox>      
+<text><label>"     "</label></text>
+   <vbox>
+    <button tooltip-text="'$(gettext 'Cancel')'">
+     <input file>/usr/share/ob-logout-menu/current_theme/cancel.png</input>
+     <height>64</height><width>64</width>
+     <action type="exit">CLOSE &</action> 
+    </button>
+   </vbox>
+
+  </hbox>
+ </vbox>
+</window>
+'
+
+#echo "$shutdown" | gtkdialog --stdin
+gtkdialog3 --program=shutdown --center --gtk-module=gtk2desklet
