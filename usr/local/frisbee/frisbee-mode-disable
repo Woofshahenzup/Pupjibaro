@@ -1,0 +1,13 @@
+#!/bin/sh
+if grep -q '^frisbee_mode=1' /etc/frisbee/frisbee.conf;then
+	/etc/init.d/frisbee stop
+	sed -i -e '/^frisbee_mode=/ s/=.*/=0/' /etc/frisbee/frisbee.conf
+	if grep -q '^dhcpcd_state_notify=1' /etc/frisbee/frisbee.conf;then
+		[ -f /etc/dhcpcd_state_notify ] || touch /etc/dhcpcd_state_notify
+	else
+		rm -f /etc/dhcpcd_state_notify
+	fi
+	[ -d /tmp/.network_tray ] \
+	 && rm -f /tmp/.network_tray/use_wireless_control_menu_labels \
+	 || rm -f /tmp/.network_tray-use_wireless_control_menu_labels #140209
+fi
