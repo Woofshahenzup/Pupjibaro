@@ -6,7 +6,7 @@
 
 my $openssl;
 
-my $dir = "/etc/ssl";
+my $dir = "/usr/ssl";
 my $prefix = "/usr";
 
 if(defined $ENV{OPENSSL}) {
