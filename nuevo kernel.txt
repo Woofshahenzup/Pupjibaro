@@ -1,0 +1,6 @@
+bueno aqui probando nuevo kernel, para ir actualizando a paquetes trusty.
+instalan el pet y cambian el vmiluz, de la raiz. reinician y ya estaran usando el nuevo kernel. 
+
+link de descarga kernel 3.17.4
+
+https://www.mediafire.com/folder/68mmx3h3ur54m/
