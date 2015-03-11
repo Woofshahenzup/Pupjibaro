@@ -11,7 +11,7 @@ Paquetes debian wheezy , kernel 3.17.7 .
 system config printer Gnome, Abiword, Gnumeric, FFconvert, Osmo 0.2.12 , Gnome Player , Pmusic y mucho mas.
 
 
-Descarga Iso Pupjibaro Whueezy 1.0.6.
+Descarga Iso Pupjibaro Wheezy 1.0.6.
 
 ### [Mirror 1 sourceForge :](http://sourceforge.net/projects/pupjibarowheezy/files/pupjibaro_wheezy_1.0.6_11032015.iso)
 ### [Mirror 2 Mediafire:](http://www.mediafire.com/download/9c9jhqoaxq1d8dy/pupjibaro_wheezy_1.0.6_11032015.iso)
