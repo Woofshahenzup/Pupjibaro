@@ -1,8 +1,0 @@
-#debug
-if [ "`which frisbee`" != "" ];then
- grep '' /tmp/.frisbee/* 2> /dev/null | sed -e 's%/tmp/\.frisbee/%%' -e 's/:/: /' > $DIAGSUBDIR/grep-tmp-.frisbee.txt
- grep '' /etc/ppp/peers/* 2> /dev/null | sed -e 's%/etc/ppp/peers/%%' -e 's/:/: /' > $DIAGSUBDIR/grep-etc-ppp-peers.txt
- grep '' /etc/ppp/chatscripts/* 2> /dev/null | sed -e 's%/etc/ppp/chatscripts/%%' -e 's/:/: /' > $DIAGSUBDIR/grep-etc-ppp-chatscripts.txt
- cp -f /etc/ppp/options.* $DIAGSUBDIR/ 2> /dev/null
- lsusb -v > $DIAGSUBDIR/lsusb.txt
-fi
