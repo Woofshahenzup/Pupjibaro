@@ -1,13 +1,13 @@
 Pupjibaro Wheezy
 ==================
-[![screenshot](http://s25.postimg.org/rep2e64un/Pupjibaro_wheezy.gif)](http://s25.postimg.org/rep2e64un/Pupjibaro_wheezy.gif)
+[![screenshot](http://s25.postimg.org/sav74ha8f/pupjibaro.gif)](http://s25.postimg.org/sav74ha8f/pupjibaro.gif)
 
 
 Puplet creado con 
 ### [Woof-Ce Testing](https://github.com/puppylinux-woof-CE/woof-CE/tree/testing)
 Paquetes debian wheezy , kernel 3.17.7 .
 
-### [Administrador de ventanas Openbox.](http://openbox.org/wiki/Main_Page)
+Administrador de ventanas JWM
 ### [Administrador de Paquetes PPM2 .](http://www.murga-linux.com/puppy/viewtopic.php?t=97623)
 ### [Navegador Palemoon.](http://www.palemoon.org/)
 system config printer Gnome, Abiword, Gnumeric, FFconvert, Osmo 0.2.12 , Gnome Player , Pmusic y mucho mas.
@@ -15,12 +15,12 @@ system config printer Gnome, Abiword, Gnumeric, FFconvert, Osmo 0.2.12 , Gnome P
 
 Descarga Iso Pupjibaro Wheezy 1.0.6.
 
-### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files/pupjibaro_wheezy_1.0.6_11032015.iso)
-### [Mirror 2 Mediafire](http://www.mediafire.com/download/9c9jhqoaxq1d8dy/pupjibaro_wheezy_1.0.6_11032015.iso)
-### [Mirror 3 Mega](https://mega.co.nz/#!koEBEaIQ!ngFFp6rLz7uT_iUzC3wDLJ_twQwh5xbErTk3KUZpmOk)
-### [Mirror 4 Copy](https://copy.com/1kKI47eytYMMihOL)
+### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files)
+### [Mirror 2 Mediafire](http://www.mediafire.com/download/1oa9fhds593n6sn/Pupjibaro_wheezy_JWM_1.0.6_15032015.iso)
+### [Mirror 3 Mega](https://mega.co.nz/#!V49mCBJY!GWWvqeyN1jmlldsnQoEEVpmVScbn4fO60JZhM_ENRxQ)
+### [Mirror 4 Copy](https://copy.com/7I70L7DN7m0pcMWQ)
 
-MD5 : e0adf3e397240d87257cdaa7543b761d  173 MB.
+MD5 : fba91c48f63403dc67766dbe79a90939  Pupjibaro_wheezy_JWM_1.0.6_15032015.iso  190 MB.
 
 
 
@@ -30,10 +30,11 @@ Devx Pupjibaro Wheezy ( librerias para compilar ).
 
 
 ### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files/repo/devx_pupjibaro-wheezy.sfs)
-### [Mirror 2 Mega](https://mega.co.nz/#!Zt0TUBqQ!85S7Gy0qaNsDYvmT5lQxp_bCnTjEEJYOCzU1-4cCmuE)
+### [Mirror 2 Mega](https://mega.co.nz/#!JtdCWBIS!J_T9HkpgbABTYliEDxlGIr8HPxKz4Cjk7kGkiEaIgaY)
 ### [Mirror 3 Copy](https://copy.com/UA4HhOn0f92EMXlt)
 
-MD5: 491c101bc6c7c106d10397cfcee28307  113 MB.
+MD5- 563561fe5aca28982a2827dac9066272  devx_pupjibaro-wheezy.sfs 120mb
+.
 
 
 
