@@ -12,15 +12,16 @@ Administrador de ventanas JWM
 ### [Navegador Palemoon.](http://www.palemoon.org/)
 system config printer Gnome, Abiword, Gnumeric, FFconvert, Osmo 0.2.12 , Gnome Player , Pmusic y mucho mas.
 
+### [Mirror ally](http://archive.org/details/Puppy_Linux_Pubjibaro)
 
 Descarga Iso Pupjibaro Wheezy 1.0.6.
 
-### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files)
-### [Mirror 2 Mediafire](http://www.mediafire.com/download/1oa9fhds593n6sn/Pupjibaro_wheezy_JWM_1.0.6_15032015.iso)
-### [Mirror 3 Mega](https://mega.co.nz/#!V49mCBJY!GWWvqeyN1jmlldsnQoEEVpmVScbn4fO60JZhM_ENRxQ)
-### [Mirror 4 Copy](https://copy.com/7I70L7DN7m0pcMWQ)
+### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files/Pupjibaro_wheezy_JWM_1.0.6_22032015.iso)
+### [Mirror 2 Mediafire](http://www.mediafire.com/download/u5988v4v4xenr9a/Pupjibaro_wheezy_JWM_1.0.6_22032015.iso)
+### [Mirror 3 Mega](http://goo.gl/vcdjpP)
 
-MD5 : fba91c48f63403dc67766dbe79a90939  Pupjibaro_wheezy_JWM_1.0.6_15032015.iso  190 MB.
+# MD5
+9fd065e992e3f52bafb20b0864922e9a Pupjibaro_wheezy_JWM_1.0.6_22032015.iso 198MB 
 
 
 
@@ -29,9 +30,9 @@ MD5 : fba91c48f63403dc67766dbe79a90939  Pupjibaro_wheezy_JWM_1.0.6_15032015.iso 
 Devx Pupjibaro Wheezy ( librerias para compilar ).
 
 
-### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files/repo/devx_pupjibaro-wheezy.sfs)
-### [Mirror 2 Mega](https://mega.co.nz/#!JtdCWBIS!J_T9HkpgbABTYliEDxlGIr8HPxKz4Cjk7kGkiEaIgaY)
-### [Mirror 3 Copy](https://copy.com/UA4HhOn0f92EMXlt)
+### [Mirror 1 SourceForge](http://sourceforge.net/projects/pupjibarowheezy/files/repo/devx_Pupjibaro_Wheezy.sfs)
+### [Mirror 2 Mega](http://goo.gl/AwocIO)
+### [Mirror 3 mediafire](http://www.mediafire.com/download/26j4fiq1p84q61o/devx_Pupjibaro_Wheezy.sfs)
 
 MD5- 563561fe5aca28982a2827dac9066272  devx_pupjibaro-wheezy.sfs 120mb
 .
