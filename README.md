@@ -34,7 +34,8 @@ Devx Pupjibaro Wheezy ( librerias para compilar ).
 ### [Mirror 2 Mega](http://goo.gl/AwocIO)
 ### [Mirror 3 mediafire](http://www.mediafire.com/download/26j4fiq1p84q61o/devx_Pupjibaro_Wheezy.sfs)
 
-MD5- 563561fe5aca28982a2827dac9066272  devx_pupjibaro-wheezy.sfs 120mb
+# MD5
+7c6ad7044591695110dd8c0119f49dfd devx_Pupjibaro_Wheezy.sfs 149MB 
 .
 
 
