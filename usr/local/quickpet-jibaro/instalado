@@ -1,0 +1,30 @@
+#!/bin/sh
+icon="/usr/local/lib/X11/pixmaps/update48.png"
+text="$(gettext ' Install -
+/usr/share/spacefm/
+/usr/share/man/man4/wacom.4 - /usr/share/man/man1/
+/usr/share/man/man1/xsetwacom.1
+/usr/share/icons/hicolor/24x24/apps/roxterm.png
+/usr/share/icons/hicolor/16x16/apps/mini-clock.xpm
+/usr/share/applications/spacefm-folder-handler.desktop
+/usr/share/applications/spacefm.desktop
+/usr/share/applications/spacefm-find.desktop
+/usr/share/applications/Run_In_Terminal.desktop
+/usr/share/mime/packages/spacefm-mime.xml
+/usr/share/X11/xorg.conf.d/50-wacom.conf
+/usr/share/locale/spacefm
+/usr/share/locale/baconrecorder
+/usr/share/locale/es/LC_MESSAGES/puppy_idtag.mo
+/usr/bin/spacefm - /usr/bin/spacefm-auth - /usr/bin/puppy_idtag
+/usr/sbin/baconrecorder
+/usr/include/xorg/wacom-properties.h
+/usr/include/xorg/wacom-util.h
+/usr/include/xorg/isdv4.h
+/usr/include/xorg/Xwacom.h
+/usr/lib/udev/rules.d/wacom.rules
+/usr/lib/systemd/system/wacom-inputattach@.service
+/usr/lib/xorg/modules/input/wacom_drv.la
+/usr/lib/xorg/modules/input/wacom_drv.so
+/usr/lib/pkgconfig/xorg-wacom.pc
+/usr/local/lib/X11/mini-icons/mini-clock.xpm')"
+yaf-splash -bg yellow -icon "$icon" -placement top -fg black -timeout 10 -text "$text"

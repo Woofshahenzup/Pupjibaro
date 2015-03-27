@@ -1,0 +1,15 @@
+#!/bin/sh
+icon="/usr/local/lib/X11/pixmaps/update48.png"
+text="$(gettext 'update  pupjibaro wheezy 26/03/15')"
+yaf-splash  -placement top -bg yellow -icon "$icon" -timeout 8 -text "$text" &&
+sleep 2
+mv  /usr/share/spacefm/spacefm/session /root/.config/spacefm/session &
+mv  /usr/share/spacefm/spacefm/session-last /root/.config/spacefm/session-last &
+mv  /usr/share/spacefm/spacefm/session-prior /root/.config/spacefm/session-prior &
+mv  /usr/share/spacefm/spacefm/bookmarks /root/.config/spacefm/bookmarks &
+mv  /usr/local/quickpet-jibaro/65-wacom.rules /etc/udev/rules.d/65-wacom.rules &
+mv  /usr/local/quickpet-jibaro/wacom.ko /lib/modules/3.17.7/kernel/drivers/input/tablet/wacom.ko &
+mv  /usr/local/quickpet-jibaro/wacom_w8001.ko /lib/modules/3.17.7/kernel/drivers/input/tablet/wacom_w8001.ko &&
+
+sleep 2
+/usr/local/quickpet-jibaro/instalado

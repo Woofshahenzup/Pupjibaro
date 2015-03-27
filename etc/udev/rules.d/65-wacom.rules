@@ -1,0 +1,4 @@
+# udev rule for wacom tablets.
+
+KERNEL=="event[0-9]*", SYSFS{idVendor}=="056a", SYMLINK+="input/wacom"
+

@@ -1,0 +1,922 @@
+#! /bin/bash
+# Bacon Recorder version 1.8   June 2011
+# Bacon Recorder version 2.3   July 2011
+# fixed for spaces in name version 2.3.1  Aug 2011
+# changed for Russian version 2.3.3 Oct 2011
+# bug fix in warning message fixed  in version 2.3.4 oct 2011
+# version 2.3.6 Jan 2012 fixes false messages that disk is not mounted in some installs
+# version 2.4 FEB1 2012 introduces a new folder selector and new method to recognize a full install
+# version 2.5 FEB 6 2012  minor change to warning message "Recording stored in"
+# version 2.6 FEB 8 2012  -  corrected bug in warning message and added 2 more
+# version 2.6.1 FEB 11 2012 - corrected english localization file
+# version 2.7 March 11 2012   - default audio mixer used for saluki- space around play button
+# version 2.8 May 5 2012 -  now fits height of 480 pixels
+# version 2.9 july 22 2012  - modify interface - stop  alphabet input
+# version 3.0 dec7 2012 - corrected clicking of play button while volume window showing
+# version 3.1 dec15 2012  - audiomixer chosen differently
+# version 4.0  convert to gettext
+# version 4.1  sept 2013 new svg icon
+# version 4.2  sept 2013 gettext of Recording name used
+#  version 4.3 oct 2013 - refresh icons for time and date 
+#  version 4.4 oct 8 2013 - refresh icons for time and date 
+#  version 4.5 june 2014 - bigger field for date - new alsa volume command by Charlie6 
+#  version 4.6 Nov 2014  -  new alsa volume by charlie - yellow warning messages 
+#  version 4.8 feb 2015  -  df -l   speeds up windows share not found
+
+# written by Don White  (don570)
+# A simple audio recorder based on an egg timer 
+# localized using Zigbert's method
+export TEXTDOMAIN=baconrecorder
+export OUTPUT_CHARSET=UTF-8
+
+set -a
+. gettext.sh
+export WORKDIR=$HOME/.baconrecorder/tmp
+if [ ! -d $WORKDIR ]; then
+	mkdir -p $WORKDIR		
+	echo 60 > $WORKDIR/LENGTH
+	echo "/root/" > $WORKDIR/SAVEFOLDER
+	echo "$(gettext 'Recording')".wav > $WORKDIR/NAME
+fi
+
+echo ' <svg version="1.1" width="150" height="150" id="svg1">
+    id="svg1854"
+  
+  <defs
+     id="defs1856" />
+  <sodipodi:namedview
+     id="base" />
+  <g
+     id="g863"
+     transform="matrix(2.548887,0.000000,0.000000,2.401153,-1219.592,-402.1428)"
+     style="font-size:12;">
+    <path
+       fill="#333333"
+       d="M516.791,176.799l-3.211,6.996c6.373,1.846,11.049,7.724,11.049,14.683    c0,8.435-6.861,15.296-15.294,15.296c-7.314,0-13.438-5.163-14.938-12.034l-7.119,3c2.729,9.624,11.559,16.682,22.057,16.682    c12.669,0,22.942-10.272,22.942-22.944C532.277,188.421,525.797,179.897,516.791,176.799z"
+       id="path865" />
+    <g
+       id="g867">
+      <path
+         fill="#333333"
+         d="M515.889,206.126c-0.555,0-1.111-0.211-1.539-0.633l-7.075-7.015h-16.514     c-1.207,0-2.185-0.978-2.185-2.185c0-1.207,0.978-2.185,2.185-2.185h18.313l8.354,8.281c0.857,0.85,0.863,2.233,0.014,3.091     C517.014,205.911,516.451,206.126,515.889,206.126L515.889,206.126z"
+         id="path869" />
+    </g>
+  </g>
+</svg>
+' >  /tmp/baconrecorder.svg
+
+
+
+export GTK2_RC_FILES=$WORKDIR/gtkrc2:/root/.gtkrc-2.0 #include theme stuff with system themes
+
+for P in gtkdialog4 gtkdialog3 gtkdialog; do
+  GTKDIALOG=$(which $P) && break
+done
+
+if [ ! -f $HOME/.baconrecorder/baconrecorderrc ] ; then
+echo 'export LENGTH=60
+export VERSION=4.8
+export SAVEFOLDER=/root/' > $HOME/.baconrecorder/baconrecorderrc
+	chmod 722 $HOME/.baconrecorder/baconrecorderrc
+export DEFAULT_LENGTH=$LENGTH
+export DEFAULT_SAVEFOLDER=$SAVEFOLDER
+
+
+echo 60 > $WORKDIR/DEFAULT_LENGTH
+echo /root/ > $WORKDIR/DEFAULT_SAVEFOLDER
+echo "$(gettext 'Recording')".wav > $WORKDIR/DEFAULT_NAME
+#echo "Recording.wav" > $WORKDIR/DEFAULT_NAME	
+fi
+. $HOME/.baconrecorder/baconrecorderrc
+
+if [ ! -e "$WORKDIR/log" ];then # start a log
+echo -e "$( date )    `eval_gettext \"Bacon Recorder \\\$VERSION\"; echo`  \n"  > "$WORKDIR/log" 
+fi
+
+
+# make DF_FILE including a final extra line if frugal
+df -l  > "$WORKDIR"/DF_FILE
+BOOTDISK_LINE=`grep  "/initrd/mnt/dev_" "$WORKDIR"/DF_FILE | sed 's/dev/mnt/'`
+BOOTDISK=${BOOTDISK_LINE:0:9}
+
+
+# For a full install then BOOTDISK_FULL is added to list of mounted partitions
+BOOTDISK_LINE=`grep  /$ "$WORKDIR"/DF_FILE | sed 's/dev/mnt/'`
+BOOTDISK_FULL=${BOOTDISK_LINE:0:9}
+
+#if [ ! -e /mnt/home ] ; then
+#FULLBOOT_LINE=`grep  /$ "$WORKDIR"/DF_FILE | grep  rootfs `
+#[ -n "FULLBOOT_LINE" ] 
+#if  [ $? -eq  0 ] ;then
+#ln -s  / /mnt/home
+
+#fi
+#fi
+
+
+ 
+read LENGTH < "$WORKDIR/LENGTH"
+read SAVEFOLDER < "$WORKDIR/SAVEFOLDER"
+#read NAME < "$WORKDIR/NAME"
+
+# set CLICK to zero if arecord isnt running
+read CLICK < "$WORKDIR/CLICK"
+if [ -z "$CLICK" ] ;then
+echo "0" > "$WORKDIR/CLICK"
+else
+if [ "$CLICK" -eq "1" ] ;then 
+ps > "$WORKDIR/PS"
+RUN_CHECK=`grep "arecord -d" "$WORKDIR/PS"`
+if [ ! -n "$RUN_CHECK" ] ;then
+echo "0" > "$WORKDIR/CLICK"
+fi
+fi
+fi
+
+###############################################
+#                                             #
+#              CHECK_ENDING1                  #
+#                                             #
+###############################################
+check_ending1(){
+	SAVEFOLDER=`echo "$SAVEFOLDER"`/ # add slash at end
+SAVEFOLDER=${SAVEFOLDER/\/\///} #  remove a possible double slash
+
+case "$LENGTH" in
+[a-zA-Z]*) Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Warning.  The length must be set.')
+$(gettext 'Make the correction and try again.')\n"   0 0 && exit;;  # Begins with a letter?
+*        ) continue;;
+esac
+
+if [ "$LENGTH" -eq 0 ] ; then
+Xdialog --title "$(gettext 'Error')"   --wrap   --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length of the recording cannot be zero.')\n"   0 0 &
+exit 0
+fi
+if [ -z "$LENGTH"  ] ; then
+Xdialog --title "$(gettext 'Error')"   --wrap  --rc-file /root/.config/pclock/orangebox.rc  --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length must be set.')\n
+"   0 0 &
+exit 0
+fi
+check_disk &
+exit 0
+}
+
+###############################################
+#                                             #
+#              CHECK_ENDING2                  #
+#                                             #
+###############################################
+check_ending2(){
+
+	SAVEFOLDER=`echo "$SAVEFOLDER"`/ # add slash at end
+SAVEFOLDER=${SAVEFOLDER/\/\///} #  remove a possible double slash
+
+
+
+case "$LENGTH" in
+[a-zA-Z]*) Xdialog --title "$(gettext 'Recording')"   --wrap  --rc-file /root/.config/pclock/orangebox.rc  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Warning.  The length must be set.')
+$(gettext 'Make the correction and try again.')\n"   0 0 && exit;;  # Begins with a letter?
+*        ) continue;;
+esac
+
+if [ "$LENGTH" -eq 0 ] ; then
+Xdialog --title "$(gettext 'Error')"   --wrap   --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length of the recording cannot be zero.')\n
+"   0 0 &
+exit 0
+fi
+if [ -z "$LENGTH"  ] ; then
+Xdialog --title "$(gettext 'Error')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length must be set.')\n
+"   0 0 &
+exit 0
+fi
+check_timer &
+exit 0
+}
+
+
+###############################################
+#                                             #
+#              CHECK_ENDING3                 #
+#                                             #
+###############################################
+check_ending3(){
+	SAVEFOLDER=`echo "$SAVEFOLDER"`/ # add slash at end
+SAVEFOLDER=${SAVEFOLDER/\/\///} #  remove a possible double slash
+
+if [ "$LENGTH" -eq 0 ] ; then
+Xdialog --title "$(gettext 'Error')"   --wrap   --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length of the recording cannot be zero.')\n
+"   0 0 &
+exit 0
+fi
+if [ -z "$LENGTH"  ] ; then
+Xdialog --title "$(gettext 'Error')"   --rc-file /root/.config/pclock/orangebox.rc --wrap   --ok-label "$(gettext 'Close')" --msgbox "
+\n$(gettext 'Warning.  The length must be set.')\n
+"   0 0 &
+exit 0
+fi
+
+
+check_countdown &
+exit 0
+}
+
+
+###############################################
+#                                             #
+#                P L A Y E R                  #
+#                                             #
+###############################################
+
+player_function(){
+read JUST_RECORDED < "$WORKDIR/JUST_RECORDED"	
+# if arecord is launched then do not play
+ps   > "$WORKDIR"/arecord_ps  
+cat "$WORKDIR"/arecord_ps | grep -q "arecord -d" 
+if [ $? -eq 0 ] ; then 
+
+Xdialog --title "$(gettext 'Error')"   --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Error.   You are currently recording a file.')
+
+$(gettext 'The recording must be stopped 
+before clicking play button.')\n"   0 0 &
+
+exit 0
+else
+if [  -e "$JUST_RECORDED" ]; then
+# choose deadbeef, audacious  then  default  to pmusic
+for P in deadbeef audacious defaultaudioplayer; do
+  AUDIOPLAYER=$(which $P) && break
+done
+
+
+$AUDIOPLAYER "$JUST_RECORDED" &
+else
+     Xdialog --title "$(gettext 'Recording')"   --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'No recording was found.')\n"    0 0  &
+fi
+exit 0
+fi
+}
+
+###############################################
+#                                             #
+#                K I L L                      #
+#                                             #
+###############################################
+
+kill_function(){
+# check if the processes check_countdown or check_timer exist and kill them
+    ps   >  $WORKDIR/PS
+    grep  check_ending  $WORKDIR/PS  > $WORKDIR/PROCESS1
+#	grep  check_countdown  $WORKDIR/PS  > $WORKDIR/PROCESS1
+#	grep  check_timer  $WORKDIR/PS > $WORKDIR/PROCESS2
+	grep "arecord -d"  $WORKDIR/PS > $WORKDIR/CHECK
+	
+	read processID1 < $WORKDIR/PROCESS1
+	kill ${processID1:0:5}
+	
+#	read processID2 < $WORKDIR/PROCESS2
+#	kill ${processID2:0:5}
+    read CHECK  < $WORKDIR/CHECK
+    read CLICK  < $WORKDIR/CLICK
+    
+   
+# now check if arecord is in use
+    if [ -n  "$CHECK"  ] && [ $CLICK -ne "1" ] ;then
+  Xdialog --title "$(gettext 'Recording')"   --rc-file /root/.config/pclock/orangebox.rc --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'You have stopped the current recording.')\n$(gettext 'You are ready to make a new recording.')\n$(gettext 'Enter new settings.')\n\n`eval_gettext \"Recording is stored in the folder \n\\\$SAVEFOLDER\"; echo`\n"   0 0 100   &
+fi   
+	
+#  this message will show if stop button is clicked and  recording hasn't started	
+    if [ -z  "$CHECK"  ] ;then
+    Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'You are ready to make a new recording.')\n$(gettext 'Enter new settings.')\n"    0 0 100  &
+    echo "$(gettext 'Stop button was clicked'):  "  $( date +%T )  >>  $WORKDIR/log 
+    echo >>  $WORKDIR/log
+else
+   echo "$(gettext 'Stop button was clicked'):  "  $( date +%T )  >>  $WORKDIR/log  
+   echo >>  $WORKDIR/log 
+   killall arecord
+fi
+
+echo "0" > $WORKDIR/CLICK
+exit 0
+
+}
+
+
+###############################################
+#                                             #
+#                AUDIOMIXER                   #
+#                                             #
+###############################################
+
+audiomixer(){
+# choose the correct audio mixer starting with retrovol
+
+
+for P in retrovol defaultaudiomixer alsamixer; do
+  MIXER=$(which $P) && break
+done
+$MIXER &
+
+exit 0
+}
+
+
+###############################################
+#                                             #
+#            P R E F E R E N C E S            #
+#                                             #
+###############################################
+
+preferences(){
+	export GTK2_RC_FILES=/root/.gtkrc-2.0 #reset gtk
+	export baconrecorder_pref='
+	<window title="'$(gettext 'Default Entries')'"  icon-name="mini-clock">
+	 <vbox>
+	 <hbox>
+	   <text><label>"'$(gettext 'Default length of recording')'"</label></text>
+	   <entry max_length="3"><variable>DEFAULT_LENGTH</variable><input>cat '$WORKDIR'/DEFAULT_LENGTH</input></entry>
+	  </hbox>
+	  
+	  <hbox>
+	   <text><label>"'$(gettext 'Default destination folder')'"</label></text>
+	   <entry><variable>DEFAULT_SAVEFOLDER</variable><input>cat '$WORKDIR'/DEFAULT_SAVEFOLDER</input></entry>
+	  </hbox>
+	  
+	    <hbox>
+	   <text><label>"'$(gettext 'Default name (extension is optional)')'"</label></text>
+	   <entry><variable>DEFAULT_NAME</variable><input>cat '$WORKDIR'/DEFAULT_NAME</input></entry>
+	  </hbox>
+	  
+	  
+	  <hbox>
+	   <text use-markup="true"><label>"<b>'$(gettext 'Restart Bacon Recorder to activate changes')'</b> "</label></text>
+	   <button cancel></button>
+	   <button><label>"  '$(gettext 'Set')'  "</label>
+	   <input file stock="gtk-refresh"></input>
+	    <action>echo -e "export LENGTH=\"$LENGTH\"\nexport VERSION=\"$VERSION\"\nexport SAVEFOLDER=\"$SAVEFOLDER\"" > '$HOME'/.baconrecorder/baconrecorderrc</action>
+	    <action>echo $DEFAULT_LENGTH > "$WORKDIR"/DEFAULT_LENGTH</action>
+	    <action>echo $DEFAULT_LENGTH > "$WORKDIR"/LENGTH</action>
+	    <action>echo "$DEFAULT_SAVEFOLDER" > "$WORKDIR"/DEFAULT_SAVEFOLDER</action>
+	    <action>echo "$DEFAULT_SAVEFOLDER" > "$WORKDIR"/SAVEFOLDER</action>
+	    <action>echo "$DEFAULT_NAME" > "$WORKDIR"/DEFAULT_NAME</action>
+	    <action>echo "$DEFAULT_NAME" > "$WORKDIR"/NAME</action>
+	    <action>EXIT:exit</action>
+	   </button>
+	  </hbox>
+	 </vbox>
+	</window>'
+	$GTKDIALOG -p baconrecorder_pref --center
+}
+###############################################
+#                                             #
+#               CHECK DISK                    #
+#                                             #
+###############################################
+
+# check if disk is mounted has been set
+#  stop the recording from beginning if SKIP=0
+check_disk (){
+
+	
+	
+
+# do not record if /mnt/home does not exit and has been choosen
+if [ ! -e /mnt/home ] ; then
+if [ "${SAVEFOLDER:0:9}" = "/mnt/home" ] ;then
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 &
+exit 0 
+fi
+fi
+
+if  [ "${SAVEFOLDER:0:5}" != "/root" ]; then
+df -l  > "$WORKDIR"/DF_FILE
+echo "$BOOTDISK" >> "$WORKDIR"/DF_FILE
+echo "$BOOTDISK_FULL" >> "$WORKDIR"/DF_FILE
+grep  "${SAVEFOLDER:0:9}" "$WORKDIR"/DF_FILE > "$WORKDIR"/MOUNT_CHECK
+if [ ! -s "$WORKDIR"/MOUNT_CHECK ] && [ "${SAVEFOLDER:0:9}" != "/mnt/home" ]; then 
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 &
+exit 0 
+fi
+fi	
+if [ ! -d "$SAVEFOLDER" ];then  #check for folder existence
+	Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Error')\n$(gettext 'Folder destination for recording')\n$(gettext 'Make the correction and try again.')\n"   0 0 &
+exit 0 
+fi		
+Xdialog --title "$(gettext 'Recording')"  --wrap --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'The recording has started now.')\n\n`eval_gettext \"It will finish in \\\$LENGTH minutes.\"; echo` \n"    0 0 100  & 
+ENTRY=0
+
+record_function &
+ 
+exit 0
+}  
+
+###############################################
+#                                             #
+#               CHECK_COUNTDOWN              #
+#                                             #
+###############################################
+
+
+# check if countdown has been set
+check_countdown (){
+
+case "$LENGTH" in
+[a-zA-Z]*) Xdialog --title "$(gettext 'Recording')"   --rc-file /root/.config/pclock/orangebox.rc --wrap --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Warning.  The length must be set.')
+$(gettext 'Make the correction and try again.')\n"   0 0 && exit;;  # Begins with a letter?
+*        ) continue;;
+esac
+
+case "$ENTRY" in
+[a-zA-Z]*) Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'The countdown has not been set.')
+$(gettext 'Make the correction and try again.')\n"   0 0 && exit;;  # Begins with a letter?
+*        ) continue;;
+esac
+
+
+
+if  [ $ENTRY  -eq 0 ] ; then
+check_disk 
+fi
+
+	
+if  [ $ENTRY  -gt 0 ] ; then
+
+# dont record if /mnt/home/ does not exist and it was entered
+if [ ! -e /mnt/home ] ; then
+if [ "${SAVEFOLDER:0:9}" = "/mnt/home" ] ;then
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'The countdown has not been set.')\n"   0 0 &
+exit 0 
+fi
+fi
+# check if disk is mounted
+
+if  [ "${SAVEFOLDER:0:5}" != "/root" ]; then
+df -l  > "$WORKDIR"/DF_FILE
+echo $BOOTDISK >> "$WORKDIR"/DF_FILE
+echo $BOOTDISK_FULL >> "$WORKDIR"/DF_FILE
+grep  "${SAVEFOLDER:0:9}" "$WORKDIR"/DF_FILE > "$WORKDIR"/MOUNT_CHECK
+if [ ! -s "$WORKDIR"/MOUNT_CHECK ] && [ "${SAVEFOLDER:0:9}" != "/mnt/home" ]; then 
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 &
+exit 0  
+fi
+fi
+
+Xdialog --title "$(gettext 'Recording')"  --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"Recording will start in \\\$ENTRY minutes.\"; echo`\n "   0 0 100  &  
+record_function &
+echo -e "`eval_gettext \"Recording will start in \\\$ENTRY minutes.\"; echo`" >> "$WORKDIR"/log
+else
+
+if [ -z "$ENTRY" ] ;then 
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'The countdown has not been set.')\n\n$(gettext 'Please set a value.')\n"    0 0 100  
+
+else
+Xdialog --title "$(gettext 'Recording')"   --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"The recording has started now.\n\nIt will finish in \\\$LENGTH minutes.\"; echo`\n"    0 0 100  &     
+record_function &
+fi
+
+fi
+
+
+exit 0
+}
+###############################################
+#                                             #
+#                CHECK_TIMER                  #
+#                                             #
+###############################################
+
+# check if timer set too low
+check_timer (){
+
+
+# dont record if /mnt/home/ does not exist and it was entered
+if [ ! -e /mnt/home ] ; then
+if [ "${SAVEFOLDER:0:9}" = "/mnt/home" ] ;then
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 
+exit 0 
+fi
+fi
+# check if disk is mounted 
+
+if  [ "${SAVEFOLDER:0:5}" != "/root" ]; then
+df -l  > "$WORKDIR"/DF_FILE
+echo $BOOTDISK >> "$WORKDIR"/DF_FILE
+echo $BOOTDISK_FULL >> "$WORKDIR"/DF_FILE
+grep  "${SAVEFOLDER:0:9}" "$WORKDIR"/DF_FILE > "$WORKDIR"/MOUNT_CHECK
+if [ ! -s "$WORKDIR"/MOUNT_CHECK ] && [ "${SAVEFOLDER:0:9}" != "/mnt/home" ]; then 
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 
+exit 0  
+fi
+fi
+
+
+# Add a zero at beginning if user left this out
+if  [ "${#TIME_FUTURE}" = 7 ] ;then 
+TIME_FUTURE=`echo "0""$TIME_FUTURE"`	
+fi
+
+# Prepare the numbers for comparison
+a=$DATE_FUTURE":"$TIME_FUTURE
+time_long=${a//-/:}
+future_removed=${time_long//:/}
+a=$( date +%F:%T )
+time_long=${a//-/:}
+current_removed=${time_long//:/}
+
+let "b=current_removed+139"
+#  first check to see if time was set ahead
+if [[ $b  -ge $future_removed ]] ;then
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext "Start time wasn't set correctly.")  \n\n$(gettext 'Try again by setting the start time to the future.')\n"    0 0  
+ 
+else
+# if  current time is greater than future time then start recording 
+echo -e "`eval_gettext \"Recording will start at \\\$TIME_FUTURE\"; echo`" >> "$WORKDIR"/log
+
+Xdialog --title "$(gettext 'Recording')"  --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"Recording will start at \\\$TIME_FUTURE\"; echo`\n "   0 0 100  &  
+loop15
+fi
+exit  0
+
+}
+###############################################
+#                                             #
+#                LOOP_15                      #
+#                                             #
+###############################################
+
+
+# loop every 15 seconds to check if time is ready
+loop15 (){
+	
+while  (("$current_removed" < "$future_removed"))    
+do
+sleep 15
+a=$( date +%F:%T )
+time_long=${a//-/:}
+current_removed=${time_long//:/}
+done
+ 
+ENTRY=0
+record_function
+
+}
+
+###############################################
+#                                             #
+#               RECORD_FUNCTION               #
+#                                             #
+###############################################
+
+record_function (){	
+		
+
+# extension is removed from recording filename	
+RECORDPATH_STRIPPED="${SAVEFOLDER}"
+# RECORDNAME="${RECORDPATH%/*}"
+# replace empty space with hard space 
+RECORDPATH_STRIPPED_MODIFIED="${RECORDPATH_STRIPPED// / }"
+read NAME < "$WORKDIR/NAME"
+NAME="${NAME%.*}"
+
+
+# convert minutes to seconds
+let ENTRY=ENTRY\*60
+
+
+sleep "$ENTRY"
+TIME_START="$( date )"
+# first  log entry when recording actually starts	
+echo "`eval_gettext \"The recording started at \\\$TIME_START\"; echo`"    >>  $WORKDIR/log	
+echo "$(gettext 'Recording Length (minutes)') $LENGTH"    >>  $WORKDIR/log	
+
+# convert minutes to seconds
+let LENGTH=LENGTH\*60
+
+DATE_CURRENT=$(date +%T)
+day2=$(date +%m-%d-%Y)
+
+
+
+#timestamp for filename is created
+time=$( date +_%m%d%H%M%S )	
+DESTINATION="${RECORDPATH_STRIPPED_MODIFIED%/*}"
+
+ if [ "$COMBOBOX" = "$(gettext 'Wave')" ]; then
+          echo "$RECORDPATH_STRIPPED${NAME}$time.wav" >  $WORKDIR/JUST_RECORDED
+          arecord -d $LENGTH -f cd   "${RECORDPATH_STRIPPED}${NAME}$time.wav" 
+          TIME_FINISHED="$( date +%T )" 
+             
+           Xdialog --title "$(gettext 'Recording')"   --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"The recording started at "\\\$DATE_CURRENT"\"; echo`\n\n`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo`\n\n `eval_gettext \""\\\${NAME}"\\\$time.wav is stored\nin the folder "\\\$DESTINATION"\"; echo`\n"     0 0   &            	
+           
+           echo "`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo` 
+`eval_gettext \""\\\${NAME}"\\\$time.wav is stored in the folder\"; echo` 
+"${RECORDPATH_STRIPPED%/*}" " >>  $WORKDIR/log  
+           echo >>  $WORKDIR/log  
+           exit;
+          elif [ "$COMBOBOX" = "$(gettext 'MP3 Stereo')" ]; then
+                        echo "$RECORDPATH_STRIPPED${NAME}$time.mp3" >  $WORKDIR/JUST_RECORDED
+                        arecord -d $LENGTH -f cd | lame  -V 3 --lowpass 22050 -m j - "$RECORDPATH_STRIPPED${NAME}$time.mp3" 
+                        TIME_FINISHED="$( date +%T )"   
+                         Xdialog --title "$(gettext 'Recording')"   --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"The recording started at "\\\$DATE_CURRENT"\"; echo`\n\n`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo`\n\n `eval_gettext \""\\\${NAME}"\\\$time.mp3 is stored\nin the folder "\\\$DESTINATION"\"; echo`\n"     0 0   &  
+                         
+                        echo "`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo` 
+`eval_gettext \""\\\${NAME}"\\\$time.mp3 is stored in the folder\"; echo` 
+"${RECORDPATH_STRIPPED%/*}" " >>  $WORKDIR/log
+                        echo >>  $WORKDIR/log  
+                        exit;
+
+          else 
+                        echo "$RECORDPATH_STRIPPED${NAME}$time.mp3" >  $WORKDIR/JUST_RECORDED 
+                        arecord -d $LENGTH -f cd |  lame -b 16 -m m   -h -   "$RECORDPATH_STRIPPED${NAME}$time.mp3" 
+                        TIME_FINISHED="$( date +%T )"   
+                        Xdialog --title "$(gettext 'Recording')"   --wrap  --center  --ok-label "$(gettext 'Close')" --msgbox "\n`eval_gettext \"The recording started at "\\\$DATE_CURRENT"\"; echo`\n\n`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo`\n\n `eval_gettext \""\\\${NAME}"\\\$time.mp3 is stored\nin the folder "\\\$DESTINATION"\"; echo`\n"     0 0   & 
+                          
+                        echo "`eval_gettext \"The recording finished at \\\$TIME_FINISHED\"; echo` 
+`eval_gettext \""\\\${NAME}"\\\$time.mp3 is stored in the folder\"; echo` 
+"${RECORDPATH_STRIPPED%/*}" " >>  $WORKDIR/log
+                        echo >>  $WORKDIR/log 
+                        exit;   
+          fi	
+
+exit 0
+}
+
+
+# check if disk is mounted when first launched and give a warning
+
+# give warning if /mnt/home/ does not exist and it was entered
+if [ ! -e /mnt/home ] ; then
+if [ "${SAVEFOLDER:0:9}" = "/mnt/home" ] ;then
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0 
+fi
+fi
+
+if  [ "${SAVEFOLDER:0:5}" != "/root" ]; then
+df -l  > "$WORKDIR"/DF_FILE
+echo $BOOTDISK >> "$WORKDIR"/DF_FILE
+echo $BOOTDISK_FULL >> "$WORKDIR"/DF_FILE
+grep  "${SAVEFOLDER:0:9}" "$WORKDIR"/DF_FILE > "$WORKDIR"/MOUNT_CHECK
+if [ ! -s "$WORKDIR"/MOUNT_CHECK ] && [ "${SAVEFOLDER:0:9}" != "/mnt/home" ]; then 
+Xdialog --title "$(gettext 'Recording')"  --rc-file /root/.config/pclock/orangebox.rc  --wrap   --ok-label "$(gettext 'Close')" --msgbox "\n$(gettext 'Check if the partition is mounted for your recording')\n"   0 0    
+fi
+fi
+
+
+#gtk-theme
+echo 'gtk-icon-sizes="gtk-button=32,32"
+' > $WORKDIR/gtkrc
+export GTK2_RC_FILES=$WORKDIR/gtkrc:/root/.gtkrc-2.0 #include theme stuff with system themes
+
+
+export -f record_function audiomixer preferences check_countdown loop15 check_timer kill_function player_function check_disk check_ending1 check_ending2 check_ending3
+
+
+
+###############################################
+#                                             #
+#                  A B O U T                  #
+#                                             #
+###############################################
+
+export about="
+<window title=\"$(gettext 'Help')\"  icon-name=\"mini-clock\" window_position=\"1\">
+ <notebook labels=\"$(gettext 'Help')|$(gettext 'About')|$(gettext 'License')\">
+  <frame>
+      <text><label>$(gettext "There are two types of recordings possible, Countdown and Timer.  Use Timer if you know the time of the start of the recording.  There will be a message of completion when the recording has finished.  You can set several recording times in one session.  The default path of your recording  can be set in Preferences.  Wave and MP3 Stereo are high quality whereas MP3 Mono is lower quality, but the file size is small!!  A countdown of zero starts recording immediately.  A lack of numerals will be signaled. The utility program 'arecord' runs in the background.  The STOP button will stop a scheduled recording, or a recording that is currently underway. Recommendation: Install DeaDBeef as Music Player")</label></text>   
+  
+  </frame>
+  <frame>
+   <text><label>\"\"</label></text>
+   <progressbar>
+    <input>echo 0; echo \"`eval_gettext \"Bacon Recorder \\\$VERSION\"; echo`\"</input>
+   </progressbar>
+    <text use-markup=\"true\"><label>\"<b>Don White, Copyright 2012</b>\"</label></text>
+    <text use-markup=\"true\"><label>\"<b> </b>\"</label></text>
+    <text use-markup=\"true\"><label>\"<b>written 2011-2013</b>\"</label></text>
+   <text height-request=\"30\"><label>\"\"</label></text>
+   
+  </frame>
+  <frame>
+   <text use-markup=\"true\"><label>\"Bacon Recorder is released under the <b>GNU General Public License</b> (GPL). You have the right to use and modify this software in any way you like, so long as any derivative works remain under a GPL license.\"</label></text>
+   <text use-markup=\"true\"><label>\"This program is distributed in the hope that it will be useful, but <b><span color='"'red'"'>WITHOUT ANY WARRANTY</span></b>. See the GNU General Public License homepage for more details.\"</label></text>
+   <hbox>
+    <button>
+     <label>\"http://www.gnu.org/licenses/\"</label>
+     <action>defaulthtmlviewer http:\/\/www.gnu.org\/licenses\/</action>
+    </button>
+   </hbox>
+  </frame>
+ </notebook>
+ 
+</window>"
+###############################################
+#                                             #
+#               M A I N   G U I               #
+#                                             #
+###############################################
+
+
+export MY_RECORDING='
+<window title="'"`eval_gettext \"Bacon Recorder \\\$VERSION\"; echo`"'"  icon-name="mini-clock" resizable="false" window_position="1">
+ <vbox>
+  <frame>
+<hbox homogeneous="true">
+
+<hbox> 
+ <button relief="2" height-request="48" tooltip-text="'$(gettext 'Stop a scheduled recording 
+or a recording that is underway.')'">
+      <input file stock="gtk-stop"></input>
+     <label>'$(gettext 'Stop')'</label>
+	  <action>kill_function</action>
+</button>
+
+ <button relief="2" height-request="48" tooltip-text="'$(gettext 'Check the last 14 lines of the log')'">
+      <input file stock="gtk-properties"></input>
+     <label>'$(gettext 'Log')'</label>
+     <action>tail -14 $WORKDIR/log > $WORKDIR/log_tail</action>
+	  <action>Xdialog --title "'$(gettext 'Log')'"  --ok-label "$(gettext 'Close')" --left  --msgbox "$(cat "$WORKDIR/log_tail")\n"   0 0  &</action>
+</button>
+     
+<button relief="2" height-request="48" tooltip-text="'$(gettext 'Audio Mixer')'">
+      <input file stock="gtk-preferences"></input>
+     <label>'$(gettext 'Mixer')'</label>
+	  <action>audiomixer &</action>
+</button>
+
+<button relief="2" height-request="48"  tooltip-text="'$(gettext 'Restoration of previous settings')'">
+     <label>'$(gettext 'Default settings')'</label>
+    <input file stock="gtk-refresh"></input>
+    <action>preferences</action>
+ </button>
+ 
+ 
+  <button relief="2" height-request="48"  tooltip-text="'$(gettext 'Quit')'">
+ <label>'$(gettext 'Quit')'</label>   
+    <input file stock="gtk-quit"></input>
+    <action>exit:EXIT</action>
+   </button>
+   </hbox>
+</hbox>
+</frame>
+
+
+ <hbox>
+ 
+  <text>
+     <label>'$(gettext 'Recording Length (minutes)')'</label>
+     </text>
+       
+      <combobox width-request="70"  tooltip-text="'$(gettext 'Recording Length (minutes)')'">
+      <variable>LENGTH</variable>
+      <item>'$LENGTH'</item>
+      <item>30</item>
+      <item>60</item>
+      <item>90</item>
+      <item>120</item>
+      <item>180</item>
+      <item>240</item>
+    </combobox>
+ 
+
+      
+   
+  <hbox>
+    
+    <combobox width-request="120" tooltip-text="'$(gettext 'Choose the recording format.
+Wave and MP3 Stereo are high quality')'">
+      <variable>COMBOBOX</variable>
+      <item>'$(gettext 'Wave')'</item>
+      <item>'$(gettext 'MP3 Stereo')'</item>
+      <item>'$(gettext 'MP3 Mono')'</item>
+    </combobox>
+  </hbox> 
+     <button tooltip-text=" '$(gettext 'Play previous recording')' ">
+<label>'$(gettext 'Play')'</label>
+      <input file stock="gtk-media-play"></input>
+	  <action>player_function &</action>
+</button>           
+  </hbox>               
+  <text><label>""</label></text>               
+<frame '$(gettext 'Destination Folder (path)')'>
+
+
+	
+<hbox> 
+
+<entry accept="directory" visible="true" width-request="10"  tooltip-text="'$(gettext 'Choose Directory to save recording')'">
+     <input>cat "$WORKDIR/SAVEFOLDER"</input>
+          <variable>SAVEFOLDER</variable>
+</entry>
+
+<button tooltip-text="'$(gettext 'Choose Directory to save recording')'">
+         <input file stock="gtk-directory"></input>
+          <action type="fileselect">SAVEFOLDER</action>
+</button>
+</hbox>
+
+</frame>
+
+
+     <hbox>
+<frame>
+<text label="'$(gettext 'Enter Countdown (minutes)')'"></text>
+    
+<hbox homogeneous="true">  
+   <hbox width-request="40">
+    <entry max_length="4" tooltip-text="'$(gettext 'Set the delay before a recording begins.')'">
+         <variable>ENTRY</variable>
+       </entry>
+ </hbox> 
+  </hbox> 
+ <text height-request="25"><label>""</label></text>  
+  
+       <text><label>'$(gettext 'Start Countdown')'</label></text>
+ <hbox homogeneous="true"> 
+ 
+        <button tooltip-text="'$(gettext 'Start Countdown to Record')'">   
+        <width>40</width>
+        <height>40</height>      
+        <input file>/tmp/baconrecorder.svg</input>
+        <action>echo "$SAVEFOLDER" > "$WORKDIR/SAVEFOLDER"</action>
+        <action>echo $LENGTH > "$WORKDIR"/LENGTH</action>
+        <action>echo 0 > "'$WORKDIR'/CLICK"</action>
+        <action>check_ending3</action>        
+      </button> 
+  </hbox> 
+  
+</frame>
+
+
+ <vbox width-request="95">  
+      <button relief="2"   tooltip-text="'$(gettext 'Click here. Check sound 
+volume before recording')'">
+            <input file>'/usr/share/images/anime.gif'</input>
+            <action>rxvt -bg black -fg lightgreen -geometry "64x2-0+172" -title " Bacon Recorder VU-Meter" -e arecord -V stereo /root/arecord_temp & { sleep 1; rm -f /root/arecord_temp; } &</action> 
+      </button>  
+             <text height-request="40"><label>""</label></text>   
+ <hbox homogeneous="true">  
+ <hbox width-request="48">     
+      <button relief="2" height-request="48" width-request="48" tooltip-text=" '$(gettext 'Help')' ">
+            <input file stock="gtk-help"></input>
+            <action>launch:about</action>
+      </button>
+</hbox></hbox>
+ </vbox>               
+
+
+ <vbox>
+ <frame '$(gettext 'Timer Recording')'>
+    <text>
+     <label>" '$(gettext 'START TIME (24 hour)')' "</label>
+     </text>
+     <hbox><hbox width-request="100"> <entry>
+      <input>date +%H:%M:%S</input>
+      <variable>TIME_FUTURE</variable>
+    </entry></hbox>
+    <button  tooltip-text="'$(gettext 'Update time')'">
+    
+
+        <input file stock="gtk-refresh"></input>        
+           <action>refresh:TIME_FUTURE</action>   
+    </button></hbox>
+    
+    
+      <hbox><hbox width-request="99"><entry>
+      <input>date +%F</input>
+      <variable>DATE_FUTURE</variable>      
+    </entry></hbox>
+    <button  tooltip-text="'$(gettext 'Update date')'">
+        <input file stock="gtk-refresh"></input>        
+           <action>refresh:DATE_FUTURE</action>   
+    </button></hbox>
+    
+    <button height-request="30" tooltip-text="'$(gettext 'Recording will begin immediately')'">
+        <label>'$(gettext 'Begin Recording Now')'</label>
+        <action>echo 0 > '$WORKDIR'/CLICK</action>
+        <action>echo "$SAVEFOLDER" > "'$WORKDIR'/SAVEFOLDER" </action>
+        <action>echo $LENGTH > "'$WORKDIR'/LENGTH"</action>
+        <action>check_ending1</action>        
+    </button>
+    
+    <button  height-request="50" tooltip-text="'$(gettext 'Recording will begin at START TIME')'">
+        <label>'$(gettext 'Set Timer Recording')'</label>
+        <action>echo 0 > '$WORKDIR'/CLICK</action>
+        <action>echo "$SAVEFOLDER" > "'$WORKDIR'/SAVEFOLDER"</action>
+        <action>echo $LENGTH > "'$WORKDIR'/LENGTH"</action>
+        <action>check_ending2</action>       
+    </button> 
+</frame>  
+</vbox>
+        
+</hbox>
+ </vbox>
+ 
+ </window>
+'
+$GTKDIALOG -p MY_RECORDING -c
+   
+exit 0

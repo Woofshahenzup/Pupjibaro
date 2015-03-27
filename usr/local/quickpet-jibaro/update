@@ -1,0 +1,19 @@
+#!/bin/sh
+export TEXTDOMAIN=update_shiba
+export OUTPUT_CHARSET=UTF-8
+text="$(gettext 'update Pupjibaro wheezy')"
+#kill quickpet_night
+cd /root
+urxvt -e wget --no-check-certificate http://sourceforge.net/projects/pupjibarowheezy/files/jwm/update/pupjibarowheezy_update.zip &&
+mv /root/pupjibarowheezy_update.zip /usr.zip &&
+cd /
+unzip -o /usr.zip 
+rm /usr.zip &&
+yaf-splash  -placement top -bg yellow -timeout 6 -text "$text" &&
+
+sleep 1
+/usr/local/quickpet-jibaro/version
+
+
+
+

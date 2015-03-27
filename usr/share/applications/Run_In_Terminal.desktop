@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Run_In_Terminal
+
+TryExec=roxterm
+Exec=/usr/local/apps/Run_In_Terminal/AppRun
+Icon=/usr/local/apps/Run_In_Terminal/.DirIcon
+Type=Application
