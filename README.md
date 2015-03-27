@@ -1,6 +1,6 @@
 Pupjibaro Wheezy
 ==================
-[![screenshot](http://s25.postimg.org/sav74ha8f/pupjibaro.gif)](http://s25.postimg.org/sav74ha8f/pupjibaro.gif)
+[![screenshot](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)
 
 
 Puplet creado con 
