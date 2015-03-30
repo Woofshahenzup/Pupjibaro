@@ -1,4 +1,48 @@
 #### Pupjibaro-1.0.4 ###
+29032015 Actualización de la iso
+Programas, librerias, y modificaciones agregadas
+
+Florence (florence) 0.6.3 Teclado en pantalla
+flsynclient 0.7 (c)2006 Matteo Lucarelli Asistente de touchpad
+Mtpaint 3.44.90
+Geany 1.23
+GetLibreOffice 0.29
+Osmo 0.2.12
+Abiword 2.8.6
+Navegador Firefox ESR 17.0.9 para equipos con poca Ram y FF 36.0.4 para equipos con mas de 512 de Ram
+GetFlashPlayer v1.5
+Youtube dl-gui 0.2 
+Audacious 3.2.4 + Pieles
+VLC 2.1.5 
+mhWaveEdit 1.4.21
+XEmeraldia, Xsoldier, gPlanarity ... Juegos
+
+ GNU bash, versión 4.2.37(1)-release (i486-pc-linux-gnu)
+ GNU Wget 1.16 built on linux-gnu.
+ OpenSSL 1.0.1j 15 Oct 2014
+ puppy_idtag v.0.1
+ ram_status (autor desconocido)
+ powerline_shell personalizacion para el prompt
+ pastebinit v1.3 o su alias paste para subir texto por terminal 
+ comando imgurl o su alias imagen para subir imagenes por terminal 
+                 ejemplo: imagen /root/my-documents/imagen01.jpg
+ Complemento de busqueda de Puppy linux al navegador                 
+ libgnutls-2.6.0
+ librtmpdump-2.3
+ Tecla PrintScreen y Tecla Windows funcionando
+ 
+ Estetica a cargo de kopper ( amigo y usuario del canal #puppy-latino en IRC )
+ Tema gtk: Clearlooks
+ Tema openbox: Windows8OB
+ Tema iconos de escritorio: Faience
+ Tema iconos mime: elementary
+ Tema iconos de rox: sheepy-rox
+ Fondo de escritorio: pjibaro104.png
+ Iconos de bandeja de sistema personalizados
+ Apariencia tahrpup gracias al sistema de iconos en .svg  
+
+======================================================== 
+#### Pupjibaro-1.0.4 ###
 
 15082014 Reparaciones menores de fallos en 
 en el apagado, errores de compilación y actualización de 
