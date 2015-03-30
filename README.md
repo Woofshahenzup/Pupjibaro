@@ -33,7 +33,7 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ## PuppyLinux versión Pupjibaro-1.0.4 
 =====================================
-[![screenshot](http://postimg.org/image/jdfgbau1v/)](http://postimg.org/image/jdfgbau1v/)
+[![screenshot](http://postimg.org/image/jdfgbau1v/pjibaro.gif)](http://postimg.org/image/jdfgbau1v/pjibaro.gif)
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
@@ -74,11 +74,11 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 | Administrador de archivos | Rox + opciones click derecho. |
 | Multilingue | Soporta la mayoria de idiomas con su respectivo paquete de idiomas |
 | Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
-| Navegador por defecto | Chromium 25 |
+| Navegador por defecto | Firefox 17.0.9 y 36.0.4 |
 | Gestor de paquetes | Ppm Puppy packages manager |
 | Editor de texto | Geany, Abiword |
 | Terminal | Roxterm |
-| Reproductor de Audio y video | Deadbeef, gnome-player |
+| Reproductor de Audio y video | Audacious, VLC |
 | Cliente de chat | Xchat |
 | Administrador de Impresión | Cups |
 
@@ -87,10 +87,6 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 - Centro de control en el systray
 
 - Se agregaron librerias Python
-
-- Gmail-notfy
-
-- Telegram desde terminal ( se invoca con el comando tg )
 
 - Nueva interfaz de apagado ( Gracias a KuLuSz )
 
@@ -102,6 +98,12 @@ De ahi el codename para la version de Puppylinux Pupjibaro.
 - Notificador minimalista de eventos dunst ( por nilsonmorales )
 
 - Youtube-dl + Youtube-dl-gui ( por josejp2424 )
+
+- Florence teclado en pantalla
+
+- Interfaz de actualizacion de flashplayer GetFlashPlayer
+
+- Interfaz de instalacion de Libre Office  GetLibreOffice
 
 - Fulldevx ( herramientas de desarrollo y compilación con más programas )
 
