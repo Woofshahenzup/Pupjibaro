@@ -8,6 +8,12 @@ Remaster de Puppy retro-precise, repo de actualizaciones
 ### Versiones actualizadas de Pupjibaro
 
 Proximamente.
+
+- Pjibaro Versión para equipos de hasta 512 de Ram
+
+- Pjibaro Versión para equipos mayores de 512 de ram
+
+- Pupjibaro Wheezy versión con kernel actualizado
  
 ### Versiones Anteriores
 
@@ -33,7 +39,7 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ## PuppyLinux versión Pupjibaro-1.0.4 
 =====================================
-[![screenshot](http://postimg.org/image/jdfgbau1v/pjibaro.gif)](http://postimg.org/image/jdfgbau1v/pjibaro.gif)
+[![screenshot](http://s5.postimg.org/ib59srb8l/pjibaro.gif)](http://s5.postimg.org/ib59srb8l/pjibaro.gif)
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
