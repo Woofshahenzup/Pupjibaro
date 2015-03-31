@@ -1,19 +1,35 @@
 Pupjibaro
 =========
 
-Remaster de Puppy retro-precise, repo de actualizaciones
+Puplet construida con woof-ce testing branch y Remaster de Puppy retro-precise, repositorio de actualizaciones
 
 *Leer en diferente lenguaje: [Español](README.md), [English](README.en.md), [Français](README.fr.md).*
 
-### Versiones actualizadas de Pupjibaro
+### Versiones de Pupjibaro
 
-Proximamente.
+### [Pjibaro_ff1709_29032105 Equipos de hasta 512 de Ram](https://yadi.sk/i/63flBOcKfddn4)
 
-- Pjibaro Versión para equipos de hasta 512 de Ram
+MD5SUM - b8531cf9166b882c88bed7d022ec7ad3   pjibaro_ff1709_29032015.iso   217.9 MB
 
-- Pjibaro Versión para equipos mayores de 512 de ram
+### [Pjibaro Versión para quipos mayores de 512 de ram](https://yadi.sk/d/zTaxv7WffdarR)
 
-- Pupjibaro Wheezy versión con kernel actualizado
+MD5SUM - d06dab569c08175a2f368112f816b9ca   pjibaro_29032015.iso   241.4 MB
+
+### [Pupjibaro Wheezy versión con kernel 3.17.7](http://www.mediafire.com/download/u5988v4v4xenr9a/Pupjibaro_wheezy_JWM_1.0.6_22032015.iso)
+
+MD5SUM - 9fd065e992e3f52bafb20b0864922e9a   Pupjibaro_wheezy_JWM_1.0.6_22032015.iso   198MB 
+
+###  [Pupjibaro_devx_full "Librerias para Compilar"](https://www.dropbox.com/s/2nd7dp55mkb87by/devx_Full_Pupjibaro.sfs)
+
+MD5SUM  463da70bc5c1d516d972b023985aca14  devx_Full_Pupjibaro.sfs  238MB
+
+### [Devx pupjibaro Wheezy](http://www.mediafire.com/download/26j4fiq1p84q61o/devx_Pupjibaro_Wheezy.sfs)
+
+MD5SUM - 7c6ad7044591695110dd8c0119f49dfd   devx_Pupjibaro_Wheezy.sfs   149MB 
+
+### [Kernel source 3.17.7](http://sourceforge.net/projects/pupjibarowheezy/files/repo/kernel_sources-3.17.7.sfs)
+
+MD5SUM 2593efe67624ff628426da4e52f2e8ee  kernel_sources-3.17.7.sfs  94MB 
  
 ### Versiones Anteriores
 
@@ -40,6 +56,11 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 ## PuppyLinux versión Pupjibaro-1.0.4 
 =====================================
 [![screenshot](http://s5.postimg.org/ib59srb8l/pjibaro.gif)](http://s5.postimg.org/ib59srb8l/pjibaro.gif)
+
+## PuppyLinux versión Pupjibaro Wheezy 1.0.6
+============================================
+[![screenshot](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)
+
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
