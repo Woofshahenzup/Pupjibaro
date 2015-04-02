@@ -7,7 +7,7 @@ Puplet construida con woof-ce testing branch y Remaster de Puppy retro-precise, 
 
 ### Versiones de Pupjibaro
 
-### [Pjibaro_ff1709_29032105 Equipos de hasta 512 de Ram](https://yadi.sk/i/63flBOcKfddn4)
+### [Pjibaro_ff1709_29032105 Equipos de hasta 512 de Ram](https://yadi.sk/d/XE4a0HcofdasJ)
 
 MD5SUM - b8531cf9166b882c88bed7d022ec7ad3   pjibaro_ff1709_29032015.iso   217.9 MB
 
