@@ -55,7 +55,7 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ## PuppyLinux versión Pupjibaro-1.0.4 
 =====================================
-[![screenshot](http://s5.postimg.org/ib59srb8l/pjibaro.gif)](http://s5.postimg.org/ib59srb8l/pjibaro.gif)
+[![screenshot](http://s5.postimg.org/qlicsh8yt/jibaro1.gif)](http://s5.postimg.org/qlicsh8yt/jibaro1.gif)
 
 ## PuppyLinux versión Pupjibaro Wheezy 1.0.6
 ============================================
