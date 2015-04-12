@@ -5,7 +5,7 @@ Puplet construida con woof-ce testing branch y Remaster de Puppy retro-precise, 
 
 *Leer en diferente lenguaje: [Español](README.md), [English](README.en.md), [Français](README.fr.md).*
 
-## Pupjibaro-1.0.4 Version actualizada 29/03/2015
+## Pupjibaro-1.0.4 Versión actualizada 29/03/2015
 
 ### [Pjibaro_ff1709_29032105 Equipos de hasta 512 de Ram](https://yadi.sk/d/XE4a0HcofdasJ)
 
@@ -34,6 +34,7 @@ MD5SUM 2593efe67624ff628426da4e52f2e8ee  kernel_sources-3.17.7.sfs  94MB
 ### [Archivo .exe Instalador desde Windows xp/7](https://yadi.sk/d/7ubwjmz_fwE5S)
 
 MD5SUM - d7f5243be43d72b1ea0d9347b96f78e2    Pupjibaro 104.exe  241.6MB
+
 ------------------------------------
  
 ## Versiones anteriores de Pupjibaro-1.0.4 Lanzamiento 29/03/2014
@@ -60,7 +61,7 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 ## PuppyLinux versión Pupjibaro-1.0.4 
 =====================================
-[![screenshot](http://s5.postimg.org/qlicsh8yt/jibaro1.gif)](http://s5.postimg.org/5buqhmso5/jibaro1.gif)
+[![screenshot](http://s5.postimg.org/5buqhmso5/jibaro1.gif)](http://s5.postimg.org/5buqhmso5/jibaro1.gif)
 
 ## PuppyLinux versión Pupjibaro Wheezy 1.0.6
 ============================================
