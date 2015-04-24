@@ -196,6 +196,64 @@ ajustes a programas o configuraciones que no funcionen bien, traducciones etc.
 
 ### Trucos y Tips
 
+**Interpretando los tips y trucos de Pupjibaro**
+
+* C=Terminal
+
+* G=Gráfico
+
+* I=Informativo
+
+* N=Navegador
+
+* A=Aplicacion
+
+* W=Pupjibaro-Wheezy
+
+--------
+Ejemplo: 
+
+WC=Cambiar la hora y fecha
+
+`set-time-for-puppy`
+
+'WC' indica que es un tip de terminal para Pupjibaro wheezy seguido de una pequeña descripción y por último el comando o un ejemplo.
+
+#### Trucos y Tips
+
+**C=Cambiar la hora y fecha**
+
+`set-time-for-puppy`
+
+---
+
+**C=Subir una imagen a imgur**
+
+`imagen`
+
+ejemplo: imagen /root/my-documents/images/tu-imagen.png
+
+---
+
+**C=Crear un paste en pastedebian.org**
+
+`paste` 
+
+ejemplo: df -h | paste
+
+---
+
+**C=Revisar el consumo de memoria Ram por aplicación abierta**
+
+`ram_status`
+
+---
+
+**IN=Desactivar actualizaciones en el navegador Firefox 17**
+
+Si estan usando la version para pc antiguos con menos de 512 con navegador firefox se recomienda desactivar la actualizacion del navegador ff 17 ya que esta versión consume menos ram, desde preferencias--avanzadas--actualizaciones 
+
+---
 
 ### Exención de responsabilidad
 
