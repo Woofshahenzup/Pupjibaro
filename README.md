@@ -60,21 +60,25 @@ MD5SUM - 463da70bc5c1d516d972b023985aca14   devx_Full_Pupjibaro.sfs   238 MB
 
 
 ## PuppyLinux versión Pupjibaro-1.0.4 
-=====================================
-[![screenshot](http://s5.postimg.org/5buqhmso5/jibaro1.gif)](http://s5.postimg.org/5buqhmso5/jibaro1.gif)
+----
+[![Ver captura](http://s5.postimg.org/5buqhmso5/jibaro1.gif)](http://s5.postimg.org/5buqhmso5/jibaro1.gif)
 
 ## PuppyLinux versión Pupjibaro Wheezy 1.0.6
-============================================
+----
 [![screenshot](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)](http://s25.postimg.org/tvyzfxszz/escritorio_2015_03_22.png)
 
+## Pupjibaro-1.0.4 instalador desde Windows xp/7
+----
+[![screenshot](http://s5.postimg.org/l6sgturvr/instaladorexe.jpg)](http://s5.postimg.org/l6sgturvr/instaladorexe.jpg)
+----
 
 Pupjibaro es un remaster de la versión oficial de Puppylinux retro precise 5.7.1
 pensada en usuarios con equipos modestos 256 - 1 Giga de ram y con pocos conocimientos
 sobre linux, por lo que cuenta con una serie de asistentes y aplicaciones que hacen más
 fácil el uso de esta versión, traducida en un 95% ( en proceso de traducción ) 
 El remasterizado a cargo de 2 usuarios conocidos en el universo Puppy como desarrolladores
-de otras versiones importantes en español, nilsonmorales y josejp2424, uno de nacionalidad 
-Salvadoreño y el otro Argentino, hicieron sociedad y crearon este remaster con algunas 
+de otras versiones importantes en español, josejp2424 y nilsonmorales, uno de nacionalidad 
+Argentino y el otro Salvadoreño respectivamente, hicieron sociedad y crearon este remasterizado con algunas 
 variantes del original detalladas más adelante.
 
 ### El perro Jíbaro
@@ -86,34 +90,34 @@ abandonan las casas y se internaron en los bosques.
 Cuando se internaron en los bosques, modificaron sus caracteres y hábitos, y evolucionaron
 en una nueva raza silvestre, acentuada en sus descendientes.
 
-De ahi el codename para la version de Puppylinux Pupjibaro.
+De ahi el nombre clave (codename) para la versión de Puppylinux Pupjibaro.
 
 [FUENTE](http://www.ecured.cu/index.php/Perro_jíbaro)
 
-### Repositorios de paquetes
+### Repositorios de paquetes .pet y .sfs
 
 [Repositorio Puppylinux precise oficial](http://distro.ibiblio.org/puppylinux/pet_packages-precise/)
 
-[Repositorio Wuala](https://www.wuala.com/josejp2424/puppy-es/programas)
+[Repositorio Mediafire](http://tinyurl.com/upup-pp-mf)
 
 [Repositorio Dropbox](https://www.dropbox.com/sh/7cpbzfboqw8x167/qD9vt3Urzl)
 
 ### Caracteristicas 
-| Caracteristica | Detalle |
-| -------------- | ------- |
-| Arquitectura | i386 |
-| Kernel | 3.2.48 |
-| Escritorio | Openbox, Lxpanel |
-| Administrador de archivos | Rox + opciones click derecho. |
-| Multilingue | Soporta la mayoria de idiomas con su respectivo paquete de idiomas |
-| Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) |
-| Navegador por defecto | Firefox 17.0.9 y 36.0.4 |
-| Gestor de paquetes | Ppm Puppy packages manager |
-| Editor de texto | Geany, Abiword |
-| Terminal | Roxterm |
-| Reproductor de Audio y video | Audacious, VLC |
-| Cliente de chat | Xchat |
-| Administrador de Impresión | Cups |
+| Caracteristica | Pupjibaro-1.0.4 | Pupjibaro-Wheezy
+| -------------- | ------- |------- |
+| Arquitectura | i386 | i386
+| Kernel | 3.2.48 | 3.17.7
+| Escritorio | Openbox, Lxpanel | JWM
+| Administrador de archivos | Rox + opciones click derecho. | Rox y SpaceFm
+| Multilingue | Soporta la mayoria de idiomas con su respectivo paquete de idiomas | Locales Español
+| Requerimientos minimos | Pentium 4 256 ram (Para una mayor experiencia con 512 basta) | Pentium 4 - 512 ram
+| Navegador por defecto | Firefox 17.0.9 y 36.0.4 | PaleMoon
+| Gestor de paquetes | Ppm Puppy packages manager | PPM2
+| Editor de texto | Geany, Abiword | Geany, Abiword
+| Terminal | Roxterm | 	Roxterm
+| Reproductor de Audio y video | Audacious, VLC |Deadbeef, Xine
+| Cliente de chat | Xchat | Hexchat
+| Administrador de Impresión | Cups | Cups
 
 ### Otras caracteristicas
 
@@ -173,7 +177,7 @@ Pupjibaro al ser un remasterizado de Puppylinux retro precise puede ser compatib
 los paquetes de puppy precise y retro precise ademas de paquetes Debian Wheezy y Ubuntu Precise
 Pangolin, como tambien derivados retro precise de Puppy.
 Pupjibaro no cuenta con servidor de paquetes propio, los desarrolladores ofrecemos nuestros paquetes
-atravez de sitios como wuala, dropbox, copy.com, yandex, ubuntuone entre otros.
+atravez de sitios como dropbox, copy.com, yandex, Mediafire, entre otros.
 
 ### Sobre las actualizaciones
 
@@ -206,7 +210,7 @@ ajustes a programas o configuraciones que no funcionen bien, traducciones etc.
 
 * N=Navegador
 
-* A=Aplicacion
+* A=Aplicación
 
 * W=Pupjibaro-Wheezy
 
@@ -227,7 +231,7 @@ WC=Cambiar la hora y fecha
 
 ---
 
-**C=Subir una imagen a imgur**
+**C=Subir una imágen a imgur**
 
 `imagen`
 
@@ -235,7 +239,7 @@ ejemplo: imagen /root/my-documents/images/tu-imagen.png
 
 ---
 
-**C=Crear un paste en pastedebian.org**
+**C=Crear y subir texto en pastedebian.org y compartir el enlace**
 
 `paste` 
 
@@ -249,9 +253,37 @@ ejemplo: df -h | paste
 
 ---
 
+**IW=Instalar actualizaciones luego de instalado Pupjibaro Wheezy**
+
+Se recomienda despues de instalar Pupjibaro version Wheezy instalar desde la barra de sistema las actualizaciones 
+para un mejor funcionamiento.
+
+---
+
 **IN=Desactivar actualizaciones en el navegador Firefox 17**
 
-Si estan usando la version para pc antiguos con menos de 512 con navegador firefox se recomienda desactivar la actualizacion del navegador ff 17 ya que esta versión consume menos ram, desde preferencias--avanzadas--actualizaciones 
+Si estan usando la versión para equipos antiguos con menos de 512 con navegador firefox se recomienda desactivar la actualización del navegador ff 17 ya que esta versión consume menos ram, desde preferencias--avanzadas--actualizaciones 
+
+---
+
+**A=Codificación Unicode utf 8 en Geany**
+
+Para que Geany el editor de texto pueda interpretar correctamente las ñ y acentos ( alfabeto latíno ) 
+se recomienda fijar esa función en las preferencias del editor. de esta manera.
+
+Documento >> Establecer codificación >> Unicode >> UTF-8
+
+---
+
+**C=Copiar y pegar desde la terminal urxvt**
+
+Pupjbiro cuenta con Roxterm como su terminal por defecto, pero para los interesados en copiar y pegar 
+desde la terminal urxvt se realiza de la siguiente manera.
+
+**Copiar** = Sombrear el texto ( clic izquierdo del ratón sostenido mientras se elige el texto )
+
+**Pegar** = Botón del scroll ( botón central de la rueda del ratón o clic derecho e izquierdo al mismo tiempo si no 
+tiene boton de scroll )
 
 ---
 
