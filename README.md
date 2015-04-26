@@ -3,7 +3,7 @@ Pupjibaro
 
 Puplet construida con woof-ce testing branch y Remaster de Puppy retro-precise, repositorio de actualizaciones
 
-*Leer en diferente lenguaje: [Español](README.md), [English](README.en.md), [Français](README.fr.md).*
+*Leer en diferente lenguaje: [Español](README.md), [English](README.en.md), [Français](README.fr.md), [Català](README.ca.md).*
 
 ## Pupjibaro-1.0.4 Versión actualizada 29/03/2015
 
