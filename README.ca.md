@@ -11,8 +11,7 @@ Puplet construïda amb woof-ce testing branch i Remaster de Puppy retro-precise,
 
 MD5SUM - b8531cf9166b882c88bed7d022ec7ad3 pjibaro_ff1709_29032015.iso 217.9 MB
 
-### [Pjibaro Versió per equips majors de 512 de ram]
-(https://yadi.sk/d/zTaxv7WffdarR)
+### [Pjibaro Versió per equips majors de 512 de ram](https://yadi.sk/d/zTaxv7WffdarR)
 
 MD5SUM - d06dab569c08175a2f368112f816b9ca pjibaro_29032015.iso 241.4 MB
 
@@ -288,5 +287,4 @@ Aquest readme s'anirà editant amb els pormenors de la iso.
 [Preguntes](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Reportar+bugs%2CComentarios%2CPreguntas&page=1&state=open)
 
 [Reportar fallades i bugs](https://github.com/Woofshahenzup/Pupjibaro/issues?labels=Preguntas%2CComentarios&page=1&state=open)
-
 
